@@ -30,6 +30,7 @@ environment:
 dependencies:
   cupertino_icons: ^1.0.8
   curved_labeled_navigation_bar: ^2.0.6
+  device_preview: ^1.2.0
   dio: ^5.8.0+1
   flutter:
     sdk: flutter
