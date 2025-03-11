@@ -144,6 +144,10 @@ class SIGFavoritesErrorState extends OneBillonStates {}
 
 class SIGChangeFavoritesSuccessState extends OneBillonStates {}
 
+class SIGGetBlogsState extends OneBillonStates {}
+
+class SIGGetServicesState extends OneBillonStates {}
+
 // class WishlistSuccessState extends OneBillonStates {
 //   FavModelTest? favModelTest;
 //   WishlistSuccessState(this.favModelTest);
