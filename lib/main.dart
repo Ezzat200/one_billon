@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:device_preview/device_preview.dart'; // استيراد الباكيج
+import 'package:one_billon/screens/auth/login/login_screen.dart';
 import 'package:one_billon/shared/enums/languageEventType.dart';
 import 'package:one_billon/lang/lang_cubit.dart';
 import 'package:one_billon/screens/layout/cubit/cubit.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         useInheritedMediaQuery: true, 
         initialRoute: '/',
         routes: {
-          '/': (context) => const LayoutScreen(),
+          '/': (context) => const LoginScreen(),
         },
       ),
     );
