@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:one_billon/screens/services/services_screen.dart';
 import 'package:one_billon/screens/widgets/custom_blog.dart';
+import 'package:one_billon/screens/widgets/custom_card.dart';
 import 'package:one_billon/shared/color.dart';
 
 class Home extends StatelessWidget {
@@ -85,7 +87,7 @@ List<String>titles=[
                           ),
                         ],
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 10),
                     
                       Container(
                         height: 42,
@@ -132,30 +134,27 @@ List<String>titles=[
             ),
         
           
-            Transform.translate(
-              offset: const Offset(0, -50), 
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: GridView.builder(
-                itemCount: images.length, 
-                shrinkWrap: true, // ✅ يجعل الـ GridView يأخذ حجمه فقط
-                physics: const NeverScrollableScrollPhysics(), // ✅ يمنع التمرير داخل GridView
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 10, 
-                  mainAxisSpacing: 10, 
-                  childAspectRatio: 1.9, 
-                ),
-                itemBuilder: (context, index) {
-                  return CustomCard(
-                    title: titles[index],
-                    imagePath: images[index],
-                  );
-                },
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: GridView.builder(
+              itemCount: images.length, 
+              shrinkWrap: true, 
+              physics: const NeverScrollableScrollPhysics(),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 10, 
+                mainAxisSpacing: 10, 
+                childAspectRatio: 1.7, 
               ),
-              ),
+              itemBuilder: (context, index) {
+                return CustomCard(
+                  title: titles[index],
+                  imagePath: images[index],
+                );
+              },
             ),
-           
+            ),
+           SizedBox(height: 10,),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 27),
               child: Column(
@@ -202,41 +201,3 @@ List<String>titles=[
 }
 
 
-
-class CustomCard extends StatelessWidget {
-  final String title;
-  final String imagePath;
-
-  const CustomCard({super.key, required this.title, required this.imagePath});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-
-decoration: BoxDecoration(
-  borderRadius: BorderRadius.circular(8),
-  border: Border.all(color: Color(0xffD9D9D9)),
-  color: Color(0xffFFFFFF)
-),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center, // توسيط المحتوى
-        children: [
-          Image.asset(
-            imagePath,
-            height: 60, // حجم الصورة داخل البطاقة
-          ),
-          const SizedBox(height: 5),
-          Text(
-            title,
-            style: const TextStyle(
-              color: Color(0xff414141),
-              fontSize: 10,
-              fontWeight: FontWeight.w400,
-      
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}

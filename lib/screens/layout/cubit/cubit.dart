@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart' show BlocProvider, Cubit;
+import 'package:one_billon/screens/blog/blog_screen.dart';
 import 'package:one_billon/screens/home/home.dart';
 import 'package:one_billon/screens/layout/cubit/states.dart';
 import 'package:one_billon/screens/profile/profile_screen.dart';
@@ -15,7 +16,7 @@ class OneBillonCubit extends Cubit<OneBillonStates> {
 
   static OneBillonCubit get(context) => BlocProvider.of(context);
 
-  int currentIndex = 1;
+  int currentIndex = 0;
 
 void openServiceDetails(BuildContext context,String title ,String image) {
   Navigator.push(
@@ -25,13 +26,15 @@ void openServiceDetails(BuildContext context,String title ,String image) {
 }
 
 
+
   String languageCode = 'en';
 
   List<Widget> screens = [
-    ServicesScreen(),
     Home(),
+    ServicesScreen(),
+    BlogScreen(),
+   
     ProfileScreen(),
-   ServiceDetails(), // أضف صفحة التفاصيل
 
   ];
 
