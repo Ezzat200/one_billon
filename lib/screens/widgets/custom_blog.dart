@@ -4,9 +4,9 @@ import 'package:one_billon/shared/color.dart';
 
 class CustomBlog extends StatelessWidget {
   const CustomBlog({
-    super.key,
+    super.key,  this.image,
   });
-
+final String ?image;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,8 +25,8 @@ class CustomBlog extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
                 border: Border.all(color: Colors.transparent, width: 1),
-                image: const DecorationImage(
-                  image: AssetImage('assets/images/pic.jpeg'),
+                image:  DecorationImage(
+                  image: AssetImage(image!),
                   fit: BoxFit.cover,
                 ),
               ),

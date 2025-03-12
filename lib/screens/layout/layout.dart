@@ -33,8 +33,7 @@ class LayoutScreen extends StatelessWidget {
               index: cubit
                   .currentIndex, // Use cubit.currentIndex for dynamic selection
               items: [
-                
-                 CurvedNavigationBarItem(
+                  CurvedNavigationBarItem(
                   labelStyle: TextStyle(
                     color: cubit.currentIndex == 0
                         ? ColorManager.primary
@@ -42,8 +41,24 @@ class LayoutScreen extends StatelessWidget {
                             .navbarIconColor, // Set unselected label color
                   ),
                   child: Image.asset(
-                    'assets/images/services.png',
+                    'assets/images/home.png',
                     color: cubit.currentIndex == 0
+                        ? ColorManager.white
+                        : ColorManager
+                            .navbarIconColor, // Set unselected icon color
+                  ),
+                  label: "Home",
+                ),
+                 CurvedNavigationBarItem(
+                  labelStyle: TextStyle(
+                    color: cubit.currentIndex == 1
+                        ? ColorManager.primary
+                        : ColorManager
+                            .navbarIconColor, // Set unselected label color
+                  ),
+                  child: Image.asset(
+                    'assets/images/services.png',
+                    color: cubit.currentIndex == 1
                         ? ColorManager.white
                         : ColorManager
                             .navbarIconColor, // Set unselected icon color
@@ -52,36 +67,38 @@ class LayoutScreen extends StatelessWidget {
                 ),
                 CurvedNavigationBarItem(
                   labelStyle: TextStyle(
-                    color: cubit.currentIndex == 1
+                    color: cubit.currentIndex == 2
                         ? ColorManager.primary
                         : ColorManager
                             .navbarIconColor, // Set unselected label color
                   ),
                   child: Image.asset(
-                    'assets/images/home.png',
-                    color: cubit.currentIndex == 1
+                    'assets/images/blog.png',
+                    color: cubit.currentIndex == 2
                         ? ColorManager.white
                         : ColorManager
                             .navbarIconColor, // Set unselected icon color
                   ),
-                  label: "Home",
+                  label: "Blog",
                 ),
                 CurvedNavigationBarItem(
-                  child: Icon(
-                    Icons.person,
-                    color: cubit.currentIndex == 2
+                  labelStyle: TextStyle(
+                    color: cubit.currentIndex == 3
+                        ? ColorManager.primary
+                        : ColorManager
+                            .navbarIconColor, // Set unselected label color
+                  ),
+                  child: Image.asset(
+                    'assets/images/Vector.png',
+                    color: cubit.currentIndex == 3
                         ? ColorManager.white
                         : ColorManager
                             .navbarIconColor, // Set unselected icon color
                   ),
                   label: "Profile",
-                  labelStyle: TextStyle(
-                    color: cubit.currentIndex == 2
-                        ? ColorManager.primary
-                        : ColorManager
-                            .navbarIconColor, // Set unselected label color
-                  ),
                 ),
+                 
+               
               ],
               
               
