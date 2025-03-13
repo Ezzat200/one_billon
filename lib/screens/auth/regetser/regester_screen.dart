@@ -134,15 +134,12 @@ class RegisterScreen extends StatelessWidget {
                             return null;
                           },
                         ),
-                        SizedBox(height: 10),
+                        SizedBox(height: 25),
                         CustomAuthButton(
                           nameButton: 'Create an account',
                           onTap: () {
                             if (_formKey.currentState!.validate()) {
-                              print("Name: ${nameController.text}");
-                              print("Email: ${emailController.text}");
-                              print("Phone: ${phoneController.text}");
-                              print("Password: ${passwordController.text}");
+                              
                               // تابع إنشاء الحساب أو إرسال البيانات هنا
                               cubit.registerUser(
                                 name: nameController.text,

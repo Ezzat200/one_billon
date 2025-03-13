@@ -17,6 +17,8 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  bool rememberMe = false;
+
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -100,10 +102,15 @@ class _LoginScreenState extends State<LoginScreen> {
                         Row(
                           children: [
                             Checkbox(
-                              checkColor: Color(0xffD9D9D9),
-                              side: BorderSide(color: Color(0xffD9D9D9)),
-                              value: false,
-                              onChanged: (bool? value) {},
+                              checkColor: Colors.white,
+                              activeColor: Color(0xFF007EDB),
+                              side: const BorderSide(color: Color(0xffD9D9D9)),
+                              value: rememberMe,
+                              onChanged: (bool? value) {
+                                setState(() {
+                                  rememberMe = value ?? false;
+                                });
+                              },
                             ),
                             Text("Remember Me",
                                 style: TextStyle(
