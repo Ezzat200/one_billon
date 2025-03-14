@@ -19,9 +19,14 @@ decoration: BoxDecoration(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center, // توسيط المحتوى
         children: [
-          Image.asset(
-            imagePath,
-            height: 60, // حجم الصورة داخل البطاقة
+          
+          Padding(
+            padding: const EdgeInsets.only(top: 15.0),
+            child: Image.asset(
+              imagePath,
+              height: 35, // حجم الصورة داخل البطاقة
+              fit: BoxFit.cover,
+            ),
           ),
           const SizedBox(height: 5),
           Expanded(
@@ -29,7 +34,7 @@ decoration: BoxDecoration(
               title,
               style: const TextStyle(
                 color: Color(0xff414141),
-                fontSize: 10,
+                fontSize: 12,
                 fontWeight: FontWeight.w400,
                   overflow: TextOverflow.visible,
                   
