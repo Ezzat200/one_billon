@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:one_billon/screens/blog/blog_details.dart';
+import 'package:one_billon/screens/layout/cubit/cubit.dart';
+import 'package:one_billon/screens/layout/cubit/states.dart';
 import 'package:one_billon/screens/widgets/custom_blog.dart';
 import 'package:one_billon/screens/widgets/custom_button.dart';
 import 'package:one_billon/screens/widgets/custom_text.dart';
@@ -11,7 +14,10 @@ class BlogScreen extends StatelessWidget {
 final String ?image;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BlocConsumer<OneBillonCubit, OneBillonStates>(builder: (context, state) {
+      final cubit = OneBillonCubit.get(context);
+
+      return Scaffold(
       body: SingleChildScrollView(
         child: Stack(
         children: [
@@ -23,7 +29,7 @@ final String ?image;
             ListView.builder(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
-              itemCount: 5,
+              itemCount: cubit.blogs?.length,
               itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 5),
@@ -31,10 +37,10 @@ final String ?image;
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) =>  BlogDetails(image:'assets/images/pic.jpeg' ,))
+                      MaterialPageRoute(builder: (context) =>  BlogDetails(blogModel: cubit.blogs?[index],))
                       );
                   },
-                  child: CustomBlog(image: 'assets/images/pic.jpeg',)),
+                  child: CustomBlog(blogModel: cubit.blogs?[index],)),
               );
             },)
              ],
@@ -119,5 +125,10 @@ final String ?image;
         ],
               ),
       ));
+  
+  
+    }, listener: (context, state) {
+      
+    },);
   }
 }

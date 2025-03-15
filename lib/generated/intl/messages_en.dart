@@ -21,5 +21,50 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
+<<<<<<< HEAD
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+=======
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "already_have_account":
+            MessageLookupByLibrary.simpleMessage("Already have an account?"),
+        "blogs": MessageLookupByLibrary.simpleMessage("Blogs"),
+        "confirm_password":
+            MessageLookupByLibrary.simpleMessage("Confirm Password"),
+        "createAccount":
+            MessageLookupByLibrary.simpleMessage("Create an account."),
+        "create_account":
+            MessageLookupByLibrary.simpleMessage("Create New Account"),
+        "dontHaveAccount":
+            MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
+        "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "introduction": MessageLookupByLibrary.simpleMessage("Subject"),
+        "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "moreDetails": MessageLookupByLibrary.simpleMessage("More Details"),
+        "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "password_min_length": MessageLookupByLibrary.simpleMessage(
+            "Password must be at least 6 characters"),
+        "passwords_do_not_match":
+            MessageLookupByLibrary.simpleMessage("Passwords do not match"),
+        "phone": MessageLookupByLibrary.simpleMessage("Phone Number"),
+        "please_confirm_password": MessageLookupByLibrary.simpleMessage(
+            "Please confirm your password"),
+        "please_enter_email":
+            MessageLookupByLibrary.simpleMessage("Please enter your email"),
+        "please_enter_password":
+            MessageLookupByLibrary.simpleMessage("Please enter your password"),
+        "please_enter_phone": MessageLookupByLibrary.simpleMessage(
+            "Please enter your phone number"),
+        "please_enter_username":
+            MessageLookupByLibrary.simpleMessage("Please enter your name"),
+        "please_enter_valid_email":
+            MessageLookupByLibrary.simpleMessage("Please enter a valid email"),
+        "register": MessageLookupByLibrary.simpleMessage("Register"),
+        "rememberMe": MessageLookupByLibrary.simpleMessage("Remember Me"),
+        "search": MessageLookupByLibrary.simpleMessage("Search..."),
+        "services": MessageLookupByLibrary.simpleMessage("Services"),
+        "username": MessageLookupByLibrary.simpleMessage("Username"),
+        "viewAll": MessageLookupByLibrary.simpleMessage("View All"),
+        "welcome": MessageLookupByLibrary.simpleMessage("Welcome")
+      };
+>>>>>>> Eslam
 }

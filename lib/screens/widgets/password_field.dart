@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 
 class CustomAuthPasswordField extends StatefulWidget {
-  const CustomAuthPasswordField({super.key, required this.fieldName});
+  const CustomAuthPasswordField({
+    super.key,
+    required this.fieldName,
+    this.controller,
+    this.validator,
+  });
 
   final String fieldName;
+  final TextEditingController? controller;
+  final String? Function(String?)? validator;
 
   @override
   _CustomAuthPasswordFieldState createState() => _CustomAuthPasswordFieldState();
@@ -19,31 +26,40 @@ class _CustomAuthPasswordFieldState extends State<CustomAuthPasswordField> {
       children: [
         Text(
           widget.fieldName,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w400,
             color: Color(0xff414141),
           ),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         TextFormField(
+          controller: widget.controller,
+          validator: widget.validator ??
+              (value) {
+                if (value == null || value.isEmpty) {
+                  return 'This field cannot be empty';
+                }
+                return null;
+              },
           obscureText: _isObscured,
           decoration: InputDecoration(
+            hintText: widget.fieldName,
             filled: false,
-            fillColor: Color(0xFFE5E5E5),
+            fillColor: const Color(0xFFE5E5E5),
             hintStyle: TextStyle(color: Colors.grey[600]),
-            contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(color: Color(0xffE5E5E5)),
+              borderSide: const BorderSide(color: Color(0xffE5E5E5)),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(color: Color(0xffE5E5E5), width: 2),
+              borderSide: const BorderSide(color: Color(0xffE5E5E5), width: 2),
             ),
             errorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(color: Colors.red),
+              borderSide: const BorderSide(color: Colors.red),
             ),
             suffixIcon: IconButton(
               icon: Icon(
@@ -57,13 +73,7 @@ class _CustomAuthPasswordFieldState extends State<CustomAuthPasswordField> {
               },
             ),
           ),
-          style: TextStyle(color: Colors.black),
-          validator: (value) {
-            if (value == null || value.isEmpty) {
-              return 'This field cannot be empty';
-            }
-            return null;
-          },
+          style: const TextStyle(color: Colors.black),
         ),
       ],
     );

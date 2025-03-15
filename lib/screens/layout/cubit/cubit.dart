@@ -19,13 +19,12 @@ class OneBillonCubit extends Cubit<OneBillonStates> {
 
   int currentIndex = 0;
 
-  void openServiceDetails(BuildContext context, String title, String image) {
+  void openServiceDetails(BuildContext context,ServiceModel service) {
     Navigator.push(
       context,
       MaterialPageRoute(
           builder: (context) => ServiceDetails(
-                title: title,
-                image: image,
+               serviceModel: service,
               )),
     );
   }
@@ -36,7 +35,7 @@ class OneBillonCubit extends Cubit<OneBillonStates> {
     Home(),
     ServicesScreen(),
     BlogScreen(),
-   
+
     ProfileScreen(),
     ServiceDetails(), // أضف صفحة التفاصيل
   ];
@@ -86,5 +85,27 @@ class OneBillonCubit extends Cubit<OneBillonStates> {
   void getServicesData() async {
     services = await fetchServicesData();
     emit(SIGGetServicesState());
+  }
+
+  Future<void> submitOrder({
+    required String name,
+    required String email,
+    required String phone,
+    // required String service,
+  }) async {
+    try {
+      await FirebaseFirestore.instance.collection('orders').add({
+        'name': name,
+        'email': email,
+        'phone': phone,
+        // 'service': service,
+        'timestamp': FieldValue.serverTimestamp(),
+      });
+
+      print("Order submitted successfully!");
+    } catch (e) {
+      print("Error submitting order: $e");
+      rethrow;
+    }
   }
 }
