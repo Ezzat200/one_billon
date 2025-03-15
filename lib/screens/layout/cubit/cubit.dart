@@ -89,6 +89,9 @@ class OneBillonCubit extends Cubit<OneBillonStates> {
   List<ServiceModel>? services;
   void getServicesData() async {
     services = await fetchServicesData();
+    // print(services![0].featuresAr);
+    log("Hello");
+    log("${services?[0].featuresAr}");
     emit(SIGGetServicesState());
   }
 

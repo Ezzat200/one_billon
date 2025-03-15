@@ -38,10 +38,11 @@ class Home extends StatelessWidget {
       'Advertising Campaigns'
     ];
 
-    final cubit = OneBillonCubit.get(context);
+    
 
     return BlocConsumer<OneBillonCubit, OneBillonStates>(
       builder: (context, state) {
+        final cubit = OneBillonCubit.get(context);
         return Scaffold(
           body: SingleChildScrollView(
             child: Column(
@@ -203,6 +204,7 @@ class Home extends StatelessWidget {
                     },
                   ),
                 ),
+              
                 SizedBox(
                   height: 10,
                 ),
