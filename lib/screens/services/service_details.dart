@@ -173,8 +173,9 @@ class ServiceDetails extends StatelessWidget {
                             ),
                             Row(
                               children: [
-                                SvgPicture.asset('assets/images/Group 44 (1).svg'
-                                      ),
+                                CustomDrawer()
+                                // SvgPicture.asset('assets/images/Group 44 (1).svg'
+                                      // ),
                                 // const SizedBox(width: 10),
                                 // Image.asset('assets/images/notification.png'),
                               ],

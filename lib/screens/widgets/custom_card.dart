@@ -30,16 +30,19 @@ decoration: BoxDecoration(
           ),
           const SizedBox(height: 5),
           Expanded(
-            child: Text(
-              title,
-              style: const TextStyle(
-                color: Color(0xff414141),
-                fontSize: 12,
-                fontWeight: FontWeight.w400,
-                  overflow: TextOverflow.visible,
-                  
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 5.0),
+              child: Text(
+                title,
+                style: const TextStyle(
+                  color: Color(0xff414141),
+                  fontSize: 12,
+                  fontWeight: FontWeight.w400,
+                    overflow: TextOverflow.visible,
+                    
+                ),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
             ),
           ),
         ],

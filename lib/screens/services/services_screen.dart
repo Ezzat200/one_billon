@@ -109,13 +109,13 @@ class ServicesScreen extends StatelessWidget {
                           children: [
                             Image.asset('assets/images/logo.png',
                                 height: 33, width: 50),
-                            Row(
-                              children: [
-                                Image.asset('assets/images/drwer.png'),
-                                const SizedBox(width: 10),
-                                Image.asset('assets/images/notification.png'),
-                              ],
-                            ),
+                            // Row(
+                            //   children: [
+                            //     Image.asset('assets/images/drwer.png'),
+                            //     const SizedBox(width: 10),
+                            //     Image.asset('assets/images/notification.png'),
+                            //   ],
+                            // ),
                           ],
                         ),
                       ],

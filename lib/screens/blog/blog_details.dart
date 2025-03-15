@@ -125,7 +125,7 @@ class BlogDetails extends StatelessWidget {
                     )),
 
                 Container(
-                  height: 140,
+                  height: 100,
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
                       colors: [Color(0xff007EDB), Color(0xff004375)],
@@ -139,6 +139,7 @@ class BlogDetails extends StatelessWidget {
                           horizontal: 27, vertical: 10),
                       child: Column(
                         children: [
+                          SizedBox(height: 5,),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -147,19 +148,22 @@ class BlogDetails extends StatelessWidget {
                                   onTap: () {
                                     Navigator.pop(context);
                                   },
-                                  child: Image.asset('assets/images/arrow.png',
-                                      height: 33, width: 50)),
-                              Row(
-                                children: [
-                                  Image.asset('assets/images/drwer.png'),
-                                  const SizedBox(width: 10),
-                                  Image.asset('assets/images/notification.png'),
-                                ],
-                              ),
+                                  child: cubit.languageCode == 'en'
+                                  ? SvgPicture.asset(
+                                      'assets/images/Group 45.svg')
+                                  : SvgPicture.asset(
+                                      'assets/images/Group 45 (1).svg'),),
+                              // Row(
+                              //   children: [
+                              //     Image.asset('assets/images/drwer.png'),
+                              //     const SizedBox(width: 10),
+                              //     Image.asset('assets/images/notification.png'),
+                              //   ],
+                              // ),
 
                                CustomDrawer(),
-                              const SizedBox(width: 10),
-                              Image.asset('assets/images/notification.png'),
+                              // const SizedBox(width: 10),
+                              // Image.asset('assets/images/notification.png'),
 
                             ],
                           ),
@@ -170,41 +174,42 @@ class BlogDetails extends StatelessWidget {
                 ),
 
                 // صندوق البحث الذي يمتد جزئياً إلى الصفحة
-                Positioned(
-                  top: 110, // نصفه داخل الـ AppBar والنصف الآخر في الصفحة
-                  left: 27,
-                  right: 27,
-                  child: Container(
-                    height: 42,
-                    decoration: BoxDecoration(
-                      color: ColorManager.white,
-                      borderRadius: BorderRadius.circular(8),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.1),
-                          blurRadius: 5,
-                          offset: const Offset(0, 2),
-                        )
-                      ],
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Row(
-                        children: [
-                          Image.asset('assets/images/search.png'),
-                          const SizedBox(width: 10),
-                          const Text(
-                            "Search...",
-                            style: TextStyle(
-                                color: Color(0xffE6E6E6),
-                                fontSize: 14,
-                                fontWeight: FontWeight.w400),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
+                // Positioned(
+                //   top: 110, // نصفه داخل الـ AppBar والنصف الآخر في الصفحة
+                //   left: 27,
+                //   right: 27,
+                //   child: Container(
+                //     height: 42,
+                //     decoration: BoxDecoration(
+                //       color: ColorManager.white,
+                //       borderRadius: BorderRadius.circular(8),
+                //       boxShadow: [
+                //         BoxShadow(
+                //           color: Colors.black.withOpacity(0.1),
+                //           blurRadius: 5,
+                //           offset: const Offset(0, 2),
+                //         )
+                //       ],
+                //     ),
+                //     child: Padding(
+                //       padding: const EdgeInsets.all(10),
+                //       child: Row(
+                //         children: [
+                //           Image.asset('assets/images/search.png'),
+                //           const SizedBox(width: 10),
+                //           const Text(
+                //             "Search...",
+                //             style: TextStyle(
+                //                 color: Color(0xffE6E6E6),
+                //                 fontSize: 14,
+                //                 fontWeight: FontWeight.w400),
+                //           ),
+                //         ],
+                //       ),
+                //     ),
+                //   ),
+                // ),
+             
               ],
             ),
           ),
