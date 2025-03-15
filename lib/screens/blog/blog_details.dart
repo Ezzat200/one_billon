@@ -9,13 +9,13 @@ import 'package:one_billon/screens/layout/cubit/states.dart';
 import 'package:one_billon/screens/widgets/custom_content_text_blog.dart';
 import 'package:one_billon/screens/widgets/custom_drawer.dart';
 import 'package:one_billon/screens/widgets/custom_introduction_text_blog.dart';
-import 'package:one_billon/screens/widgets/custom_text.dart';
-import 'package:one_billon/shared/color.dart';
 import 'package:shimmer/shimmer.dart';
 
 class BlogDetails extends StatelessWidget {
   const BlogDetails({super.key, this.blogModel});
   final BlogModel? blogModel;
+
+  
   @override
   Widget build(BuildContext context) {
     final cubit = OneBillonCubit.get(context);
