@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:one_billon/generated/l10n.dart';
 import 'package:one_billon/screens/auth/login/cubit/cubit.dart';
 import 'package:one_billon/screens/auth/login/cubit/states.dart';
 import 'package:one_billon/screens/auth/regetser/regester_screen.dart';
@@ -53,13 +54,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
                 SizedBox(height: 37),
-                Text("Welcome",
+                Text(S.of(context).welcome,
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w400,
                       color: ColorManager.primary,
                     )),
-                Text("Login",
+                Text(S.of(context).login,
                     style: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.w700,
@@ -72,28 +73,28 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Column(
                       children: [
                         CustomAuthTextFiedl(
-                          fiedlName: 'Email',
+                          fiedlName: S.of(context).email,
                           controller: emailController,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return 'Please enter your email';
+                              return S.of(context).please_enter_email;
                             }
                             if (!value.contains('@')) {
-                              return 'Please enter a valid email';
+                              return S.of(context).please_enter_valid_email;
                             }
                             return null;
                           },
                         ),
                         SizedBox(height: 15),
                         CustomAuthPasswordField(
-                          fieldName: 'Password',
+                          fieldName: S.of(context).password,
                           controller: passwordController,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return 'Please enter your password';
+                              return  S.of(context).please_enter_password;
                             }
                             if (value.length < 6) {
-                              return 'Password must be at least 6 characters';
+                              return S.of(context).password_min_length;
                             }
                             return null;
                           },
@@ -112,14 +113,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                 });
                               },
                             ),
-                            Text("Remember Me",
+                            Text(S.of(context).rememberMe,
                                 style: TextStyle(
                                     fontSize: 14, color: Color(0xff414141))),
                           ],
                         ),
                         SizedBox(height: 35),
                         CustomAuthButton(
-                          nameButton: 'Login',
+                          nameButton: S.of(context).login,
                           onTap: () {
                             if (_formKey.currentState!.validate()) {
                               print("Email: ${emailController.text}");
@@ -136,7 +137,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("Don't have an account? ",
+                            Text(S.of(context).dontHaveAccount,
                                 style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w700,
@@ -149,7 +150,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         builder: (context) =>
                                             RegisterScreen()));
                               },
-                              child: Text("Create an account.",
+                              child: Text(S.of(context).createAccount,
                                   style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.w700,

@@ -49,6 +49,276 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  /// `Welcome`
+  String get welcome {
+    return Intl.message(
+      'Welcome',
+      name: 'welcome',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create New Account`
+  String get create_account {
+    return Intl.message(
+      'Create New Account',
+      name: 'create_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Username`
+  String get username {
+    return Intl.message(
+      'Username',
+      name: 'username',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email`
+  String get email {
+    return Intl.message(
+      'Email',
+      name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone Number`
+  String get phone {
+    return Intl.message(
+      'Phone Number',
+      name: 'phone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get password {
+    return Intl.message(
+      'Password',
+      name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm Password`
+  String get confirm_password {
+    return Intl.message(
+      'Confirm Password',
+      name: 'confirm_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Register`
+  String get register {
+    return Intl.message(
+      'Register',
+      name: 'register',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Remember Me`
+  String get rememberMe {
+    return Intl.message(
+      'Remember Me',
+      name: 'rememberMe',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Already have an account?`
+  String get already_have_account {
+    return Intl.message(
+      'Already have an account?',
+      name: 'already_have_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login`
+  String get login {
+    return Intl.message(
+      'Login',
+      name: 'login',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `More Details`
+  String get moreDetails {
+    return Intl.message(
+      'More Details',
+      name: 'moreDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `View All`
+  String get viewAll {
+    return Intl.message(
+      'View All',
+      name: 'viewAll',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Blogs`
+  String get blogs {
+    return Intl.message(
+      'Blogs',
+      name: 'blogs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Services`
+  String get services {
+    return Intl.message(
+      'Services',
+      name: 'services',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search...`
+  String get search {
+    return Intl.message(
+      'Search...',
+      name: 'search',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Subject`
+  String get introduction {
+    return Intl.message(
+      'Subject',
+      name: 'introduction',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Don't have an account?`
+  String get dontHaveAccount {
+    return Intl.message(
+      'Don\'t have an account?',
+      name: 'dontHaveAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your name`
+  String get please_enter_username {
+    return Intl.message(
+      'Please enter your name',
+      name: 'please_enter_username',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your email`
+  String get please_enter_email {
+    return Intl.message(
+      'Please enter your email',
+      name: 'please_enter_email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a valid email`
+  String get please_enter_valid_email {
+    return Intl.message(
+      'Please enter a valid email',
+      name: 'please_enter_valid_email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your phone number`
+  String get please_enter_phone {
+    return Intl.message(
+      'Please enter your phone number',
+      name: 'please_enter_phone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your password`
+  String get please_enter_password {
+    return Intl.message(
+      'Please enter your password',
+      name: 'please_enter_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must be at least 6 characters`
+  String get password_min_length {
+    return Intl.message(
+      'Password must be at least 6 characters',
+      name: 'password_min_length',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please confirm your password`
+  String get please_confirm_password {
+    return Intl.message(
+      'Please confirm your password',
+      name: 'please_confirm_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Passwords do not match`
+  String get passwords_do_not_match {
+    return Intl.message(
+      'Passwords do not match',
+      name: 'passwords_do_not_match',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create an account.`
+  String get createAccount {
+    return Intl.message(
+      'Create an account.',
+      name: 'createAccount',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -19,13 +19,12 @@ class OneBillonCubit extends Cubit<OneBillonStates> {
 
   int currentIndex = 0;
 
-  void openServiceDetails(BuildContext context, String title, String image) {
+  void openServiceDetails(BuildContext context,ServiceModel service) {
     Navigator.push(
       context,
       MaterialPageRoute(
           builder: (context) => ServiceDetails(
-                title: title,
-                image: image,
+               serviceModel: service,
               )),
     );
   }
