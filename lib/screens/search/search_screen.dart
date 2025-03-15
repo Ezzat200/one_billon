@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:one_billon/models/service_model.dart';
 import 'package:one_billon/screens/layout/cubit/cubit.dart';
 import 'package:one_billon/screens/layout/cubit/states.dart';
+import 'package:one_billon/screens/services/service_details.dart';
 import 'package:one_billon/shared/color.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SearchPage extends StatefulWidget {
-  const SearchPage({Key? key}) : super(key: key);
+  const SearchPage({super.key});
 
   @override
   State<SearchPage> createState() => _SearchPageState();
@@ -78,6 +79,7 @@ class _SearchPageState extends State<SearchPage> {
                                onTap: () {
                             // OneBillonCubit.get(context).openServiceDetails(
                             //     context, titles[index], images[index]);
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => ServiceDetails(serviceModel: service,),));
                           },
                               child: ListTile(
                                 title: Text(cubit.languageCode == 'en'
