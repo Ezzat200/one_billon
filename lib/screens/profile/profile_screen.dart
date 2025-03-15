@@ -7,6 +7,11 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _PasswordController = TextEditingController();
+
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -33,15 +38,23 @@ class ProfileScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 27,vertical: 40),
             child: Column(
               children: [
-                CustomTextField(fieldName: 'User Name'),
+                CustomTextField(fieldName: 'User Name',controller: _nameController,validator: (p0) {
+                  
+                },),
                 SizedBox(height: 15,),
-                CustomTextField(fieldName: 'Email'),
+                CustomTextField(fieldName: 'Email',controller: _emailController,validator: (p0) {
+                  
+                },),
                 SizedBox(height: 15,),
 
-                CustomTextField(fieldName: 'Phone Number'),
+                CustomTextField(fieldName: 'Phone Number',controller: _phoneController,validator: (p0) {
+                  
+                },),
                 SizedBox(height: 15,),
 
-                CustomTextField(fieldName: 'Password'),
+                CustomTextField(fieldName: 'Password',controller: _PasswordController,validator: (p0) {
+                  
+                },),
                 SizedBox(height: 20,),
 
                 CustomButton(text: 'Save Data', onTap: (){})
