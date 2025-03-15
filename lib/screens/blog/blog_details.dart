@@ -7,6 +7,7 @@ import 'package:one_billon/models/blog_model.dart';
 import 'package:one_billon/screens/layout/cubit/cubit.dart';
 import 'package:one_billon/screens/layout/cubit/states.dart';
 import 'package:one_billon/screens/widgets/custom_content_text_blog.dart';
+import 'package:one_billon/screens/widgets/custom_drawer.dart';
 import 'package:one_billon/screens/widgets/custom_introduction_text_blog.dart';
 import 'package:one_billon/screens/widgets/custom_text.dart';
 import 'package:one_billon/shared/color.dart';
@@ -141,6 +142,7 @@ class BlogDetails extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
+
                               GestureDetector(
                                   onTap: () {
                                     Navigator.pop(context);
@@ -154,6 +156,11 @@ class BlogDetails extends StatelessWidget {
                                   Image.asset('assets/images/notification.png'),
                                 ],
                               ),
+
+                               CustomDrawer(),
+                              const SizedBox(width: 10),
+                              Image.asset('assets/images/notification.png'),
+
                             ],
                           ),
                         ],

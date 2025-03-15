@@ -5,6 +5,7 @@ import 'package:one_billon/screens/layout/cubit/cubit.dart';
 import 'package:one_billon/screens/layout/cubit/states.dart';
 import 'package:one_billon/screens/widgets/custom_blog.dart';
 import 'package:one_billon/screens/widgets/custom_button.dart';
+import 'package:one_billon/screens/widgets/custom_drawer.dart';
 import 'package:one_billon/screens/widgets/custom_text.dart';
 import 'package:one_billon/screens/widgets/custom_text_field.dart';
 import 'package:one_billon/shared/color.dart';
@@ -73,7 +74,7 @@ final String ?image;
                           child: Image.asset('assets/images/logo.png', height: 33, width: 50)),
                         Row(
                           children: [
-                            Image.asset('assets/images/drwer.png'),
+                                CustomDrawer(),
                             const SizedBox(width: 10),
                             Image.asset('assets/images/notification.png'),
                           ],

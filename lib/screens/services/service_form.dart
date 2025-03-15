@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:one_billon/screens/layout/cubit/cubit.dart';
 import 'package:one_billon/screens/widgets/custom_button.dart';
+
+
+import 'package:one_billon/screens/widgets/custom_drawer.dart';
+import 'package:one_billon/screens/widgets/custom_text.dart';
+
 import 'package:one_billon/screens/widgets/custom_text_field.dart';
 import 'package:one_billon/shared/color.dart';
 
@@ -42,6 +47,7 @@ class _ServiceFormState extends State<ServiceForm> {
                 key: _formKey,
                 child: Column(
                   children: [
+
                     CustomTextField(
                       fieldName: 'User Name',
                       controller: _nameController,
@@ -113,6 +119,24 @@ class _ServiceFormState extends State<ServiceForm> {
                           });
                         }
                       },
+                    ),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        GestureDetector(onTap: () {
+                          Navigator.pop(context);
+                        },
+                          child: Image.asset('assets/images/arrow.png', height: 33, width: 50)),
+                        Row(
+                          children: [
+                                CustomDrawer(),
+                            const SizedBox(width: 10),
+                            Image.asset('assets/images/notification.png'),
+                          ],
+                        ),
+                      ],
+
                     ),
                   ],
                 ),

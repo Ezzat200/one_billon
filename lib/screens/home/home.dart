@@ -8,6 +8,7 @@ import 'package:one_billon/screens/search/search_screen.dart';
 import 'package:one_billon/screens/services/services_screen.dart';
 import 'package:one_billon/screens/widgets/custom_blog.dart';
 import 'package:one_billon/screens/widgets/custom_card.dart';
+import 'package:one_billon/screens/widgets/custom_drawer.dart';
 import 'package:one_billon/shared/color.dart';
 
 class Home extends StatelessWidget {
@@ -67,6 +68,7 @@ class Home extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
+
                               // Column(
                               //   crossAxisAlignment: CrossAxisAlignment.start,
                               //   children: [
@@ -96,6 +98,11 @@ class Home extends StatelessWidget {
                                   Image.asset('assets/images/notification.png'),
                                 ],
                               ),
+
+                              CustomDrawer(),
+                              const SizedBox(width: 10),
+                              Image.asset('assets/images/notification.png'),
+
                             ],
                           ),
                           const SizedBox(height: 10),

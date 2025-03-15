@@ -30,10 +30,13 @@ class CustomTextField extends StatelessWidget {
           validator: validator,
           decoration: InputDecoration(
             filled: true,
-            fillColor: const Color(0xFFE5E5E5),
-            hintStyle: TextStyle(color: Colors.grey[600]),
-            contentPadding:
-                const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+
+           
+
+            
+            
+            
+
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
               borderSide: const BorderSide(color: Color(0xFFF5F5F5)),
