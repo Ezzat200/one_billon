@@ -58,7 +58,7 @@ class MyApp extends StatelessWidget {
         useInheritedMediaQuery: true,
         initialRoute: '/',
         routes: {
-          '/': (context) => const LoginScreen(),
+          '/': (context) => const LayoutScreen(),
         },
       ),
     );

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:one_billon/screens/services/services_screen.dart';
 import 'package:one_billon/screens/widgets/custom_blog.dart';
 import 'package:one_billon/screens/widgets/custom_card.dart';
+import 'package:one_billon/screens/widgets/custom_drawer.dart';
 import 'package:one_billon/shared/color.dart';
 
 class Home extends StatelessWidget {
@@ -80,7 +81,7 @@ List<String>titles=[
                           ),
                           Row(
                             children: [
-                              Image.asset('assets/images/drwer.png'),
+                              CustomDrawer(),
                               const SizedBox(width: 10),
                               Image.asset('assets/images/notification.png'),
                             ],

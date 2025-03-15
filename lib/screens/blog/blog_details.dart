@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:one_billon/screens/widgets/custom_content_text_blog.dart';
+import 'package:one_billon/screens/widgets/custom_drawer.dart';
 import 'package:one_billon/screens/widgets/custom_introduction_text_blog.dart';
 import 'package:one_billon/screens/widgets/custom_text.dart';
 import 'package:one_billon/shared/color.dart';
@@ -105,7 +106,7 @@ SizedBox(height: 10,),
                             child: Image.asset('assets/images/arrow.png', height: 33, width: 50)),
                           Row(
                             children: [
-                              Image.asset('assets/images/drwer.png'),
+                               CustomDrawer(),
                               const SizedBox(width: 10),
                               Image.asset('assets/images/notification.png'),
                             ],
