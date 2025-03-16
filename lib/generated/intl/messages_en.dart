@@ -55,6 +55,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Please enter your name"),
         "please_enter_valid_email":
             MessageLookupByLibrary.simpleMessage("Please enter a valid email"),
+        "please_login_first":
+            MessageLookupByLibrary.simpleMessage("Please Login First"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "rememberMe": MessageLookupByLibrary.simpleMessage("Remember Me"),
         "search": MessageLookupByLibrary.simpleMessage("Search..."),

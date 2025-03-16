@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:one_billon/generated/l10n.dart';
 import 'package:one_billon/models/service_model.dart';
 import 'package:one_billon/screens/layout/cubit/cubit.dart';
 import 'package:one_billon/screens/layout/cubit/states.dart';
@@ -9,7 +10,9 @@ import 'package:one_billon/screens/services/service_form.dart';
 import 'package:one_billon/screens/widgets/custom_button.dart';
 import 'package:one_billon/screens/widgets/custom_drawer.dart';
 import 'package:one_billon/screens/widgets/custom_text.dart';
+import 'package:one_billon/screens/widgets/promp.dart';
 import 'package:one_billon/shared/color.dart';
+import 'package:one_billon/shared/helper/helper.dart';
 import 'package:shimmer/shimmer.dart';
 
 class ServiceDetails extends StatelessWidget {
@@ -17,9 +20,9 @@ class ServiceDetails extends StatelessWidget {
   final ServiceModel? serviceModel;
   @override
   Widget build(BuildContext context) {
-    final cubit = OneBillonCubit.get(context);
     return BlocConsumer<OneBillonCubit, OneBillonStates>(
       builder: (context, state) {
+        final cubit = OneBillonCubit.get(context);
         return Scaffold(
             body: SingleChildScrollView(
           child: Stack(
@@ -129,11 +132,16 @@ class ServiceDetails extends StatelessWidget {
                       CustomButton(
                         text: 'Get the Service',
                         onTap: () {
-                          Navigator.push(context, MaterialPageRoute(
-                            builder: (context) {
-                              return ServiceForm();
-                            },
-                          ));
+                          AppConfig.token != null
+                              ? Navigator.push(context, MaterialPageRoute(
+                                  builder: (context) {
+                                    return ServiceForm();
+                                  },
+                                ))
+                              : dialogSuccess(
+                                  context, S.of(context).please_login_first);
+
+                          ;
                         },
                       ),
                       SizedBox(
@@ -157,7 +165,9 @@ class ServiceDetails extends StatelessWidget {
                         horizontal: 27, vertical: 10),
                     child: Column(
                       children: [
-                        SizedBox(height: 10,),
+                        SizedBox(
+                          height: 10,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -166,16 +176,16 @@ class ServiceDetails extends StatelessWidget {
                                 Navigator.pop(context);
                               },
                               child: cubit.languageCode == 'en'
-                                  ? SvgPicture.asset('assets/images/Group 45.svg'
-                                      )
-                                  : SvgPicture.asset('assets/images/Group 45 (1).svg'
-                                      ),
+                                  ? SvgPicture.asset(
+                                      'assets/images/Group 45.svg')
+                                  : SvgPicture.asset(
+                                      'assets/images/Group 45 (1).svg'),
                             ),
                             Row(
                               children: [
                                 CustomDrawer()
                                 // SvgPicture.asset('assets/images/Group 44 (1).svg'
-                                      // ),
+                                // ),
                                 // const SizedBox(width: 10),
                                 // Image.asset('assets/images/notification.png'),
                               ],

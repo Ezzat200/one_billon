@@ -210,6 +210,16 @@ class S {
     );
   }
 
+  /// `Please Login First`
+  String get please_login_first {
+    return Intl.message(
+      'Please Login First',
+      name: 'please_login_first',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Subject`
   String get introduction {
     return Intl.message(
