@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:one_billon/screens/auth/login/login_screen.dart';
 import 'package:one_billon/screens/auth/regetser/cubit/states.dart';
 
 class OneBillonRegisterCubit extends Cubit<OneBillonRegisterStates> {
@@ -39,7 +40,7 @@ class OneBillonRegisterCubit extends Cubit<OneBillonRegisterStates> {
       );
 
       // ممكن تعمل Navigate بعد التسجيل لو حبيت
-      // Navigator.pushReplacement(...);
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen(),));
     } on FirebaseAuthException catch (e) {
       String errorMsg = '';
       if (e.code == 'email-already-in-use') {
