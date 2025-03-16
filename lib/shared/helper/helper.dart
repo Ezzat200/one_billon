@@ -1,5 +1,12 @@
 import 'package:intl/intl.dart';
 
+// String? sharedToken;
+
+class AppConfig {
+  static String? token;
+  
+}
+
 String formatDate(String firebaseDateString) {
   // Parse the string into DateTime
   DateTime dateTime = DateFormat("MMMM d, y 'at' h:mm:ss a").parse(firebaseDateString);

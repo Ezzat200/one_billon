@@ -3,11 +3,14 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:one_billon/screens/auth/login/login_screen.dart';
 import 'package:one_billon/screens/blog/blog_screen.dart';
 import 'package:one_billon/screens/layout/cubit/cubit.dart';
 import 'package:one_billon/screens/layout/cubit/states.dart';
 import 'package:one_billon/screens/profile/profile_screen.dart';
 import 'package:one_billon/screens/services/services_screen.dart';
+import 'package:one_billon/shared/helper/helper.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({
@@ -124,16 +127,53 @@ class CustomDrawer extends StatelessWidget {
                       //       child: Text('Services',style: TextStyle(color: Color(0xffFFFFFF),fontWeight: FontWeight.w700,fontSize: 20),)),
                       //   SizedBox(height: 35,),
 
-                      InkWell(
-                        onTap: () {},
-                        child: Text(
-                          'Sign Out',
-                          style: TextStyle(
-                              color: Color(0xffFF8D00),
-                              fontWeight: FontWeight.w700,
-                              fontSize: 20),
-                        ),
-                      ),
+                      AppConfig.token != null
+                          ? InkWell(
+                              onTap: () async {
+                                Navigator.pop(
+                                    context); // اقفل الـ BottomSheet أولاً
+
+                                // بعد ما يتقفل، اعرض الـ SnackBar
+                                WidgetsBinding.instance
+                                    .addPostFrameCallback((_) {
+                                  final scaffoldMessenger =
+                                      ScaffoldMessenger.of(context);
+                                  scaffoldMessenger.showSnackBar(
+                                    const SnackBar(
+                                      content: Text('✅ تم تسجيل الخروج بنجاح'),
+                                      backgroundColor: Colors.green,
+                                    ),
+                                  );
+                                });
+
+                                AppConfig.token = null;
+
+                                final prefs =
+                                    await SharedPreferences.getInstance();
+                                await prefs.remove('token');
+                              },
+                              child: Text(
+                                'Sign Out',
+                                style: TextStyle(
+                                    color: Color(0xffFF8D00),
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 20),
+                              ),
+                            )
+                          : InkWell(
+                              onTap: () {
+                                Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) {
+                                  return LoginScreen();
+                                }));
+                              },
+                              child: Text(
+                                'Login',
+                                style: TextStyle(
+                                    color: Color(0xffFF8D00),
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 20),
+                              ))
                     ],
                   ),
                 ),

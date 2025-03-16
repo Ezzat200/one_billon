@@ -162,7 +162,7 @@ class RegisterScreen extends StatelessWidget {
                                     color: Color(0xff414141))),
                             GestureDetector(
                               onTap: () {
-                                Navigator.push(context,
+                                Navigator.pushReplacement(context,
                                     MaterialPageRoute(builder: (context) {
                                   return LoginScreen();
                                 }));
