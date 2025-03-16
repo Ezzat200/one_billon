@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:one_billon/screens/blog/blog_details.dart';
 import 'package:one_billon/screens/layout/cubit/cubit.dart';
 import 'package:one_billon/screens/layout/cubit/states.dart';
+import 'package:one_billon/screens/search/search_screen.dart';
 import 'package:one_billon/screens/widgets/custom_blog.dart';
 import 'package:one_billon/screens/widgets/custom_button.dart';
 import 'package:one_billon/screens/widgets/custom_drawer.dart';
@@ -65,18 +66,16 @@ final String ?image;
                 padding: const EdgeInsets.symmetric(horizontal: 27, vertical: 10),
                 child: Column(
                   children: [
+                    SizedBox(height: 5,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        GestureDetector(onTap: () {
-                          Navigator.pop(context);
-                        },
-                          child: Image.asset('assets/images/logo.png', height: 33, width: 50)),
+                        Image.asset('assets/images/logo.png', height: 33, width: 50),
                         Row(
                           children: [
                                 CustomDrawer(),
-                            const SizedBox(width: 10),
-                            Image.asset('assets/images/notification.png'),
+                            // const SizedBox(width: 10),
+                            // Image.asset('assets/images/notification.png'),
                           ],
                         ),
                       ],
@@ -92,33 +91,42 @@ final String ?image;
             top: 110, 
             left: 27,
             right: 27,
-            child: Container(
-              height: 42,
-              decoration: BoxDecoration(
-                color: ColorManager.white,
-                borderRadius: BorderRadius.circular(8),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
-                    blurRadius: 5,
-                    offset: const Offset(0, 2),
-                  )
-                ],
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(10),
-                child: Row(
-                  children: [
-                    Image.asset('assets/images/search.png'),
-                    const SizedBox(width: 10),
-                    const Text(
-                      "Search...",
-                      style: TextStyle(
-                          color: Color(0xffE6E6E6),
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400),
-                    ),
+            child: InkWell(
+              onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (_) => SearchPage()),
+                                      );
+                                    },
+              child: Container(
+                height: 42,
+                decoration: BoxDecoration(
+                  color: ColorManager.white,
+                  borderRadius: BorderRadius.circular(8),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 5,
+                      offset: const Offset(0, 2),
+                    )
                   ],
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Row(
+                    children: [
+                      Image.asset('assets/images/search.png'),
+                      const SizedBox(width: 10),
+                      const Text(
+                        "Search...",
+                        style: TextStyle(
+                            color: Color(0xffE6E6E6),
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
