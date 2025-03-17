@@ -193,8 +193,8 @@ class BlogDetails extends StatelessWidget {
                         children: [
                           Image.asset('assets/images/search.png'),
                           const SizedBox(width: 10),
-                          const Text(
-                            "Search...",
+                           Text(
+                           S.of(context).search,
                             style: TextStyle(
                                 color: Color(0xffE6E6E6),
                                 fontSize: 14,

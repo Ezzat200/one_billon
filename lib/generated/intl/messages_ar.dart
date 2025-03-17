@@ -22,45 +22,72 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "already_have_account":
-            MessageLookupByLibrary.simpleMessage("هل لديك حساب بالفعل؟"),
-        "blogs": MessageLookupByLibrary.simpleMessage("المدونات"),
-        "confirm_password":
-            MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
-        "createAccount": MessageLookupByLibrary.simpleMessage("إنشاء حساب."),
-        "create_account":
-            MessageLookupByLibrary.simpleMessage("إنشاء حساب جديد"),
-        "dontHaveAccount":
-            MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
-        "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
-        "introduction": MessageLookupByLibrary.simpleMessage("الموضوع"),
-        "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
-        "moreDetails": MessageLookupByLibrary.simpleMessage("مزيد من التفاصيل"),
-        "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
-        "password_min_length": MessageLookupByLibrary.simpleMessage(
-            "يجب أن تكون كلمة المرور 6 أحرف على الأقل"),
-        "passwords_do_not_match":
-            MessageLookupByLibrary.simpleMessage("كلمتا المرور غير متطابقتين"),
-        "phone": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
-        "please_confirm_password":
-            MessageLookupByLibrary.simpleMessage("من فضلك أكد كلمة المرور"),
-        "please_enter_email": MessageLookupByLibrary.simpleMessage(
-            "من فضلك أدخل البريد الإلكتروني"),
-        "please_enter_password":
-            MessageLookupByLibrary.simpleMessage("من فضلك أدخل كلمة المرور"),
-        "please_enter_phone":
-            MessageLookupByLibrary.simpleMessage("من فضلك أدخل رقم الهاتف"),
-        "please_enter_username":
-            MessageLookupByLibrary.simpleMessage("من فضلك أدخل الاسم"),
-        "please_enter_valid_email": MessageLookupByLibrary.simpleMessage(
-            "من فضلك أدخل بريد إلكتروني صالح"),
-        "register": MessageLookupByLibrary.simpleMessage("إنشاء الحساب"),
-        "rememberMe": MessageLookupByLibrary.simpleMessage("تذكرني"),
-        "search": MessageLookupByLibrary.simpleMessage("ابحث..."),
-        "services": MessageLookupByLibrary.simpleMessage("الخدمات"),
-        "username": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
-        "viewAll": MessageLookupByLibrary.simpleMessage("عرض الكل"),
-        "welcome": MessageLookupByLibrary.simpleMessage("مرحبًا بك"),
-        "get_the_services":MessageLookupByLibrary.simpleMessage("الحصول على الخدمة")
-      };
+    "An_error_occurred_during_submission": MessageLookupByLibrary.simpleMessage(
+      "حدث خطأ أثناء الإرسال",
+    ),
+    "Edit_data": MessageLookupByLibrary.simpleMessage("تعديل البيانات"),
+    "Enter_a_valid_phone_number": MessageLookupByLibrary.simpleMessage(
+      " من فضلك أدخل رقم الهاتف صالح",
+    ),
+    "Get_the_services": MessageLookupByLibrary.simpleMessage(
+      "الحصول على الخدمة",
+    ),
+    "Please_log_in_first_to_access_our_exclusive_services":
+        MessageLookupByLibrary.simpleMessage(
+          "قم بتسجيل الدخول عندنا اولا لتحصل على الخدمات الخاصة بينا",
+        ),
+    "Submit_Data": MessageLookupByLibrary.simpleMessage("إرسال البيانات"),
+    "The_data_has_been_successfully_submitted":
+        MessageLookupByLibrary.simpleMessage("تم إرسال البيانات بنجاح\'"),
+    "The_data_has_been_successfully_updated":
+        MessageLookupByLibrary.simpleMessage("تم تحديث البيانات بنجاح!"),
+    "already_have_account": MessageLookupByLibrary.simpleMessage(
+      "هل لديك حساب بالفعل؟",
+    ),
+    "blogs": MessageLookupByLibrary.simpleMessage("المدونات"),
+    "confirm_password": MessageLookupByLibrary.simpleMessage(
+      "تأكيد كلمة المرور",
+    ),
+    "createAccount": MessageLookupByLibrary.simpleMessage("إنشاء حساب."),
+    "create_account": MessageLookupByLibrary.simpleMessage("إنشاء حساب جديد"),
+    "dontHaveAccount": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
+    "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+    "introduction": MessageLookupByLibrary.simpleMessage("الموضوع"),
+    "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+    "moreDetails": MessageLookupByLibrary.simpleMessage("مزيد من التفاصيل"),
+    "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+    "password_min_length": MessageLookupByLibrary.simpleMessage(
+      "يجب أن تكون كلمة المرور 6 أحرف على الأقل",
+    ),
+    "passwords_do_not_match": MessageLookupByLibrary.simpleMessage(
+      "كلمتا المرور غير متطابقتين",
+    ),
+    "phone": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
+    "please_confirm_password": MessageLookupByLibrary.simpleMessage(
+      "من فضلك أكد كلمة المرور",
+    ),
+    "please_enter_email": MessageLookupByLibrary.simpleMessage(
+      "من فضلك أدخل البريد الإلكتروني",
+    ),
+    "please_enter_password": MessageLookupByLibrary.simpleMessage(
+      "من فضلك أدخل كلمة المرور",
+    ),
+    "please_enter_phone": MessageLookupByLibrary.simpleMessage(
+      "من فضلك أدخل رقم الهاتف",
+    ),
+    "please_enter_username": MessageLookupByLibrary.simpleMessage(
+      "من فضلك أدخل الاسم",
+    ),
+    "please_enter_valid_email": MessageLookupByLibrary.simpleMessage(
+      "من فضلك أدخل بريد إلكتروني صالح",
+    ),
+    "register": MessageLookupByLibrary.simpleMessage("إنشاء الحساب"),
+    "rememberMe": MessageLookupByLibrary.simpleMessage("تذكرني"),
+    "save_data": MessageLookupByLibrary.simpleMessage("حفظ البيانات"),
+    "search": MessageLookupByLibrary.simpleMessage("ابحث..."),
+    "services": MessageLookupByLibrary.simpleMessage("الخدمات"),
+    "username": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
+    "viewAll": MessageLookupByLibrary.simpleMessage("عرض الكل"),
+    "welcome": MessageLookupByLibrary.simpleMessage("مرحبًا بك"),
+  };
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:one_billon/generated/l10n.dart';
 import 'package:one_billon/screens/blog/blog_details.dart';
 import 'package:one_billon/screens/layout/cubit/cubit.dart';
 import 'package:one_billon/screens/layout/cubit/states.dart';
@@ -111,8 +112,8 @@ final String ?image;
                   children: [
                     Image.asset('assets/images/search.png'),
                     const SizedBox(width: 10),
-                    const Text(
-                      "Search...",
+                     Text(
+                       S.of(context).search,
                       style: TextStyle(
                           color: Color(0xffE6E6E6),
                           fontSize: 14,

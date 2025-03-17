@@ -8,6 +8,7 @@ import 'package:one_billon/screens/services/service_form.dart';
 import 'package:one_billon/screens/widgets/custom_button.dart';
 
 import 'package:one_billon/screens/widgets/custom_text.dart';
+import 'package:one_billon/screens/widgets/poup.dart';
 import 'package:one_billon/shared/color.dart';
 
 class ServiceDetails extends StatelessWidget {
@@ -113,13 +114,14 @@ class ServiceDetails extends StatelessWidget {
                         height: 30,
                       ),
                       CustomButton(
-                        text:  "Get_the_services" ,
+                        text:  S.of(context).Get_the_services ,
                         onTap: () {
-                          Navigator.push(context, MaterialPageRoute(
-                            builder: (context) {
-                              return ServiceForm();
-                            },
-                          ));
+                          dialog(context);
+                          // Navigator.push(context, MaterialPageRoute(
+                          //   builder: (context) {
+                          //     return ServiceForm();
+                          //   },
+                          // ));
                         },
                       ),
                       SizedBox(

@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:one_billon/generated/l10n.dart';
 import 'package:one_billon/screens/layout/cubit/cubit.dart';
 import 'package:one_billon/screens/widgets/custom_button.dart';
 
 
 import 'package:one_billon/screens/widgets/custom_drawer.dart';
-import 'package:one_billon/screens/widgets/custom_text.dart';
+
 
 import 'package:one_billon/screens/widgets/custom_text_field.dart';
-import 'package:one_billon/shared/color.dart';
 
-import 'package:flutter/material.dart';
+
+
 
 class ServiceForm extends StatefulWidget {
   const ServiceForm({super.key});
@@ -49,45 +50,45 @@ class _ServiceFormState extends State<ServiceForm> {
                   children: [
 
                     CustomTextField(
-                      fieldName: 'User Name',
+                      fieldName: S.of(context).username,
                       controller: _nameController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter your name';
+                          return  S.of(context).please_enter_username;
                         }
                         return null;
                       },
                     ),
                     CustomTextField(
-                      fieldName: 'Email',
+                      fieldName:  S.of(context).email,
                       controller: _emailController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter your email';
+                          return  S.of(context).please_enter_email;
                         }
                         if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
                             .hasMatch(value)) {
-                          return 'Please enter a valid email';
+                          return  S.of(context).please_enter_valid_email;
                         }
                         return null;
                       },
                     ),
                     CustomTextField(
-                      fieldName: 'Phone Number',
+                      fieldName:  S.of(context).phone,
                       controller: _phoneController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter your phone number';
+                          return  S.of(context).please_enter_phone;
                         }
                         if (!RegExp(r'^\d{10,}$').hasMatch(value)) {
-                          return 'Enter a valid phone number';
+                          return  S.of(context).Enter_a_valid_phone_number;
                         }
                         return null;
                       },
                     ),
                     const SizedBox(height: 20),
                     CustomButton(
-                      text: 'Submit Data',
+                      text:  S.of(context).Submit_Data,
                       onTap: () {
                         if (_formKey.currentState!.validate()) {
                           // All data is valid
@@ -108,13 +109,13 @@ class _ServiceFormState extends State<ServiceForm> {
                           )
                               .then((_) {
                             ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                  content: Text('تم إرسال البيانات بنجاح')),
+                               SnackBar(
+                                  content: Text( S.of(context).The_data_has_been_successfully_submitted)),
                             );
                           }).catchError((e) {
                             ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                  content: Text('حدث خطأ أثناء الإرسال')),
+                               SnackBar(
+                                  content: Text( S.of(context).An_error_occurred_during_submission)),
                             );
                           });
                         }
@@ -208,8 +209,8 @@ class _ServiceFormState extends State<ServiceForm> {
                     children: [
                       Image.asset('assets/images/search.png'),
                       const SizedBox(width: 10),
-                      const Text(
-                        "Search...",
+                       Text(
+                         S.of(context).search,
                         style: TextStyle(
                           color: Color(0xffE6E6E6),
                           fontSize: 14,

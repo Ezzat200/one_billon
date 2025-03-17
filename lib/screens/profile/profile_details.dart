@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:one_billon/generated/l10n.dart';
 import 'package:one_billon/screens/profile/profile_screen.dart';
 import 'package:one_billon/screens/widgets/custom_drawer.dart';
 import 'package:one_billon/screens/widgets/custom_profile.dart';
@@ -111,7 +112,7 @@ class ProfileDetails extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Text('Edit Data',
+                             Text( S.of(context).Edit_data,
                                 style: TextStyle(
                                     color: Color(0xff959595),
                                     fontWeight: FontWeight.w400,
@@ -131,17 +132,17 @@ class ProfileDetails extends StatelessWidget {
                     children: [
                       CustomProfile(
                           imageprofile: 'assets/images/person.png',
-                          dataName: 'User Name',
+                          dataName:  S.of(context).username,
                           dataDesc: name),
                       const SizedBox(height: 22),
                       CustomProfile(
                           imageprofile: 'assets/images/email.png',
-                          dataName: 'Email',
+                          dataName: S.of(context).email,
                           dataDesc: email),
                       const SizedBox(height: 22),
                       CustomProfile(
                           imageprofile: 'assets/images/phone.png',
-                          dataName: 'Phone',
+                          dataName: S.of(context).phone,
                           dataDesc: phone),
                     ],
                   ),
