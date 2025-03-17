@@ -93,6 +93,31 @@ class BlogScreen extends StatelessWidget {
                   ),
                 ),
               ),
+
+              Positioned(
+                top: 110,
+                left: 27,
+                right: 27,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => SearchPage()),
+                    );
+                  },
+                  child: Container(
+                    height: 42,
+                    decoration: BoxDecoration(
+                      color: ColorManager.white,
+                      borderRadius: BorderRadius.circular(8),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.1),
+                          blurRadius: 5,
+                          offset: const Offset(0, 2),
+                        )
+                      ],
+                    ))
             ),
           ),
         
@@ -126,19 +151,17 @@ class BlogScreen extends StatelessWidget {
                           color: Color(0xffE6E6E6),
                           fontSize: 14,
                           fontWeight: FontWeight.w400),
-                    ),
-                  ],
+
+              )]),
+                   
+                  ),
                 ),
               ),
-            ),
+            ],
           ),
-        ],
-              ),
-      ));
-  
-  
-    }, listener: (context, state) {
-      
-    },);
+        ));
+      },
+      listener: (context, state) {},
+    );
   }
 }

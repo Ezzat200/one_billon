@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:one_billon/generated/l10n.dart';
 import 'package:one_billon/screens/layout/cubit/cubit.dart';
 import 'package:one_billon/screens/layout/cubit/states.dart';
@@ -155,7 +156,7 @@ class _ServiceFormState extends State<ServiceForm> {
                         ),
                       ],
                     ),
-                  ),
+          ])),
                 ),
 
                 // AppBar like design

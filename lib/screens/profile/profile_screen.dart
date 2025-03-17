@@ -10,16 +10,16 @@ import 'package:one_billon/screens/widgets/custom_button.dart';
 import 'package:one_billon/screens/widgets/custom_text_field.dart';
 
 class ProfileScreen extends StatefulWidget {
-  final String name;
-  final String email;
-  final String phone;
-  final String imageUrl;
+  final String? name;
+  final String ?email;
+  final String ?phone;
+  final String ?imageUrl;
 
   ProfileScreen({
-    required this.name,
-    required this.email,
-    required this.phone,
-    required this.imageUrl,
+     this.name,
+     this.email,
+     this.phone,
+     this.imageUrl,
   });
 
   @override
@@ -36,10 +36,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   void initState() {
     super.initState();
-    _nameController.text = widget.name;
-    _emailController.text = widget.email;
-    _phoneController.text = widget.phone;
-    imageUrl = widget.imageUrl;
+    _nameController.text = widget.name!;
+    _emailController.text = widget.email!;
+    _phoneController.text = widget.phone!;
+    imageUrl = widget.imageUrl!;
   }
 
   Future<void> _pickImage() async {
