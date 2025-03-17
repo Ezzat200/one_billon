@@ -21,10 +21,18 @@
   "please_enter_email": "Please enter your email",
   "please_enter_valid_email": "Please enter a valid email",
   "please_enter_phone": "Please enter your phone number",
+  "Enter_a_valid_phone_number":"Enter a valid phone number",
   "please_enter_password": "Please enter your password",
   "password_min_length": "Password must be at least 6 characters",
   "please_confirm_password": "Please confirm your password",
   "passwords_do_not_match": "Passwords do not match",
   "createAccount": "Create an account.",
-  "Get":"Get the Service"
+  "Get_the_services":"Get the Service",
+  "Submit_Data":"Submit Data",
+  "The_data_has_been_successfully_submitted":"The data has been successfully submitted",
+  "An_error_occurred_during_submission":"An error occurred during submission",
+  "The_data_has_been_successfully_updated":"The data has been successfully updated!",
+  "save_data":"Save Data",
+  "Edit_data":"Edit Data",
+  "Please_log_in_first_to_access_our_exclusive_services":"Please log in first to access our exclusive services"
 }

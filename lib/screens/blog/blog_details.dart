@@ -174,42 +174,41 @@ class BlogDetails extends StatelessWidget {
                 ),
 
                 // صندوق البحث الذي يمتد جزئياً إلى الصفحة
-                // Positioned(
-                //   top: 110, // نصفه داخل الـ AppBar والنصف الآخر في الصفحة
-                //   left: 27,
-                //   right: 27,
-                //   child: Container(
-                //     height: 42,
-                //     decoration: BoxDecoration(
-                //       color: ColorManager.white,
-                //       borderRadius: BorderRadius.circular(8),
-                //       boxShadow: [
-                //         BoxShadow(
-                //           color: Colors.black.withOpacity(0.1),
-                //           blurRadius: 5,
-                //           offset: const Offset(0, 2),
-                //         )
-                //       ],
-                //     ),
-                //     child: Padding(
-                //       padding: const EdgeInsets.all(10),
-                //       child: Row(
-                //         children: [
-                //           Image.asset('assets/images/search.png'),
-                //           const SizedBox(width: 10),
-                //           const Text(
-                //             "Search...",
-                //             style: TextStyle(
-                //                 color: Color(0xffE6E6E6),
-                //                 fontSize: 14,
-                //                 fontWeight: FontWeight.w400),
-                //           ),
-                //         ],
-                //       ),
-                //     ),
-                //   ),
-                // ),
-             
+                Positioned(
+                  top: 110, // نصفه داخل الـ AppBar والنصف الآخر في الصفحة
+                  left: 27,
+                  right: 27,
+                  child: Container(
+                    height: 42,
+                    decoration: BoxDecoration(
+                      color: ColorManager.white,
+                      borderRadius: BorderRadius.circular(8),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.1),
+                          blurRadius: 5,
+                          offset: const Offset(0, 2),
+                        )
+                      ],
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Row(
+                        children: [
+                          Image.asset('assets/images/search.png'),
+                          const SizedBox(width: 10),
+                           Text(
+                           S.of(context).search,
+                            style: TextStyle(
+                                color: Color(0xffE6E6E6),
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

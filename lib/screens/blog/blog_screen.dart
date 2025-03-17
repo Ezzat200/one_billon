@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:one_billon/generated/l10n.dart';
 import 'package:one_billon/screens/blog/blog_details.dart';
 import 'package:one_billon/screens/layout/cubit/cubit.dart';
 import 'package:one_billon/screens/layout/cubit/states.dart';
@@ -92,54 +93,52 @@ class BlogScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Positioned(
-                top: 110,
-                left: 27,
-                right: 27,
-                child: InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (_) => SearchPage()),
-                    );
-                  },
-                  child: Container(
-                    height: 42,
-                    decoration: BoxDecoration(
-                      color: ColorManager.white,
-                      borderRadius: BorderRadius.circular(8),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.1),
-                          blurRadius: 5,
-                          offset: const Offset(0, 2),
-                        )
-                      ],
+            ),
+          ),
+        
+          
+          Positioned(
+            top: 110, 
+            left: 27,
+            right: 27,
+            child: Container(
+              height: 42,
+              decoration: BoxDecoration(
+                color: ColorManager.white,
+                borderRadius: BorderRadius.circular(8),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.1),
+                    blurRadius: 5,
+                    offset: const Offset(0, 2),
+                  )
+                ],
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(10),
+                child: Row(
+                  children: [
+                    Image.asset('assets/images/search.png'),
+                    const SizedBox(width: 10),
+                     Text(
+                       S.of(context).search,
+                      style: TextStyle(
+                          color: Color(0xffE6E6E6),
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400),
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Row(
-                        children: [
-                          Image.asset('assets/images/search.png'),
-                          const SizedBox(width: 10),
-                          const Text(
-                            "Search...",
-                            style: TextStyle(
-                                color: Color(0xffE6E6E6),
-                                fontSize: 14,
-                                fontWeight: FontWeight.w400),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                  ],
                 ),
               ),
-            ],
+            ),
           ),
-        ));
-      },
-      listener: (context, state) {},
-    );
+        ],
+              ),
+      ));
+  
+  
+    }, listener: (context, state) {
+      
+    },);
   }
 }

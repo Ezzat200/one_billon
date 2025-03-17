@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:one_billon/generated/l10n.dart';
 import 'package:one_billon/screens/profile/profile_details.dart';
 import 'package:one_billon/screens/widgets/custom_button.dart';
 import 'package:one_billon/screens/widgets/custom_text_field.dart';
@@ -101,7 +102,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     });
 
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text("تم تحديث البيانات بنجاح!")),
+      SnackBar(content: Text( S.of(context).The_data_has_been_successfully_updated)),
     );
 
     Navigator.pushReplacement(
@@ -164,21 +165,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
               child: Column(
                 children: [
                   CustomTextField(
-                      fieldName: 'User Name',
+                      fieldName:  S.of(context).username,
                       controller: _nameController,
                       validator: (p0) {}),
                   SizedBox(height: 15),
                   CustomTextField(
-                      fieldName: 'Email',
+                      fieldName:  S.of(context).email,
                       controller: _emailController,
                       validator: (p0) {}),
                   SizedBox(height: 15),
                   CustomTextField(
-                      fieldName: 'Phone Number',
+                      fieldName:  S.of(context).phone,
                       controller: _phoneController,
                       validator: (p0) {}),
                   SizedBox(height: 20),
-                  CustomButton(text: 'Save Data', onTap: _updateProfile),
+                  CustomButton(text:  S.of(context).save_data, onTap: _updateProfile),
                 ],
               ),
             ),

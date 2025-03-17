@@ -10,7 +10,7 @@ import 'package:one_billon/screens/services/service_form.dart';
 import 'package:one_billon/screens/widgets/custom_button.dart';
 import 'package:one_billon/screens/widgets/custom_drawer.dart';
 import 'package:one_billon/screens/widgets/custom_text.dart';
-import 'package:one_billon/screens/widgets/promp.dart';
+import 'package:one_billon/screens/widgets/poup.dart';
 import 'package:one_billon/shared/color.dart';
 import 'package:one_billon/shared/helper/helper.dart';
 import 'package:shimmer/shimmer.dart';
@@ -130,18 +130,14 @@ class ServiceDetails extends StatelessWidget {
                         height: 30,
                       ),
                       CustomButton(
-                        text:  "Get_the_services" ,
+                        text:  S.of(context).Get_the_services ,
                         onTap: () {
-                          AppConfig.token != null
-                              ? Navigator.push(context, MaterialPageRoute(
-                                  builder: (context) {
-                                    return ServiceForm();
-                                  },
-                                ))
-                              : dialogSuccess(
-                                  context, S.of(context).please_login_first);
-
-                          ;
+                          dialog(context);
+                          // Navigator.push(context, MaterialPageRoute(
+                          //   builder: (context) {
+                          //     return ServiceForm();
+                          //   },
+                          // ));
                         },
                       ),
                       SizedBox(
