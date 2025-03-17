@@ -24,5 +24,6 @@
   "password_min_length": "Password must be at least 6 characters",
   "please_confirm_password": "Please confirm your password",
   "passwords_do_not_match": "Passwords do not match",
-  "createAccount": "Create an account."
+  "createAccount": "Create an account.",
+  "Get":"Get the Service"
 }

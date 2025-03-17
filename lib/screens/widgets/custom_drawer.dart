@@ -79,11 +79,11 @@ class CustomDrawer extends StatelessWidget {
     
     
               GestureDetector(
-                    onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) {
-                        return ProfileScreen();
-                      },));
-                    },
+                    // onTap: () {
+                    //   Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    //     return ProfileScreen();
+                    //   },));
+                    // },
                     child: Text('Services',style: TextStyle(color: Color(0xffFFFFFF),fontWeight: FontWeight.w700,fontSize: 20),)),
                 SizedBox(height: 35,),
     

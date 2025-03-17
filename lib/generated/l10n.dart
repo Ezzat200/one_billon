@@ -321,6 +321,15 @@ class S {
   }
 }
 
+ String get get_the_services {
+    return Intl.message(
+      'Get_the_services',
+      name: 'Get_the_services',
+      desc: '',
+      args: [],
+    );
+  }
+
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   const AppLocalizationDelegate();
 

@@ -38,9 +38,9 @@ class OneBillonCubit extends Cubit<OneBillonStates> {
     BlogScreen(),
 
 
-    ProfileScreen(),
-
     ProfileDetails(),
+
+
 
     ServiceDetails(), // أضف صفحة التفاصيل
   ];

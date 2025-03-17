@@ -1,68 +1,189 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:one_billon/screens/profile/profile_details.dart';
 import 'package:one_billon/screens/widgets/custom_button.dart';
 import 'package:one_billon/screens/widgets/custom_text_field.dart';
 
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+class ProfileScreen extends StatefulWidget {
+  final String name;
+  final String email;
+  final String phone;
+  final String imageUrl;
+
+  ProfileScreen({
+    required this.name,
+    required this.email,
+    required this.phone,
+    required this.imageUrl,
+  });
+
+  @override
+  _ProfileScreenState createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+  File? _image;
+  String imageUrl = "";
+
+  @override
+  void initState() {
+    super.initState();
+    _nameController.text = widget.name;
+    _emailController.text = widget.email;
+    _phoneController.text = widget.phone;
+    imageUrl = widget.imageUrl;
+  }
+
+  Future<void> _pickImage() async {
+    try {
+      final pickedFile = await ImagePicker().pickImage(
+        source: ImageSource.gallery, // ✅ اختيار الصورة من المعرض
+        maxWidth: 600,
+        imageQuality: 80,
+      );
+
+      if (pickedFile != null) {
+        setState(() {
+          _image = File(pickedFile.path);
+        });
+
+        print("تم اختيار الصورة: ${_image!.path}"); // ✅ طباعة المسار
+
+        await _uploadImage();
+      }
+    } catch (e) {
+      print("خطأ أثناء اختيار الصورة: $e");
+    }
+  }
+
+  Future<void> _uploadImage() async {
+    if (_image == null) return; // ✅ التأكد من وجود صورة قبل الرفع
+    String uid = FirebaseAuth.instance.currentUser!.uid;
+
+    try {
+      print("جاري رفع الصورة...");
+
+      UploadTask uploadTask =
+          FirebaseStorage.instance.ref('profile_images/$uid.jpg').putFile(_image!);
+      TaskSnapshot snapshot = await uploadTask.whenComplete(() => print("تم الرفع بنجاح"));
+
+      String newImageUrl = await snapshot.ref.getDownloadURL();
+      print("تم الحصول على رابط الصورة: $newImageUrl");
+
+      await FirebaseFirestore.instance.collection('users').doc(uid).update({
+        'imageUrl': newImageUrl,
+      });
+
+      setState(() {
+        imageUrl = newImageUrl;
+      });
+
+      print("تم تحديث الصورة بنجاح");
+    } catch (e) {
+      print("خطأ أثناء رفع الصورة: $e");
+    }
+  }
+
+  Future<void> _updateProfile() async {
+    String uid = FirebaseAuth.instance.currentUser!.uid;
+
+    await FirebaseFirestore.instance.collection('users').doc(uid).update({
+      'name': _nameController.text,
+      'email': _emailController.text,
+      'phone': _phoneController.text,
+    });
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text("تم تحديث البيانات بنجاح!")),
+    );
+
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => ProfileDetails()),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _phoneController = TextEditingController();
-  final TextEditingController _PasswordController = TextEditingController();
-
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          Stack(
-            clipBehavior: Clip.none,
-            children: [
-              Image.asset('assets/images/background.png',width: double.infinity,fit: BoxFit.cover,),
-              Positioned
-              (
-                top: 50,
-                left: 27,
-                child: Image.asset('assets/images/arrow.png')),
-                Positioned(
-                  
-                  top: 0,
-                  left: 27,
-                  right: 27,
-                  child: Image.asset('assets/images/profileimage.png')),
-                
-            ],
-
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 27,vertical: 40),
-            child: Column(
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Stack(
+              clipBehavior: Clip.none,
               children: [
-                CustomTextField(fieldName: 'User Name',controller: _nameController,validator: (p0) {
-                  
-                },),
-                SizedBox(height: 15,),
-                CustomTextField(fieldName: 'Email',controller: _emailController,validator: (p0) {
-                  
-                },),
-                SizedBox(height: 15,),
-
-                CustomTextField(fieldName: 'Phone Number',controller: _phoneController,validator: (p0) {
-                  
-                },),
-                SizedBox(height: 15,),
-
-                CustomTextField(fieldName: 'Password',controller: _PasswordController,validator: (p0) {
-                  
-                },),
-                SizedBox(height: 20,),
-
-                CustomButton(text: 'Save Data', onTap: (){})
-
+                Image.asset('assets/images/background.png',
+                    width: double.infinity, fit: BoxFit.cover),
+                Positioned(
+                  top: 50,
+                  left: 20,
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Image.asset('assets/images/arrow.png'),
+                  ),
+                ),
+                Positioned(
+                  top: 50,
+                  left: MediaQuery.of(context).size.width / 2 - 50,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      CircleAvatar(
+                        radius: 50,
+                        backgroundImage: _image != null
+                            ? FileImage(_image!)
+                            : (imageUrl.isNotEmpty
+                                ? NetworkImage(imageUrl)
+                                : AssetImage('assets/images/profileimage.png'))
+                                    as ImageProvider,
+                      ),
+                      Positioned(
+                        bottom: 0,
+                        right: 0,
+                        child: IconButton(
+                          icon: Icon(Icons.camera_alt, color: Colors.blue, size: 30),
+                          onPressed: _pickImage,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
-          )
-        ],
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 27, vertical: 40),
+              child: Column(
+                children: [
+                  CustomTextField(
+                      fieldName: 'User Name',
+                      controller: _nameController,
+                      validator: (p0) {}),
+                  SizedBox(height: 15),
+                  CustomTextField(
+                      fieldName: 'Email',
+                      controller: _emailController,
+                      validator: (p0) {}),
+                  SizedBox(height: 15),
+                  CustomTextField(
+                      fieldName: 'Phone Number',
+                      controller: _phoneController,
+                      validator: (p0) {}),
+                  SizedBox(height: 20),
+                  CustomButton(text: 'Save Data', onTap: _updateProfile),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -61,6 +61,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "services": MessageLookupByLibrary.simpleMessage("Services"),
         "username": MessageLookupByLibrary.simpleMessage("Username"),
         "viewAll": MessageLookupByLibrary.simpleMessage("View All"),
-        "welcome": MessageLookupByLibrary.simpleMessage("Welcome")
+        "welcome": MessageLookupByLibrary.simpleMessage("Welcome"),
+        "get_the_services": MessageLookupByLibrary.simpleMessage("Get The Services"),
+
       };
 }

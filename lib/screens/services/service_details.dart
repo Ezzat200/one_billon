@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:one_billon/generated/l10n.dart';
 import 'package:one_billon/models/service_model.dart';
 import 'package:one_billon/screens/layout/cubit/cubit.dart';
 import 'package:one_billon/screens/layout/cubit/states.dart';
 import 'package:one_billon/screens/services/service_form.dart';
 import 'package:one_billon/screens/widgets/custom_button.dart';
-import 'package:one_billon/screens/widgets/custom_drawer.dart';
+
 import 'package:one_billon/screens/widgets/custom_text.dart';
 import 'package:one_billon/shared/color.dart';
 
@@ -112,7 +113,7 @@ class ServiceDetails extends StatelessWidget {
                         height: 30,
                       ),
                       CustomButton(
-                        text: 'Get the Service',
+                        text:  "Get_the_services" ,
                         onTap: () {
                           Navigator.push(context, MaterialPageRoute(
                             builder: (context) {
@@ -190,8 +191,8 @@ class ServiceDetails extends StatelessWidget {
                       children: [
                         Image.asset('assets/images/search.png'),
                         const SizedBox(width: 10),
-                        const Text(
-                          "Search...",
+                         Text(
+                           S.of(context).search,
                           style: TextStyle(
                               color: Color(0xffE6E6E6),
                               fontSize: 14,

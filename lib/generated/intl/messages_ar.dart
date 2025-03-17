@@ -60,6 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "services": MessageLookupByLibrary.simpleMessage("الخدمات"),
         "username": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
         "viewAll": MessageLookupByLibrary.simpleMessage("عرض الكل"),
-        "welcome": MessageLookupByLibrary.simpleMessage("مرحبًا بك")
+        "welcome": MessageLookupByLibrary.simpleMessage("مرحبًا بك"),
+        "get_the_services":MessageLookupByLibrary.simpleMessage("الحصول على الخدمة")
       };
 }

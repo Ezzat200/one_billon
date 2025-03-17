@@ -4,6 +4,7 @@ import 'package:one_billon/generated/l10n.dart';
 import 'package:one_billon/screens/auth/login/cubit/cubit.dart';
 import 'package:one_billon/screens/auth/login/cubit/states.dart';
 import 'package:one_billon/screens/auth/regetser/regester_screen.dart';
+import 'package:one_billon/screens/layout/layout.dart';
 import 'package:one_billon/screens/widgets/custom_auth_button.dart';
 import 'package:one_billon/screens/widgets/custom_auth_text_field.dart';
 import 'package:one_billon/screens/widgets/password_field.dart';
@@ -130,6 +131,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                   email: emailController.text,
                                   password: passwordController.text,
                                   context: context);
+                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+                                    return const LayoutScreen();
+                                  },));
                             }
                           },
                         ),

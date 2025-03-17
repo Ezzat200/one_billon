@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:one_billon/generated/l10n.dart';
 import 'package:one_billon/screens/layout/cubit/cubit.dart';
 import 'package:one_billon/screens/layout/cubit/states.dart';
 import 'package:one_billon/screens/widgets/custom_card.dart';
@@ -52,8 +53,8 @@ class ServicesScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        "Services",
+                       Text(
+                          S.of(context).services,
                         style: TextStyle(
                             color: Color(0xff414141),
                             fontSize: 16,
@@ -148,8 +149,8 @@ class ServicesScreen extends StatelessWidget {
                       children: [
                         Image.asset('assets/images/search.png'),
                         const SizedBox(width: 10),
-                        const Text(
-                          "Search...",
+                         Text(
+                            S.of(context).search,
                           style: TextStyle(
                               color: Color(0xffE6E6E6),
                               fontSize: 14,

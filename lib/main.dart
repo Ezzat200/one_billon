@@ -65,7 +65,7 @@ class MyApp extends StatelessWidget {
         useInheritedMediaQuery: true,
         initialRoute: '/',
         routes: {
-          '/': (context) => const LayoutScreen(),
+          '/': (context) => RegisterScreen(),
 
 
         },
