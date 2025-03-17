@@ -149,6 +149,9 @@ class RegisterScreen extends StatelessWidget {
                                 password: passwordController.text,
                                 context: context,
                               );
+                              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                                return const LoginScreen();
+                              },));
                             }
                           },
                         ),

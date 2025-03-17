@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:one_billon/generated/l10n.dart';
 import 'package:one_billon/screens/layout/cubit/cubit.dart';
 import 'package:one_billon/screens/layout/cubit/states.dart';
 import 'package:one_billon/screens/search/search_screen.dart';
@@ -53,8 +54,8 @@ class ServicesScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        "Services",
+                       Text(
+                          S.of(context).services,
                         style: TextStyle(
                             color: Color(0xff414141),
                             fontSize: 16,

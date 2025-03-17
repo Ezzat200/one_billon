@@ -130,7 +130,7 @@ class ServiceDetails extends StatelessWidget {
                         height: 30,
                       ),
                       CustomButton(
-                        text: 'Get the Service',
+                        text:  "Get_the_services" ,
                         onTap: () {
                           AppConfig.token != null
                               ? Navigator.push(context, MaterialPageRoute(

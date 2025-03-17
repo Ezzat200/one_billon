@@ -41,6 +41,8 @@ class OneBillonCubit extends Cubit<OneBillonStates> {
 
     ProfileDetails(),
 
+
+
     ServiceDetails(), // أضف صفحة التفاصيل
   ];
 

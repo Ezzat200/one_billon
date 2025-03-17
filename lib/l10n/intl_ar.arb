@@ -26,6 +26,7 @@
   "please_enter_password": "من فضلك أدخل كلمة المرور",
   "password_min_length": "يجب أن تكون كلمة المرور 6 أحرف على الأقل",
   "please_confirm_password": "من فضلك أكد كلمة المرور",
-  "passwords_do_not_match": "كلمتا المرور غير متطابقتين"
+  "passwords_do_not_match": "كلمتا المرور غير متطابقتين",
+  "Get":"الحصول على الخدمة"
 
 }
