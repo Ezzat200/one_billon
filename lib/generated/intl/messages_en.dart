@@ -40,10 +40,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "The_data_has_been_successfully_updated":
             MessageLookupByLibrary.simpleMessage(
                 "The data has been successfully updated!"),
+        "accountDeleted": MessageLookupByLibrary.simpleMessage(
+            "Account has been deleted successfully."),
         "already_have_account":
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
         "blog": MessageLookupByLibrary.simpleMessage("Blog"),
         "blogs": MessageLookupByLibrary.simpleMessage("Blogs"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
         "confirm_password":
             MessageLookupByLibrary.simpleMessage("Confirm Password"),
         "createAccount":
@@ -52,11 +56,16 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Create New Account"),
         "default_error": MessageLookupByLibrary.simpleMessage(
             "❌ Incorrect email or password. Please try again."),
+        "deleteAccount": MessageLookupByLibrary.simpleMessage("Delete Account"),
+        "deleteAccountConfirm": MessageLookupByLibrary.simpleMessage(
+            "Are you sure you want to delete your account? This action cannot be undone."),
         "dontHaveAccount":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
         "introduction": MessageLookupByLibrary.simpleMessage("Subject"),
+        "invalidCredentials": MessageLookupByLibrary.simpleMessage(
+            "The email or password is incorrect."),
         "invalid_email": MessageLookupByLibrary.simpleMessage(
             "❌ Email address is not valid."),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
@@ -89,11 +98,15 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Please Login First"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
+        "reloginToDelete": MessageLookupByLibrary.simpleMessage(
+            "You need to sign in again to delete your account."),
         "rememberMe": MessageLookupByLibrary.simpleMessage("Remember Me"),
         "save_data": MessageLookupByLibrary.simpleMessage("Save Data"),
         "search": MessageLookupByLibrary.simpleMessage("Search..."),
         "services": MessageLookupByLibrary.simpleMessage("Services"),
         "signOut": MessageLookupByLibrary.simpleMessage("Sign Out"),
+        "somethingWentWrong": MessageLookupByLibrary.simpleMessage(
+            "Something went wrong. Please try again."),
         "too_many_requests": MessageLookupByLibrary.simpleMessage(
             "❌ Too many attempts. Try again later."),
         "unexpected_error": MessageLookupByLibrary.simpleMessage(

@@ -16,6 +16,13 @@ class SendUserDataSuccessState extends OneBillonStates {}
 
 class SendUserDataErrorState extends OneBillonStates {}
 
+class LogOutState extends OneBillonStates {}
+
+
+class AccountDeleteSuccessState extends OneBillonStates {}
+
+
+class AccountDeleteErrorState extends OneBillonStates {}
 // class SIGHomeDataSuccessState extends OneBillonStates {
 //   final UnitResponse unitResponse;
 //   SIGHomeDataSuccessState(this.unitResponse);

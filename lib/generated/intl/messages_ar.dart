@@ -37,10 +37,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تم إرسال البيانات بنجاح\'"),
         "The_data_has_been_successfully_updated":
             MessageLookupByLibrary.simpleMessage("تم تحديث البيانات بنجاح!"),
+        "accountDeleted":
+            MessageLookupByLibrary.simpleMessage("تم حذف الحساب بنجاح."),
         "already_have_account":
             MessageLookupByLibrary.simpleMessage("هل لديك حساب بالفعل؟"),
         "blog": MessageLookupByLibrary.simpleMessage("المدونة"),
         "blogs": MessageLookupByLibrary.simpleMessage("المدونات"),
+        "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
+        "confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
         "confirm_password":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
         "createAccount": MessageLookupByLibrary.simpleMessage("إنشاء حساب."),
@@ -48,11 +52,16 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("إنشاء حساب جديد"),
         "default_error": MessageLookupByLibrary.simpleMessage(
             "❌ البريد الإلكتروني أو كلمة المرور غير صحيحة. حاول مرة أخرى."),
+        "deleteAccount": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
+        "deleteAccountConfirm": MessageLookupByLibrary.simpleMessage(
+            "هل أنت متأكد أنك تريد حذف الحساب؟ لا يمكن التراجع."),
         "dontHaveAccount":
             MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
         "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "introduction": MessageLookupByLibrary.simpleMessage("الموضوع"),
+        "invalidCredentials": MessageLookupByLibrary.simpleMessage(
+            "البريد الإلكتروني أو كلمة المرور غير صحيحة."),
         "invalid_email": MessageLookupByLibrary.simpleMessage(
             "❌ عنوان البريد الإلكتروني غير صالح."),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
@@ -85,11 +94,15 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("من فضلك سجل دخول اولا"),
         "profile": MessageLookupByLibrary.simpleMessage("الشخصيه"),
         "register": MessageLookupByLibrary.simpleMessage("إنشاء الحساب"),
+        "reloginToDelete": MessageLookupByLibrary.simpleMessage(
+            "يجب عليك تسجيل الدخول مرة أخرى لحذف الحساب."),
         "rememberMe": MessageLookupByLibrary.simpleMessage("تذكرني"),
         "save_data": MessageLookupByLibrary.simpleMessage("حفظ البيانات"),
         "search": MessageLookupByLibrary.simpleMessage("ابحث..."),
         "services": MessageLookupByLibrary.simpleMessage("الخدمات"),
         "signOut": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+        "somethingWentWrong":
+            MessageLookupByLibrary.simpleMessage("حدث خطأ ما. حاول مرة أخرى."),
         "too_many_requests": MessageLookupByLibrary.simpleMessage(
             "❌ محاولات كثيرة جدًا. يرجى المحاولة لاحقًا."),
         "unexpected_error":

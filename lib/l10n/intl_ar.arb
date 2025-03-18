@@ -1,5 +1,6 @@
 {
      "createAccount": "إنشاء حساب.",
+     "deleteAccount": "حذف الحساب",
     "welcome": "مرحبًا بك",
   "create_account": "إنشاء حساب جديد",
   "username": "اسم المستخدم",
@@ -40,7 +41,13 @@
   "Please_log_in_first_to_access_our_exclusive_services":"قم بتسجيل الدخول عندنا اولا لتحصل على الخدمات الخاصة بينا"
 
 ,
-
+"deleteAccountConfirm": "هل أنت متأكد أنك تريد حذف الحساب؟ لا يمكن التراجع.",
+"accountDeleted": "تم حذف الحساب بنجاح.",
+"reloginToDelete": "يجب عليك تسجيل الدخول مرة أخرى لحذف الحساب.",
+"invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
+"somethingWentWrong": "حدث خطأ ما. حاول مرة أخرى.",
+"cancel": "إلغاء",
+"confirm": "تأكيد",
 "login_success": "✅ تم تسجيل الدخول بنجاح!",
   "user_not_found": "❌ لم يتم العثور على مستخدم بهذا البريد الإلكتروني.",
   "wrong_password": "❌ كلمة المرور غير صحيحة.",

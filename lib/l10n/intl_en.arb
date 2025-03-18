@@ -50,6 +50,16 @@
 "blog": "Blog",
 "profile": "Profile",
   "logoutSuccess": "✅ Logged out successfully",
-  "signOut": "Sign Out"
+  "signOut": "Sign Out",
+
+  "deleteAccountConfirm": "Are you sure you want to delete your account? This action cannot be undone.",
+"accountDeleted": "Account has been deleted successfully.",
+"reloginToDelete": "You need to sign in again to delete your account.",
+"invalidCredentials": "The email or password is incorrect.",
+"somethingWentWrong": "Something went wrong. Please try again.",
+"cancel": "Cancel",
+"confirm": "Confirm",
+
+   "deleteAccount": "Delete Account"
 
 }

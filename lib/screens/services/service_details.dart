@@ -136,7 +136,7 @@ class ServiceDetails extends StatelessWidget {
                           AppConfig.token != null
                               ? Navigator.push(context, MaterialPageRoute(
                                   builder: (context) {
-                                    return ServiceForm();
+                                    return ServiceForm(service: serviceModel!.nameEn,);
                                   },
                                 ))
                               : dialog(context);
