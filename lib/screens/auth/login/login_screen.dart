@@ -131,9 +131,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                   email: emailController.text,
                                   password: passwordController.text,
                                   context: context);
-                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-                                    return const LayoutScreen();
-                                  },));
+                                  // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+                                  //   return const LayoutScreen();
+                                  // },)
+                                  // );
                             }
                           },
                         ),

@@ -126,36 +126,44 @@ class BlogScreen extends StatelessWidget {
             top: 110, 
             left: 27,
             right: 27,
-            child: Container(
-              height: 42,
-              decoration: BoxDecoration(
-                color: ColorManager.white,
-                borderRadius: BorderRadius.circular(8),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
-                    blurRadius: 5,
-                    offset: const Offset(0, 2),
-                  )
-                ],
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(10),
-                child: Row(
-                  children: [
-                    Image.asset('assets/images/search.png'),
-                    const SizedBox(width: 10),
-                     Text(
-                       S.of(context).search,
-                      style: TextStyle(
-                          color: Color(0xffE6E6E6),
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400),
-
-              )]),
-                   
-                  ),
+            child: InkWell(
+              onTap: () {
+                 Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => SearchPage()),
+                    );
+              },
+              child: Container(
+                height: 42,
+                decoration: BoxDecoration(
+                  color: ColorManager.white,
+                  borderRadius: BorderRadius.circular(8),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 5,
+                      offset: const Offset(0, 2),
+                    )
+                  ],
                 ),
+                child: Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Row(
+                    children: [
+                      Image.asset('assets/images/search.png'),
+                      const SizedBox(width: 10),
+                       Text(
+                         S.of(context).search,
+                        style: TextStyle(
+                            color: Color(0xffE6E6E6),
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400),
+              
+                )]),
+                     
+                    ),
+                  ),
+            ),
               ),
             ],
           ),

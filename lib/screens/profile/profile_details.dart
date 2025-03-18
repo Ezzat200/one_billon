@@ -5,7 +5,9 @@ import 'package:one_billon/generated/l10n.dart';
 import 'package:one_billon/screens/profile/profile_screen.dart';
 import 'package:one_billon/screens/widgets/custom_drawer.dart';
 import 'package:one_billon/screens/widgets/custom_profile.dart';
+import 'package:one_billon/screens/widgets/poup.dart';
 import 'package:one_billon/shared/color.dart';
+import 'package:shimmer/shimmer.dart';
 
 class ProfileDetails extends StatelessWidget {
   Future<Map<String, dynamic>> _getUserData() async {
@@ -30,8 +32,10 @@ class ProfileDetails extends StatelessWidget {
             return const Center(child: CircularProgressIndicator());
           }
 
-          if (snapshot.hasError || !snapshot.hasData || snapshot.data!.isEmpty) {
-            return const Center(child: Text("Failed to load data"));
+          if (snapshot.hasError ||
+              !snapshot.hasData ||
+              snapshot.data!.isEmpty) {
+            return const Center(child: DialogBody());
           }
 
           // البيانات المسترجعة من Firestore
@@ -46,7 +50,7 @@ class ProfileDetails extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  height: 140,
+                  height: 100,
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
                       colors: [Color(0xff007EDB), Color(0xff004375)],
@@ -56,7 +60,8 @@ class ProfileDetails extends StatelessWidget {
                   ),
                   child: SafeArea(
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 27, vertical: 10),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 27, vertical: 10),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -64,13 +69,14 @@ class ProfileDetails extends StatelessWidget {
                             onTap: () {
                               Navigator.pop(context);
                             },
-                            child: Image.asset('assets/images/logo.png', height: 33, width: 50),
+                            child: Image.asset('assets/images/logo.png',
+                                height: 33, width: 50),
                           ),
                           Row(
                             children: [
                               CustomDrawer(),
-                              const SizedBox(width: 10),
-                              Image.asset('assets/images/notification.png'),
+                              // const SizedBox(width: 10),
+                              // Image.asset('assets/images/notification.png'),
                             ],
                           ),
                         ],
@@ -82,11 +88,47 @@ class ProfileDetails extends StatelessWidget {
                 Center(
                   child: Column(
                     children: [
-                      CircleAvatar(
-                        radius: 60,
-                        backgroundImage: imageUrl.isNotEmpty
-                            ? NetworkImage(imageUrl)
-                            : const AssetImage('assets/images/profileimage.png') as ImageProvider,
+                      SizedBox(
+                        width: 120,
+                        height: 120,
+                        child: imageUrl.isNotEmpty
+                            ? ClipOval(
+                                child: Image.network(
+                                  imageUrl,
+                                  fit: BoxFit.cover,
+                                  width: 120,
+                                  height: 120,
+                                  loadingBuilder:
+                                      (context, child, loadingProgress) {
+                                    if (loadingProgress == null) return child;
+
+                                    return Shimmer.fromColors(
+                                      baseColor: Colors.grey.shade300,
+                                      highlightColor: Colors.grey.shade100,
+                                      child: Container(
+                                        width: 120,
+                                        height: 120,
+                                        decoration: const BoxDecoration(
+                                          color: Colors.white,
+                                          shape: BoxShape.circle,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                  errorBuilder: (context, error, stackTrace) {
+                                    return const CircleAvatar(
+                                      radius: 60,
+                                      backgroundImage: AssetImage(
+                                          'assets/images/profileimage.png'),
+                                    );
+                                  },
+                                ),
+                              )
+                            : const CircleAvatar(
+                                radius: 60,
+                                backgroundImage: AssetImage(
+                                    'assets/images/profileimage.png'),
+                              ),
                       ),
                       const SizedBox(height: 20),
                       Text(name,
@@ -112,7 +154,7 @@ class ProfileDetails extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                             Text( S.of(context).Edit_data,
+                            Text(S.of(context).Edit_data,
                                 style: TextStyle(
                                     color: Color(0xff959595),
                                     fontWeight: FontWeight.w400,
@@ -127,12 +169,13 @@ class ProfileDetails extends StatelessWidget {
                 ),
                 const SizedBox(height: 30),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 27, vertical: 20),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 27, vertical: 20),
                   child: Column(
                     children: [
                       CustomProfile(
                           imageprofile: 'assets/images/person.png',
-                          dataName:  S.of(context).username,
+                          dataName: S.of(context).username,
                           dataDesc: name),
                       const SizedBox(height: 22),
                       CustomProfile(

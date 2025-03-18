@@ -62,6 +62,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => OneBillonLoginCubit()),
       ],
       child: MaterialApp(
+        locale: const Locale('ar'), // اللغة الافتراضية
+ 
         debugShowCheckedModeBanner: false,
         localizationsDelegates: [
           S.delegate,
@@ -75,7 +77,7 @@ class MyApp extends StatelessWidget {
         useInheritedMediaQuery: true,
         initialRoute: '/',
         routes: {
-          '/': (context) => RegisterScreen(),
+          '/': (context) => LayoutScreen(),
 
 
         },

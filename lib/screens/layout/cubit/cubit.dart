@@ -20,6 +20,7 @@ class OneBillonCubit extends Cubit<OneBillonStates> {
 
   int currentIndex = 0;
 
+
   void openServiceDetails(BuildContext context, ServiceModel service) {
     Navigator.push(
       context,
@@ -30,14 +31,14 @@ class OneBillonCubit extends Cubit<OneBillonStates> {
     );
   }
 
-  String languageCode = 'en';
+  String languageCode = 'ar';
 
   List<Widget> screens = [
     Home(),
     ServicesScreen(),
     BlogScreen(),
 
-    ProfileScreen(),
+    // ProfileScreen(),
 
     ProfileDetails(),
 

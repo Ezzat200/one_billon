@@ -5,6 +5,7 @@ import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:one_billon/generated/l10n.dart';
 import 'package:one_billon/screens/widgets/custom_appbar.dart';
 import 'package:one_billon/screens/widgets/custom_drwer.dart';
 import 'package:one_billon/screens/layout/cubit/cubit.dart';
@@ -47,7 +48,7 @@ class LayoutScreen extends StatelessWidget {
                         : ColorManager
                             .navbarIconColor, // Set unselected icon color
                   ),
-                  label: "Home",
+                  label: S.of(context).home,
                 ),
                  CurvedNavigationBarItem(
                   labelStyle: TextStyle(
@@ -63,7 +64,7 @@ class LayoutScreen extends StatelessWidget {
                         : ColorManager
                             .navbarIconColor, // Set unselected icon color
                   ),
-                  label: "Services",
+                  label: S.of(context).services,
                 ),
                 CurvedNavigationBarItem(
                   labelStyle: TextStyle(
@@ -79,7 +80,7 @@ class LayoutScreen extends StatelessWidget {
                         : ColorManager
                             .navbarIconColor, // Set unselected icon color
                   ),
-                  label: "Blog",
+                  label: S.of(context).blog,
                 ),
                 CurvedNavigationBarItem(
                   labelStyle: TextStyle(
@@ -95,7 +96,7 @@ class LayoutScreen extends StatelessWidget {
                         : ColorManager
                             .navbarIconColor, // Set unselected icon color
                   ),
-                  label: "Profile",
+                  label: S.of(context).profile,
                 ),
                  
                
@@ -109,6 +110,8 @@ class LayoutScreen extends StatelessWidget {
               onTap: (index) => cubit.changeBottomNavBar(index),
               letIndexChange: (index) => true,
             ),
+        
+        
           );
         });
   }

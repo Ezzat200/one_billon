@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:one_billon/generated/l10n.dart';
 import 'package:one_billon/screens/auth/login/login_screen.dart';
 import 'package:one_billon/screens/blog/blog_screen.dart';
 import 'package:one_billon/screens/layout/cubit/cubit.dart';
@@ -69,7 +70,7 @@ class CustomDrawer extends StatelessWidget {
                             width: double.infinity,
                             child: Center(
                                 child: Text(
-                              'Home',
+                               S.of(context).home,
                               style: TextStyle(
                                   color: Color(0xffFFFFFF),
                                   fontWeight: FontWeight.w700,
@@ -89,7 +90,7 @@ class CustomDrawer extends StatelessWidget {
                             ));
                           },
                           child: Text(
-                            'Services',
+                             S.of(context).services,
                             style: TextStyle(
                                 color: Color(0xffFFFFFF),
                                 fontWeight: FontWeight.w700,
@@ -108,7 +109,7 @@ class CustomDrawer extends StatelessWidget {
                             ));
                           },
                           child: Text(
-                            'Blog',
+                            S.of(context).blog,
                             style: TextStyle(
                                 color: Color(0xffFFFFFF),
                                 fontWeight: FontWeight.w700,
@@ -139,8 +140,8 @@ class CustomDrawer extends StatelessWidget {
                                   final scaffoldMessenger =
                                       ScaffoldMessenger.of(context);
                                   scaffoldMessenger.showSnackBar(
-                                    const SnackBar(
-                                      content: Text('✅ تم تسجيل الخروج بنجاح'),
+                                     SnackBar(
+                                      content: Text( S.of(context).logoutSuccess),
                                       backgroundColor: Colors.green,
                                     ),
                                   );
@@ -153,7 +154,7 @@ class CustomDrawer extends StatelessWidget {
                                 await prefs.remove('token');
                               },
                               child: Text(
-                                'Sign Out',
+                               S.of(context).signOut,
                                 style: TextStyle(
                                     color: Color(0xffFF8D00),
                                     fontWeight: FontWeight.w700,
@@ -168,7 +169,7 @@ class CustomDrawer extends StatelessWidget {
                                 }));
                               },
                               child: Text(
-                                'Login',
+                                S.of(context).login,
                                 style: TextStyle(
                                     color: Color(0xffFF8D00),
                                     fontWeight: FontWeight.w700,

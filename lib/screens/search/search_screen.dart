@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:one_billon/generated/l10n.dart';
 import 'package:one_billon/models/service_model.dart';
 import 'package:one_billon/screens/layout/cubit/cubit.dart';
 import 'package:one_billon/screens/layout/cubit/states.dart';
@@ -47,7 +48,7 @@ class _SearchPageState extends State<SearchPage> {
               onTap: () => Navigator.pop(context),
               child: Icon(Icons.arrow_back, color: ColorManager.navbarIconColor),
             ),
-            title: Text("Search", style: TextStyle(color: ColorManager.navbarIconColor)),
+            title: Text(S.of(context).search, style: TextStyle(color: ColorManager.navbarIconColor)),
             backgroundColor: const Color(0xFF007EDB),
           ),
           body: Padding(
@@ -58,7 +59,7 @@ class _SearchPageState extends State<SearchPage> {
                 TextField(
                   controller: _searchController,
                   decoration: InputDecoration(
-                    hintText: 'Search...',
+                    hintText: S.of(context).search,
                     prefixIcon: Icon(Icons.search),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),

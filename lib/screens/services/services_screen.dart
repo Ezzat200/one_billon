@@ -37,10 +37,11 @@ class ServicesScreen extends StatelessWidget {
       'Advertising Campaigns'
     ];
 
-    var cubit = OneBillonCubit.get(context);
+  
 
     return BlocConsumer<OneBillonCubit, OneBillonStates>(
       builder: (context, state) {
+          var cubit = OneBillonCubit.get(context);
         return Scaffold(
           body: Stack(
             children: [
@@ -64,7 +65,7 @@ class ServicesScreen extends StatelessWidget {
                       const SizedBox(height: 20),
                       Expanded(
                         child: GridView.builder(
-                          itemCount: images.length,
+                          itemCount: cubit.services?.length,
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
@@ -79,7 +80,7 @@ class ServicesScreen extends StatelessWidget {
                                     context, cubit.services![index]);
                               },
                               child: CustomCard(
-                                title: titles[index],
+                                title: cubit.languageCode == "ar" ? cubit.services![index].nameAr : cubit.services![index].nameEn ,
                                 imagePath: images[index],
                               ),
                             );
@@ -160,8 +161,8 @@ class ServicesScreen extends StatelessWidget {
                         children: [
                           Image.asset('assets/images/search.png'),
                           const SizedBox(width: 10),
-                          const Text(
-                            "Search...",
+                           Text(
+                            S.of(context).search,
                             style: TextStyle(
                                 color: Color(0xffE6E6E6),
                                 fontSize: 14,

@@ -42,6 +42,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "The data has been successfully updated!"),
         "already_have_account":
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
+        "blog": MessageLookupByLibrary.simpleMessage("Blog"),
         "blogs": MessageLookupByLibrary.simpleMessage("Blogs"),
         "confirm_password":
             MessageLookupByLibrary.simpleMessage("Confirm Password"),
@@ -49,12 +50,23 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Create an account."),
         "create_account":
             MessageLookupByLibrary.simpleMessage("Create New Account"),
+        "default_error": MessageLookupByLibrary.simpleMessage(
+            "❌ Incorrect email or password. Please try again."),
         "dontHaveAccount":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "home": MessageLookupByLibrary.simpleMessage("Home"),
         "introduction": MessageLookupByLibrary.simpleMessage("Subject"),
+        "invalid_email": MessageLookupByLibrary.simpleMessage(
+            "❌ Email address is not valid."),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "login_success":
+            MessageLookupByLibrary.simpleMessage("✅ Logged in successfully!"),
+        "logoutSuccess":
+            MessageLookupByLibrary.simpleMessage("✅ Logged out successfully"),
         "moreDetails": MessageLookupByLibrary.simpleMessage("More Details"),
+        "network_request_failed":
+            MessageLookupByLibrary.simpleMessage("❌ No internet connection."),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "password_min_length": MessageLookupByLibrary.simpleMessage(
             "Password must be at least 6 characters"),
@@ -75,13 +87,25 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Please enter a valid email"),
         "please_login_first":
             MessageLookupByLibrary.simpleMessage("Please Login First"),
+        "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "rememberMe": MessageLookupByLibrary.simpleMessage("Remember Me"),
         "save_data": MessageLookupByLibrary.simpleMessage("Save Data"),
         "search": MessageLookupByLibrary.simpleMessage("Search..."),
         "services": MessageLookupByLibrary.simpleMessage("Services"),
+        "signOut": MessageLookupByLibrary.simpleMessage("Sign Out"),
+        "too_many_requests": MessageLookupByLibrary.simpleMessage(
+            "❌ Too many attempts. Try again later."),
+        "unexpected_error": MessageLookupByLibrary.simpleMessage(
+            "❌ An unexpected error occurred."),
+        "user_disabled": MessageLookupByLibrary.simpleMessage(
+            "❌ This user account has been disabled."),
+        "user_not_found": MessageLookupByLibrary.simpleMessage(
+            "❌ No user found for that email."),
         "username": MessageLookupByLibrary.simpleMessage("Username"),
         "viewAll": MessageLookupByLibrary.simpleMessage("View All"),
-        "welcome": MessageLookupByLibrary.simpleMessage("Welcome")
+        "welcome": MessageLookupByLibrary.simpleMessage("Welcome"),
+        "wrong_password":
+            MessageLookupByLibrary.simpleMessage("❌ Wrong password provided.")
       };
 }

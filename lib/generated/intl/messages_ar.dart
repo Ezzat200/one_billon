@@ -39,18 +39,30 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تم تحديث البيانات بنجاح!"),
         "already_have_account":
             MessageLookupByLibrary.simpleMessage("هل لديك حساب بالفعل؟"),
+        "blog": MessageLookupByLibrary.simpleMessage("المدونة"),
         "blogs": MessageLookupByLibrary.simpleMessage("المدونات"),
         "confirm_password":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
         "createAccount": MessageLookupByLibrary.simpleMessage("إنشاء حساب."),
         "create_account":
             MessageLookupByLibrary.simpleMessage("إنشاء حساب جديد"),
+        "default_error": MessageLookupByLibrary.simpleMessage(
+            "❌ البريد الإلكتروني أو كلمة المرور غير صحيحة. حاول مرة أخرى."),
         "dontHaveAccount":
             MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+        "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "introduction": MessageLookupByLibrary.simpleMessage("الموضوع"),
+        "invalid_email": MessageLookupByLibrary.simpleMessage(
+            "❌ عنوان البريد الإلكتروني غير صالح."),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+        "login_success":
+            MessageLookupByLibrary.simpleMessage("✅ تم تسجيل الدخول بنجاح!"),
+        "logoutSuccess":
+            MessageLookupByLibrary.simpleMessage("✅ تم تسجيل الخروج بنجاح"),
         "moreDetails": MessageLookupByLibrary.simpleMessage("مزيد من التفاصيل"),
+        "network_request_failed":
+            MessageLookupByLibrary.simpleMessage("❌ لا يوجد اتصال بالإنترنت."),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "password_min_length": MessageLookupByLibrary.simpleMessage(
             "يجب أن تكون كلمة المرور 6 أحرف على الأقل"),
@@ -71,13 +83,25 @@ class MessageLookup extends MessageLookupByLibrary {
             "من فضلك أدخل بريد إلكتروني صالح"),
         "please_login_first":
             MessageLookupByLibrary.simpleMessage("من فضلك سجل دخول اولا"),
+        "profile": MessageLookupByLibrary.simpleMessage("الشخصيه"),
         "register": MessageLookupByLibrary.simpleMessage("إنشاء الحساب"),
         "rememberMe": MessageLookupByLibrary.simpleMessage("تذكرني"),
         "save_data": MessageLookupByLibrary.simpleMessage("حفظ البيانات"),
         "search": MessageLookupByLibrary.simpleMessage("ابحث..."),
         "services": MessageLookupByLibrary.simpleMessage("الخدمات"),
+        "signOut": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+        "too_many_requests": MessageLookupByLibrary.simpleMessage(
+            "❌ محاولات كثيرة جدًا. يرجى المحاولة لاحقًا."),
+        "unexpected_error":
+            MessageLookupByLibrary.simpleMessage("❌ حدث خطأ غير متوقع."),
+        "user_disabled": MessageLookupByLibrary.simpleMessage(
+            "❌ تم تعطيل حساب هذا المستخدم."),
+        "user_not_found": MessageLookupByLibrary.simpleMessage(
+            "❌ لم يتم العثور على مستخدم بهذا البريد الإلكتروني."),
         "username": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
         "viewAll": MessageLookupByLibrary.simpleMessage("عرض الكل"),
-        "welcome": MessageLookupByLibrary.simpleMessage("مرحبًا بك")
+        "welcome": MessageLookupByLibrary.simpleMessage("مرحبًا بك"),
+        "wrong_password":
+            MessageLookupByLibrary.simpleMessage("❌ كلمة المرور غير صحيحة.")
       };
 }

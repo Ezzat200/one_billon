@@ -35,4 +35,21 @@
   "save_data":"Save Data",
   "Edit_data":"Edit Data",
   "Please_log_in_first_to_access_our_exclusive_services":"Please log in first to access our exclusive services"
+,
+"login_success": "✅ Logged in successfully!",
+"user_not_found": "❌ No user found for that email.",
+"wrong_password": "❌ Wrong password provided.",
+"invalid_email": "❌ Email address is not valid.",
+"user_disabled": "❌ This user account has been disabled.",
+"too_many_requests": "❌ Too many attempts. Try again later.",
+"network_request_failed": "❌ No internet connection.",
+"default_error": "❌ Incorrect email or password. Please try again.",
+"unexpected_error": "❌ An unexpected error occurred.",
+
+"home": "Home",
+"blog": "Blog",
+"profile": "Profile",
+  "logoutSuccess": "✅ Logged out successfully",
+  "signOut": "Sign Out"
+
 }

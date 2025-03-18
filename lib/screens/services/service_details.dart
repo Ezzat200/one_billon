@@ -132,12 +132,16 @@ class ServiceDetails extends StatelessWidget {
                       CustomButton(
                         text:  S.of(context).Get_the_services ,
                         onTap: () {
-                          dialog(context);
-                          // Navigator.push(context, MaterialPageRoute(
-                          //   builder: (context) {
-                          //     return ServiceForm();
-                          //   },
-                          // ));
+                          
+                          AppConfig.token != null
+                              ? Navigator.push(context, MaterialPageRoute(
+                                  builder: (context) {
+                                    return ServiceForm();
+                                  },
+                                ))
+                              : dialog(context);
+
+                          
                         },
                       ),
                       SizedBox(
