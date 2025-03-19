@@ -282,24 +282,24 @@ class Home extends StatelessWidget {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    S.of(context).blogs,
+                                    S.of(context).enjoy,
                                     style: TextStyle(
                                         color: Color(0xff414141),
                                         fontSize: 16,
                                         fontWeight: FontWeight.w500),
                                   ),
-                                  InkWell(
-                                    onTap: () {
-                                      cubit.changeBottomNavBar(2);
-                                    },
-                                    child: Text(
-                                      S.of(context).viewAll,
-                                      style: TextStyle(
-                                          color: Color(0xff959595),
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w400),
-                                    ),
-                                  ),
+                                  // InkWell(
+                                  //   onTap: () {
+                                  //     cubit.changeBottomNavBar(2);
+                                  //   },
+                                  //   child: Text(
+                                  //     S.of(context).viewAll,
+                                  //     style: TextStyle(
+                                  //         color: Color(0xff959595),
+                                  //         fontSize: 14,
+                                  //         fontWeight: FontWeight.w400),
+                                  //   ),
+                                  // ),
                                 ],
                               ),
                               

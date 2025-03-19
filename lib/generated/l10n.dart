@@ -630,6 +630,16 @@ class S {
     );
   }
 
+  /// `Enjoy`
+  String get enjoy {
+    return Intl.message(
+      'Enjoy',
+      name: 'enjoy',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Delete Account`
   String get deleteAccount {
     return Intl.message(
