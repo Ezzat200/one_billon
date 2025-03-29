@@ -59,13 +59,16 @@ class LayoutScreen extends StatelessWidget {
                             .navbarIconColor, // Set unselected label color
                   ),
                   child: Image.asset(
-                    'assets/images/services.png',
+                    'assets/images/sections.png',
                     color: cubit.currentIndex == 1
                         ? ColorManager.white
                         : ColorManager
                             .navbarIconColor, // Set unselected icon color
                   ),
+
                   label:S.of(context).Sections,
+
+                 
                 ),
                  CurvedNavigationBarItem(
                   labelStyle: TextStyle(
@@ -81,7 +84,6 @@ class LayoutScreen extends StatelessWidget {
                         : ColorManager
                             .navbarIconColor, // Set unselected icon color
                   ),
-                
 
                   label: S.of(context).services,
 

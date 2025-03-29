@@ -40,6 +40,7 @@ class OneBillonCubit extends Cubit<OneBillonStates> {
   List<Widget> screens = [
     Home(),
     SectionsScreen(),
+    SectionsScreen(),
     ServicesScreen(),
     
     BlogScreen(),

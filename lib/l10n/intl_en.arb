@@ -34,6 +34,10 @@
   "The_data_has_been_successfully_updated":"The data has been successfully updated!",
   "save_data":"Save Data",
   "Edit_data":"Edit Data",
+
+  "Please_log_in_first_to_access_our_exclusive_services":"Please log in first to access our exclusive services",
+  "Sections":"Sections"
+
   "Please_log_in_first_to_access_our_exclusive_services":"Please log in first to access our exclusive services"
 ,
 "login_success": "✅ Logged in successfully!",
