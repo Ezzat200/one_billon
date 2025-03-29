@@ -1,4 +1,3 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'intl/messages_all.dart';
@@ -18,17 +17,20 @@ class S {
   static S? _current;
 
   static S get current {
-    assert(_current != null,
-        'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.');
+    assert(
+      _current != null,
+      'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.',
+    );
     return _current!;
   }
 
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
   static Future<S> load(Locale locale) {
-    final name = (locale.countryCode?.isEmpty ?? false)
-        ? locale.languageCode
-        : locale.toString();
+    final name =
+        (locale.countryCode?.isEmpty ?? false)
+            ? locale.languageCode
+            : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
@@ -41,8 +43,10 @@ class S {
 
   static S of(BuildContext context) {
     final instance = S.maybeOf(context);
-    assert(instance != null,
-        'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?');
+    assert(
+      instance != null,
+      'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?',
+    );
     return instance!;
   }
 
@@ -52,12 +56,7 @@ class S {
 
   /// `Welcome`
   String get welcome {
-    return Intl.message(
-      'Welcome',
-      name: 'welcome',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Welcome', name: 'welcome', desc: '', args: []);
   }
 
   /// `Create New Account`
@@ -72,42 +71,22 @@ class S {
 
   /// `Username`
   String get username {
-    return Intl.message(
-      'Username',
-      name: 'username',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Username', name: 'username', desc: '', args: []);
   }
 
   /// `Email`
   String get email {
-    return Intl.message(
-      'Email',
-      name: 'email',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Email', name: 'email', desc: '', args: []);
   }
 
   /// `Phone Number`
   String get phone {
-    return Intl.message(
-      'Phone Number',
-      name: 'phone',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Phone Number', name: 'phone', desc: '', args: []);
   }
 
   /// `Password`
   String get password {
-    return Intl.message(
-      'Password',
-      name: 'password',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Password', name: 'password', desc: '', args: []);
   }
 
   /// `Confirm Password`
@@ -122,22 +101,12 @@ class S {
 
   /// `Register`
   String get register {
-    return Intl.message(
-      'Register',
-      name: 'register',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Register', name: 'register', desc: '', args: []);
   }
 
   /// `Remember Me`
   String get rememberMe {
-    return Intl.message(
-      'Remember Me',
-      name: 'rememberMe',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Remember Me', name: 'rememberMe', desc: '', args: []);
   }
 
   /// `Already have an account?`
@@ -152,12 +121,7 @@ class S {
 
   /// `Login`
   String get login {
-    return Intl.message(
-      'Login',
-      name: 'login',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Login', name: 'login', desc: '', args: []);
   }
 
   /// `More Details`
@@ -172,42 +136,22 @@ class S {
 
   /// `View All`
   String get viewAll {
-    return Intl.message(
-      'View All',
-      name: 'viewAll',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('View All', name: 'viewAll', desc: '', args: []);
   }
 
   /// `Blogs`
   String get blogs {
-    return Intl.message(
-      'Blogs',
-      name: 'blogs',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Blogs', name: 'blogs', desc: '', args: []);
   }
 
   /// `Services`
   String get services {
-    return Intl.message(
-      'Services',
-      name: 'services',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Services', name: 'services', desc: '', args: []);
   }
 
   /// `Search...`
   String get search {
-    return Intl.message(
-      'Search...',
-      name: 'search',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Search...', name: 'search', desc: '', args: []);
   }
 
   /// `Please Login First`
@@ -222,12 +166,7 @@ class S {
 
   /// `Subject`
   String get introduction {
-    return Intl.message(
-      'Subject',
-      name: 'introduction',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Subject', name: 'introduction', desc: '', args: []);
   }
 
   /// `Don't have an account?`
@@ -352,12 +291,7 @@ class S {
 
   /// `Submit Data`
   String get Submit_Data {
-    return Intl.message(
-      'Submit Data',
-      name: 'Submit_Data',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Submit Data', name: 'Submit_Data', desc: '', args: []);
   }
 
   /// `The data has been successfully submitted`
@@ -392,22 +326,12 @@ class S {
 
   /// `Save Data`
   String get save_data {
-    return Intl.message(
-      'Save Data',
-      name: 'save_data',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Save Data', name: 'save_data', desc: '', args: []);
   }
 
   /// `Edit Data`
   String get Edit_data {
-    return Intl.message(
-      'Edit Data',
-      name: 'Edit_data',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Edit Data', name: 'Edit_data', desc: '', args: []);
   }
 
   /// `Please log in first to access our exclusive services`
@@ -415,241 +339,6 @@ class S {
     return Intl.message(
       'Please log in first to access our exclusive services',
       name: 'Please_log_in_first_to_access_our_exclusive_services',
-      desc: '',
-      args: [],
-    );
-  }
-
-
-  /// `Sections`
-  String get Sections {
-    return Intl.message('Sections', name: 'Sections', desc: '', args: []);
-
-  /// `✅ Logged in successfully!`
-  String get login_success {
-    return Intl.message(
-      '✅ Logged in successfully!',
-      name: 'login_success',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `❌ No user found for that email.`
-  String get user_not_found {
-    return Intl.message(
-      '❌ No user found for that email.',
-      name: 'user_not_found',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `❌ Wrong password provided.`
-  String get wrong_password {
-    return Intl.message(
-      '❌ Wrong password provided.',
-      name: 'wrong_password',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `❌ Email address is not valid.`
-  String get invalid_email {
-    return Intl.message(
-      '❌ Email address is not valid.',
-      name: 'invalid_email',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `❌ This user account has been disabled.`
-  String get user_disabled {
-    return Intl.message(
-      '❌ This user account has been disabled.',
-      name: 'user_disabled',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `❌ Too many attempts. Try again later.`
-  String get too_many_requests {
-    return Intl.message(
-      '❌ Too many attempts. Try again later.',
-      name: 'too_many_requests',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `❌ No internet connection.`
-  String get network_request_failed {
-    return Intl.message(
-      '❌ No internet connection.',
-      name: 'network_request_failed',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `❌ Incorrect email or password. Please try again.`
-  String get default_error {
-    return Intl.message(
-      '❌ Incorrect email or password. Please try again.',
-      name: 'default_error',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `❌ An unexpected error occurred.`
-  String get unexpected_error {
-    return Intl.message(
-      '❌ An unexpected error occurred.',
-      name: 'unexpected_error',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Home`
-  String get home {
-    return Intl.message(
-      'Home',
-      name: 'home',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Blog`
-  String get blog {
-    return Intl.message(
-      'Blog',
-      name: 'blog',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Profile`
-  String get profile {
-    return Intl.message(
-      'Profile',
-      name: 'profile',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `✅ Logged out successfully`
-  String get logoutSuccess {
-    return Intl.message(
-      '✅ Logged out successfully',
-      name: 'logoutSuccess',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Sign Out`
-  String get signOut {
-    return Intl.message(
-      'Sign Out',
-      name: 'signOut',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Are you sure you want to delete your account? This action cannot be undone.`
-  String get deleteAccountConfirm {
-    return Intl.message(
-      'Are you sure you want to delete your account? This action cannot be undone.',
-      name: 'deleteAccountConfirm',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Account has been deleted successfully.`
-  String get accountDeleted {
-    return Intl.message(
-      'Account has been deleted successfully.',
-      name: 'accountDeleted',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `You need to sign in again to delete your account.`
-  String get reloginToDelete {
-    return Intl.message(
-      'You need to sign in again to delete your account.',
-      name: 'reloginToDelete',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `The email or password is incorrect.`
-  String get invalidCredentials {
-    return Intl.message(
-      'The email or password is incorrect.',
-      name: 'invalidCredentials',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Something went wrong. Please try again.`
-  String get somethingWentWrong {
-    return Intl.message(
-      'Something went wrong. Please try again.',
-      name: 'somethingWentWrong',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Cancel`
-  String get cancel {
-    return Intl.message(
-      'Cancel',
-      name: 'cancel',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Confirm`
-  String get confirm {
-    return Intl.message(
-      'Confirm',
-      name: 'confirm',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Enjoy`
-  String get enjoy {
-    return Intl.message(
-      'Enjoy',
-      name: 'enjoy',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Delete Account`
-  String get deleteAccount {
-    return Intl.message(
-      'Delete Account',
-      name: 'deleteAccount',
       desc: '',
       args: [],
     );
