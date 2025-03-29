@@ -9,6 +9,7 @@ import 'package:one_billon/screens/blog/blog_screen.dart';
 import 'package:one_billon/screens/layout/cubit/cubit.dart';
 import 'package:one_billon/screens/layout/cubit/states.dart';
 import 'package:one_billon/screens/profile/profile_screen.dart';
+import 'package:one_billon/screens/sections/sections_screen.dart';
 import 'package:one_billon/screens/services/services_screen.dart';
 import 'package:one_billon/shared/helper/helper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -51,6 +52,58 @@ class CustomDrawer extends StatelessWidget {
                               child: Image.asset('assets/images/close.png'))
                         ],
                       ),
+
+                      width: double.infinity,
+                      child: Center(child: Text('Home',style: TextStyle(color: Color(0xffFFFFFF),fontWeight: FontWeight.w700,fontSize: 20),))),
+                   ),
+                  
+                SizedBox(height: 35,),
+                 GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) {
+                        return SectionsScreen();
+                      },));
+                    },
+                    child: Text('Sections',style: TextStyle(color: Color(0xffFFFFFF),fontWeight: FontWeight.w700,fontSize: 20),)),
+                SizedBox(height: 35,),
+                   GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) {
+                        return ServicesScreen();
+                      },));
+                    },
+                    child: Text('Services',style: TextStyle(color: Color(0xffFFFFFF),fontWeight: FontWeight.w700,fontSize: 20),)),
+                SizedBox(height: 35,),
+    
+                 GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) {
+                        return BlogScreen();
+                      },));
+                    },
+                    child: Text('Blog',style: TextStyle(color: Color(0xffFFFFFF),fontWeight: FontWeight.w700,fontSize: 20),)),
+                SizedBox(height: 35,),
+    
+                   
+    
+    
+              GestureDetector(
+                    // onTap: () {
+                    //   Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    //     return ProfileScreen();
+                    //   },));
+                    // },
+                    child: Text('Services',style: TextStyle(color: Color(0xffFFFFFF),fontWeight: FontWeight.w700,fontSize: 20),)),
+                SizedBox(height: 35,),
+    
+                   Text('Sign Out',style: TextStyle(color: Color(0xffFF8D00),fontWeight: FontWeight.w700,fontSize: 20),),
+    
+                
+              ],
+            ),
+          ),
+        );
+
                       SizedBox(
                         height: 20,
                       ),
@@ -181,6 +234,7 @@ class CustomDrawer extends StatelessWidget {
               );
             },
             child: SvgPicture.asset('assets/images/Group 44 (1).svg'));
+
       },
       listener: (context, state) {},
     );

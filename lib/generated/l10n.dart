@@ -420,6 +420,11 @@ class S {
     );
   }
 
+
+  /// `Sections`
+  String get Sections {
+    return Intl.message('Sections', name: 'Sections', desc: '', args: []);
+
   /// `✅ Logged in successfully!`
   String get login_success {
     return Intl.message(

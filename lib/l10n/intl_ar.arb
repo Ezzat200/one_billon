@@ -39,7 +39,8 @@
   "The_data_has_been_successfully_updated":"تم تحديث البيانات بنجاح!",
   "save_data":"حفظ البيانات",
   "Edit_data":"تعديل البيانات",
-  "Please_log_in_first_to_access_our_exclusive_services":"قم بتسجيل الدخول عندنا اولا لتحصل على الخدمات الخاصة بينا"
+  "Please_log_in_first_to_access_our_exclusive_services":"قم بتسجيل الدخول عندنا اولا لتحصل على الخدمات الخاصة بينا",
+  "Sections":"الاقسام"
 
 ,
 "deleteAccountConfirm": "هل أنت متأكد أنك تريد حذف الحساب؟ لا يمكن التراجع.",
