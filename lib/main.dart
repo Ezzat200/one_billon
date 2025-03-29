@@ -14,11 +14,19 @@ import 'package:one_billon/screens/auth/regetser/regester_screen.dart';
 import 'package:one_billon/screens/layout/cubit/cubit.dart';
 import 'package:one_billon/screens/layout/layout.dart';
 import 'package:one_billon/screens/services/service_form.dart';
+import 'package:one_billon/shared/helper/helper.dart';
 import 'package:one_billon/shared/network/firebase_message.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 Future<void> subscribeToTopic() async {
   await FirebaseMessaging.instance.subscribeToTopic('all_users');
   log('Subscribed to all_users topic');
+}
+
+Future<void> loadToken() async {
+  final prefs = await SharedPreferences.getInstance();
+  AppConfig.token = prefs.getString('token');
+  
 }
 
 void main() async {
@@ -26,6 +34,8 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  await loadToken(); // Load user token
 
   runApp(
     DevicePreview(
@@ -52,6 +62,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => OneBillonLoginCubit()),
       ],
       child: MaterialApp(
+        locale: const Locale('ar'), // اللغة الافتراضية
+ 
         debugShowCheckedModeBanner: false,
         localizationsDelegates: [
           S.delegate,
@@ -65,7 +77,7 @@ class MyApp extends StatelessWidget {
         useInheritedMediaQuery: true,
         initialRoute: '/',
         routes: {
-          '/': (context) => RegisterScreen(),
+          '/': (context) => LayoutScreen(),
 
 
         },

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:one_billon/generated/l10n.dart';
 import 'package:one_billon/screens/layout/cubit/cubit.dart';
 import 'package:one_billon/screens/layout/cubit/states.dart';
+import 'package:one_billon/screens/search/search_screen.dart';
 import 'package:one_billon/screens/widgets/custom_card.dart';
 import 'package:one_billon/screens/widgets/custom_drawer.dart';
 import 'package:one_billon/shared/color.dart';
@@ -36,10 +37,11 @@ class ServicesScreen extends StatelessWidget {
       'Advertising Campaigns'
     ];
 
-    var cubit = OneBillonCubit.get(context);
+  
 
     return BlocConsumer<OneBillonCubit, OneBillonStates>(
       builder: (context, state) {
+          var cubit = OneBillonCubit.get(context);
         return Scaffold(
           body: Stack(
             children: [
@@ -63,7 +65,7 @@ class ServicesScreen extends StatelessWidget {
                       const SizedBox(height: 20),
                       Expanded(
                         child: GridView.builder(
-                          itemCount: images.length,
+                          itemCount: cubit.services?.length,
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
@@ -78,7 +80,7 @@ class ServicesScreen extends StatelessWidget {
                                     context, cubit.services![index]);
                               },
                               child: CustomCard(
-                                title: titles[index],
+                                title: cubit.languageCode == "ar" ? cubit.services![index].nameAr : cubit.services![index].nameEn ,
                                 imagePath: images[index],
                               ),
                             );
@@ -105,6 +107,9 @@ class ServicesScreen extends StatelessWidget {
                         horizontal: 27, vertical: 10),
                     child: Column(
                       children: [
+                        SizedBox(
+                          height: 5,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -112,9 +117,15 @@ class ServicesScreen extends StatelessWidget {
                                 height: 33, width: 50),
                             Row(
                               children: [
+
                                CustomDrawer(),
                                 const SizedBox(width: 10),
                                 Image.asset('assets/images/notification.png'),
+
+                                CustomDrawer()
+                                // const SizedBox(width: 10),
+                                // Image.asset('assets/images/notification.png'),
+
                               ],
                             ),
                           ],
@@ -130,33 +141,41 @@ class ServicesScreen extends StatelessWidget {
                 top: 110, // نصفه داخل الـ AppBar والنصف الآخر في الصفحة
                 left: 27,
                 right: 27,
-                child: Container(
-                  height: 42,
-                  decoration: BoxDecoration(
-                    color: ColorManager.white,
-                    borderRadius: BorderRadius.circular(8),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
-                        blurRadius: 5,
-                        offset: const Offset(0, 2),
-                      )
-                    ],
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Row(
-                      children: [
-                        Image.asset('assets/images/search.png'),
-                        const SizedBox(width: 10),
-                         Text(
-                            S.of(context).search,
-                          style: TextStyle(
-                              color: Color(0xffE6E6E6),
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400),
-                        ),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => SearchPage()),
+                    );
+                  },
+                  child: Container(
+                    height: 42,
+                    decoration: BoxDecoration(
+                      color: ColorManager.white,
+                      borderRadius: BorderRadius.circular(8),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.1),
+                          blurRadius: 5,
+                          offset: const Offset(0, 2),
+                        )
                       ],
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Row(
+                        children: [
+                          Image.asset('assets/images/search.png'),
+                          const SizedBox(width: 10),
+                           Text(
+                            S.of(context).search,
+                            style: TextStyle(
+                                color: Color(0xffE6E6E6),
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),

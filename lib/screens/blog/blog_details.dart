@@ -9,13 +9,14 @@ import 'package:one_billon/screens/layout/cubit/states.dart';
 import 'package:one_billon/screens/widgets/custom_content_text_blog.dart';
 import 'package:one_billon/screens/widgets/custom_drawer.dart';
 import 'package:one_billon/screens/widgets/custom_introduction_text_blog.dart';
-import 'package:one_billon/screens/widgets/custom_text.dart';
 import 'package:one_billon/shared/color.dart';
 import 'package:shimmer/shimmer.dart';
 
 class BlogDetails extends StatelessWidget {
   const BlogDetails({super.key, this.blogModel});
   final BlogModel? blogModel;
+
+  
   @override
   Widget build(BuildContext context) {
     final cubit = OneBillonCubit.get(context);
@@ -125,7 +126,7 @@ class BlogDetails extends StatelessWidget {
                     )),
 
                 Container(
-                  height: 140,
+                  height: 100,
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
                       colors: [Color(0xff007EDB), Color(0xff004375)],
@@ -139,6 +140,7 @@ class BlogDetails extends StatelessWidget {
                           horizontal: 27, vertical: 10),
                       child: Column(
                         children: [
+                          SizedBox(height: 5,),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -147,19 +149,22 @@ class BlogDetails extends StatelessWidget {
                                   onTap: () {
                                     Navigator.pop(context);
                                   },
-                                  child: Image.asset('assets/images/arrow.png',
-                                      height: 33, width: 50)),
-                              Row(
-                                children: [
-                                  Image.asset('assets/images/drwer.png'),
-                                  const SizedBox(width: 10),
-                                  Image.asset('assets/images/notification.png'),
-                                ],
-                              ),
+                                  child: cubit.languageCode == 'en'
+                                  ? SvgPicture.asset(
+                                      'assets/images/Group 45.svg')
+                                  : SvgPicture.asset(
+                                      'assets/images/Group 45 (1).svg'),),
+                              // Row(
+                              //   children: [
+                              //     Image.asset('assets/images/drwer.png'),
+                              //     const SizedBox(width: 10),
+                              //     Image.asset('assets/images/notification.png'),
+                              //   ],
+                              // ),
 
                                CustomDrawer(),
-                              const SizedBox(width: 10),
-                              Image.asset('assets/images/notification.png'),
+                              // const SizedBox(width: 10),
+                              // Image.asset('assets/images/notification.png'),
 
                             ],
                           ),

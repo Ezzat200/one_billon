@@ -1,24 +1,28 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:one_billon/generated/l10n.dart';
 import 'package:one_billon/models/service_model.dart';
 import 'package:one_billon/screens/layout/cubit/cubit.dart';
 import 'package:one_billon/screens/layout/cubit/states.dart';
 import 'package:one_billon/screens/services/service_form.dart';
 import 'package:one_billon/screens/widgets/custom_button.dart';
-
+import 'package:one_billon/screens/widgets/custom_drawer.dart';
 import 'package:one_billon/screens/widgets/custom_text.dart';
 import 'package:one_billon/screens/widgets/poup.dart';
 import 'package:one_billon/shared/color.dart';
+import 'package:one_billon/shared/helper/helper.dart';
+import 'package:shimmer/shimmer.dart';
 
 class ServiceDetails extends StatelessWidget {
   const ServiceDetails({super.key, this.serviceModel});
   final ServiceModel? serviceModel;
   @override
   Widget build(BuildContext context) {
-    final cubit = OneBillonCubit.get(context);
     return BlocConsumer<OneBillonCubit, OneBillonStates>(
       builder: (context, state) {
+        final cubit = OneBillonCubit.get(context);
         return Scaffold(
             body: SingleChildScrollView(
           child: Stack(
@@ -43,16 +47,28 @@ class ServiceDetails extends StatelessWidget {
                               horizontal: 25, vertical: 25),
                           child: Column(
                             children: [
-                              Image.network(
-                                serviceModel!.img,
+                              CachedNetworkImage(
+                                imageUrl: serviceModel!.img,
                                 height: 40,
                                 fit: BoxFit.contain,
+                                placeholder: (context, url) =>
+                                    Shimmer.fromColors(
+                                  baseColor: Colors.grey[300]!,
+                                  highlightColor: Colors.grey[100]!,
+                                  child: Container(
+                                    height: 40,
+                                    width: 40,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                errorWidget: (context, url, error) =>
+                                    Icon(Icons.error),
                               ),
                               SizedBox(height: 20),
                               Text(
                                 cubit.languageCode == 'en'
-                                    ? serviceModel!.nameAr
-                                    : serviceModel!.nameEn,
+                                    ? serviceModel!.nameEn
+                                    : serviceModel!.nameAr,
                                 style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w400,
@@ -116,12 +132,16 @@ class ServiceDetails extends StatelessWidget {
                       CustomButton(
                         text:  S.of(context).Get_the_services ,
                         onTap: () {
-                          dialog(context);
-                          // Navigator.push(context, MaterialPageRoute(
-                          //   builder: (context) {
-                          //     return ServiceForm();
-                          //   },
-                          // ));
+                          
+                          AppConfig.token != null
+                              ? Navigator.push(context, MaterialPageRoute(
+                                  builder: (context) {
+                                    return ServiceForm(service: serviceModel!.nameEn,);
+                                  },
+                                ))
+                              : dialog(context);
+
+                          
                         },
                       ),
                       SizedBox(
@@ -131,7 +151,7 @@ class ServiceDetails extends StatelessWidget {
                   )),
 
               Container(
-                height: 140,
+                height: 100,
                 decoration: const BoxDecoration(
                   gradient: LinearGradient(
                     colors: [Color(0xff007EDB), Color(0xff004375)],
@@ -145,20 +165,29 @@ class ServiceDetails extends StatelessWidget {
                         horizontal: 27, vertical: 10),
                     child: Column(
                       children: [
+                        SizedBox(
+                          height: 10,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             GestureDetector(
-                                onTap: () {
-                                  Navigator.pop(context);
-                                },
-                                child: Image.asset('assets/images/arrow.png',
-                                    height: 33, width: 50)),
+                              onTap: () {
+                                Navigator.pop(context);
+                              },
+                              child: cubit.languageCode == 'en'
+                                  ? SvgPicture.asset(
+                                      'assets/images/Group 45.svg')
+                                  : SvgPicture.asset(
+                                      'assets/images/Group 45 (1).svg'),
+                            ),
                             Row(
                               children: [
-                                Image.asset('assets/images/drwer.png'),
-                                const SizedBox(width: 10),
-                                Image.asset('assets/images/notification.png'),
+                                CustomDrawer()
+                                // SvgPicture.asset('assets/images/Group 44 (1).svg'
+                                // ),
+                                // const SizedBox(width: 10),
+                                // Image.asset('assets/images/notification.png'),
                               ],
                             ),
                           ],
@@ -170,41 +199,41 @@ class ServiceDetails extends StatelessWidget {
               ),
 
               // صندوق البحث الذي يمتد جزئياً إلى الصفحة
-              Positioned(
-                top: 110, // نصفه داخل الـ AppBar والنصف الآخر في الصفحة
-                left: 27,
-                right: 27,
-                child: Container(
-                  height: 42,
-                  decoration: BoxDecoration(
-                    color: ColorManager.white,
-                    borderRadius: BorderRadius.circular(8),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
-                        blurRadius: 5,
-                        offset: const Offset(0, 2),
-                      )
-                    ],
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Row(
-                      children: [
-                        Image.asset('assets/images/search.png'),
-                        const SizedBox(width: 10),
-                         Text(
-                           S.of(context).search,
-                          style: TextStyle(
-                              color: Color(0xffE6E6E6),
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
+              // Positioned(
+              //   top: 110, // نصفه داخل الـ AppBar والنصف الآخر في الصفحة
+              //   left: 27,
+              //   right: 27,
+              //   child: Container(
+              //     height: 42,
+              //     decoration: BoxDecoration(
+              //       color: ColorManager.white,
+              //       borderRadius: BorderRadius.circular(8),
+              //       boxShadow: [
+              //         BoxShadow(
+              //           color: Colors.black.withOpacity(0.1),
+              //           blurRadius: 5,
+              //           offset: const Offset(0, 2),
+              //         )
+              //       ],
+              //     ),
+              //     child: Padding(
+              //       padding: const EdgeInsets.all(10),
+              //       child: Row(
+              //         children: [
+              //           Image.asset('assets/images/search.png'),
+              //           const SizedBox(width: 10),
+              //           const Text(
+              //             "Search...",
+              //             style: TextStyle(
+              //                 color: Color(0xffE6E6E6),
+              //                 fontSize: 14,
+              //                 fontWeight: FontWeight.w400),
+              //           ),
+              //         ],
+              //       ),
+              //     ),
+              //   ),
+              // ),
             ],
           ),
         ));

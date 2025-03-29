@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:one_billon/generated/l10n.dart';
 import 'package:one_billon/models/service_model.dart';
 import 'package:one_billon/screens/layout/cubit/cubit.dart';
 import 'package:one_billon/screens/layout/cubit/states.dart';
+import 'package:one_billon/screens/services/service_details.dart';
 import 'package:one_billon/shared/color.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SearchPage extends StatefulWidget {
-  const SearchPage({Key? key}) : super(key: key);
+  const SearchPage({super.key});
 
   @override
   State<SearchPage> createState() => _SearchPageState();
@@ -46,7 +48,7 @@ class _SearchPageState extends State<SearchPage> {
               onTap: () => Navigator.pop(context),
               child: Icon(Icons.arrow_back, color: ColorManager.navbarIconColor),
             ),
-            title: Text("Search", style: TextStyle(color: ColorManager.navbarIconColor)),
+            title: Text(S.of(context).search, style: TextStyle(color: ColorManager.navbarIconColor)),
             backgroundColor: const Color(0xFF007EDB),
           ),
           body: Padding(
@@ -57,7 +59,7 @@ class _SearchPageState extends State<SearchPage> {
                 TextField(
                   controller: _searchController,
                   decoration: InputDecoration(
-                    hintText: 'Search...',
+                    hintText: S.of(context).search,
                     prefixIcon: Icon(Icons.search),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
@@ -78,6 +80,7 @@ class _SearchPageState extends State<SearchPage> {
                                onTap: () {
                             // OneBillonCubit.get(context).openServiceDetails(
                             //     context, titles[index], images[index]);
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => ServiceDetails(serviceModel: service,),));
                           },
                               child: ListTile(
                                 title: Text(cubit.languageCode == 'en'

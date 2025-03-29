@@ -1,5 +1,7 @@
 {
      "createAccount": "إنشاء حساب.",
+     "enjoy" : "استمتع",
+     "deleteAccount": "حذف الحساب",
     "welcome": "مرحبًا بك",
   "create_account": "إنشاء حساب جديد",
   "username": "اسم المستخدم",
@@ -15,7 +17,10 @@
      "viewAll": "عرض الكل",
   "blogs": "المدونات",
   "services": "الخدمات",
+  "logoutSuccess": "✅ تم تسجيل الخروج بنجاح",
+  "signOut": "تسجيل الخروج",
    "search": "ابحث...",
+  "please_login_first": "من فضلك سجل دخول اولا",
   "rememberMe": "تذكرني",
   "login": "تسجيل الدخول",
   "please_enter_username": "من فضلك أدخل الاسم",
@@ -36,5 +41,29 @@
   "Edit_data":"تعديل البيانات",
   "Please_log_in_first_to_access_our_exclusive_services":"قم بتسجيل الدخول عندنا اولا لتحصل على الخدمات الخاصة بينا",
   "Sections":"الاقسام"
+
+,
+"deleteAccountConfirm": "هل أنت متأكد أنك تريد حذف الحساب؟ لا يمكن التراجع.",
+"accountDeleted": "تم حذف الحساب بنجاح.",
+"reloginToDelete": "يجب عليك تسجيل الدخول مرة أخرى لحذف الحساب.",
+"invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
+"somethingWentWrong": "حدث خطأ ما. حاول مرة أخرى.",
+"cancel": "إلغاء",
+"confirm": "تأكيد",
+"login_success": "✅ تم تسجيل الدخول بنجاح!",
+  "user_not_found": "❌ لم يتم العثور على مستخدم بهذا البريد الإلكتروني.",
+  "wrong_password": "❌ كلمة المرور غير صحيحة.",
+  "invalid_email": "❌ عنوان البريد الإلكتروني غير صالح.",
+  "user_disabled": "❌ تم تعطيل حساب هذا المستخدم.",
+  "too_many_requests": "❌ محاولات كثيرة جدًا. يرجى المحاولة لاحقًا.",
+  "network_request_failed": "❌ لا يوجد اتصال بالإنترنت.",
+  "default_error": "❌ البريد الإلكتروني أو كلمة المرور غير صحيحة. حاول مرة أخرى.",
+  "unexpected_error": "❌ حدث خطأ غير متوقع.",
+
+  "home": "الرئيسية",
+  
+  "blog": "المدونة",
+  "profile": "الشخصيه"
+
 
 }

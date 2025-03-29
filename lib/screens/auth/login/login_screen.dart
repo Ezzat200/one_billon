@@ -131,9 +131,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                   email: emailController.text,
                                   password: passwordController.text,
                                   context: context);
-                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-                                    return const LayoutScreen();
-                                  },));
+                                  // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+                                  //   return const LayoutScreen();
+                                  // },)
+                                  // );
                             }
                           },
                         ),
@@ -148,7 +149,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     color: Color(0xff414141))),
                             GestureDetector(
                               onTap: () {
-                                Navigator.push(
+                                Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>

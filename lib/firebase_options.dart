@@ -64,7 +64,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '951367303287',
     projectId: 'onebillion-48536',
     storageBucket: 'onebillion-48536.firebasestorage.app',
-    iosBundleId: 'com.example.oneBillon',
+    iosBundleId: 'com.onebillion.devbyeslam',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
@@ -73,7 +73,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '951367303287',
     projectId: 'onebillion-48536',
     storageBucket: 'onebillion-48536.firebasestorage.app',
-    iosBundleId: 'com.example.oneBillon',
+    iosBundleId: 'com.onebillion.devbyeslam',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(

@@ -8,7 +8,7 @@
 PRODUCT_NAME = one_billon
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.example.oneBillon
+PRODUCT_BUNDLE_IDENTIFIER = com.onebillion.devbyeslam
 
 // The copyright displayed in application information
 PRODUCT_COPYRIGHT = Copyright © 2025 com.example. All rights reserved.

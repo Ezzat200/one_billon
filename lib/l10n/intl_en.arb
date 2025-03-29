@@ -14,6 +14,7 @@
   "blogs": "Blogs",
    "services": "Services",
     "search": "Search...",
+  "please_login_first": "Please Login First",
   "introduction": "Subject",
   "dontHaveAccount": "Don't have an account?",
   "please_enter_username": "Please enter your name",
@@ -33,6 +34,38 @@
   "The_data_has_been_successfully_updated":"The data has been successfully updated!",
   "save_data":"Save Data",
   "Edit_data":"Edit Data",
+
   "Please_log_in_first_to_access_our_exclusive_services":"Please log in first to access our exclusive services",
   "Sections":"Sections"
+
+  "Please_log_in_first_to_access_our_exclusive_services":"Please log in first to access our exclusive services"
+,
+"login_success": "✅ Logged in successfully!",
+"user_not_found": "❌ No user found for that email.",
+"wrong_password": "❌ Wrong password provided.",
+"invalid_email": "❌ Email address is not valid.",
+"user_disabled": "❌ This user account has been disabled.",
+"too_many_requests": "❌ Too many attempts. Try again later.",
+"network_request_failed": "❌ No internet connection.",
+"default_error": "❌ Incorrect email or password. Please try again.",
+"unexpected_error": "❌ An unexpected error occurred.",
+
+"home": "Home",
+"blog": "Blog",
+"profile": "Profile",
+  "logoutSuccess": "✅ Logged out successfully",
+  "signOut": "Sign Out",
+
+  "deleteAccountConfirm": "Are you sure you want to delete your account? This action cannot be undone.",
+"accountDeleted": "Account has been deleted successfully.",
+"reloginToDelete": "You need to sign in again to delete your account.",
+"invalidCredentials": "The email or password is incorrect.",
+"somethingWentWrong": "Something went wrong. Please try again.",
+"cancel": "Cancel",
+"confirm": "Confirm",
+
+"enjoy" : "Enjoy",
+
+   "deleteAccount": "Delete Account"
+
 }
