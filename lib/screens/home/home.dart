@@ -7,8 +7,10 @@ import 'package:one_billon/screens/layout/cubit/states.dart';
 import 'package:one_billon/screens/search/search_screen.dart';
 import 'package:one_billon/screens/services/service_details.dart';
 import 'package:one_billon/screens/services/services_screen.dart';
+import 'package:one_billon/screens/widgets/custom_ad.dart';
 import 'package:one_billon/screens/widgets/custom_blog.dart';
 import 'package:one_billon/screens/widgets/custom_card.dart';
+import 'package:one_billon/screens/widgets/custom_department.dart';
 import 'package:one_billon/screens/widgets/custom_drawer.dart';
 import 'package:one_billon/screens/widgets/custom_watch.dart';
 import 'package:one_billon/shared/color.dart';
@@ -38,6 +40,14 @@ class Home extends StatelessWidget {
       'Media Production',
       'Our Advertising Solutions',
       'Advertising Campaigns'
+    ];
+
+    List<String>department =[
+      'Section No. 1',
+      'Section No. 2',
+      'Section No. 3',
+      'Section No. 4',
+
     ];
 
     return BlocConsumer<OneBillonCubit, OneBillonStates>(
@@ -155,6 +165,60 @@ class Home extends StatelessWidget {
                         ),
                         SizedBox(
                           height: 10,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 27),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                S.of(context).Sections,
+                                style: TextStyle(
+                                    color: Color(0xffFF8D00),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                              InkWell(
+                                onTap: () {
+                                  cubit.changeBottomNavBar(1);
+                                },
+                                child: Text(
+                                  S.of(context).viewAll,
+                                  style: TextStyle(
+                                      color: Color(0xff959595),
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w400),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        SizedBox(
+                          height: 100,
+                          child: ListView.builder(
+                            clipBehavior: Clip.none,
+                            scrollDirection: Axis.horizontal,
+                            itemCount: 4,
+                            itemBuilder: (context, index) {
+                              return Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 10),
+                                child: CustomDepartment(
+                                  secName: department[index],
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 27),
+                          child: CustomAd(),
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 27),
@@ -302,14 +366,13 @@ class Home extends StatelessWidget {
                                   // ),
                                 ],
                               ),
-                              
                             ],
                           ),
                         ),
-                         Padding(
-                           padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                           child: CustomWatch(),
-                         ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                          child: CustomWatch(),
+                        ),
                       ],
                     ),
                   )
