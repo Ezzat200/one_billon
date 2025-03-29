@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:one_billon/screens/blog/blog_screen.dart';
 import 'package:one_billon/screens/profile/profile_screen.dart';
+import 'package:one_billon/screens/sections/sections_screen.dart';
 import 'package:one_billon/screens/services/services_screen.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -56,6 +57,14 @@ class CustomDrawer extends StatelessWidget {
                       child: Center(child: Text('Home',style: TextStyle(color: Color(0xffFFFFFF),fontWeight: FontWeight.w700,fontSize: 20),))),
                    ),
                   
+                SizedBox(height: 35,),
+                 GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) {
+                        return SectionsScreen();
+                      },));
+                    },
+                    child: Text('Sections',style: TextStyle(color: Color(0xffFFFFFF),fontWeight: FontWeight.w700,fontSize: 20),)),
                 SizedBox(height: 35,),
                    GestureDetector(
                     onTap: () {

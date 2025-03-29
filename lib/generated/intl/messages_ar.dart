@@ -36,6 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "قم بتسجيل الدخول عندنا اولا لتحصل على الخدمات الخاصة بينا",
         ),
+    "Sections": MessageLookupByLibrary.simpleMessage("الاقسام"),
     "Submit_Data": MessageLookupByLibrary.simpleMessage("إرسال البيانات"),
     "The_data_has_been_successfully_submitted":
         MessageLookupByLibrary.simpleMessage("تم إرسال البيانات بنجاح\'"),

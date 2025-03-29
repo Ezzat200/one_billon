@@ -34,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Please log in first to access our exclusive services",
         ),
+    "Sections": MessageLookupByLibrary.simpleMessage("Sections"),
     "Submit_Data": MessageLookupByLibrary.simpleMessage("Submit Data"),
     "The_data_has_been_successfully_submitted":
         MessageLookupByLibrary.simpleMessage(

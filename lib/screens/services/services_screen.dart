@@ -112,7 +112,7 @@ class ServicesScreen extends StatelessWidget {
                                 height: 33, width: 50),
                             Row(
                               children: [
-                                Image.asset('assets/images/drwer.png'),
+                               CustomDrawer(),
                                 const SizedBox(width: 10),
                                 Image.asset('assets/images/notification.png'),
                               ],

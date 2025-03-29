@@ -6,8 +6,10 @@ import 'package:one_billon/screens/layout/cubit/cubit.dart';
 import 'package:one_billon/screens/layout/cubit/states.dart';
 import 'package:one_billon/screens/search/search_screen.dart';
 import 'package:one_billon/screens/services/services_screen.dart';
+import 'package:one_billon/screens/widgets/custom_ad.dart';
 import 'package:one_billon/screens/widgets/custom_blog.dart';
 import 'package:one_billon/screens/widgets/custom_card.dart';
+import 'package:one_billon/screens/widgets/custom_department.dart';
 import 'package:one_billon/screens/widgets/custom_drawer.dart';
 import 'package:one_billon/shared/color.dart';
 
@@ -36,6 +38,13 @@ class Home extends StatelessWidget {
       'Media Production',
       'Our Advertising Solutions',
       'Advertising Campaigns'
+    ];
+    List<String>department =[
+      'Section No. 1',
+      'Section No. 2',
+      'Section No. 3',
+      'Section No. 4',
+
     ];
 
     final cubit = OneBillonCubit.get(context);
@@ -142,16 +151,16 @@ class Home extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 10,),
+              SizedBox(height: 10,),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 27),
                     child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              S.of(context).services,
+                              S.of(context).Sections,
                               style: TextStyle(
-                                  color: Color(0xff414141),
+                                  color: Color(0xffFF8D00),
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500),
                             ),
@@ -170,8 +179,57 @@ class Home extends StatelessWidget {
                           ],
                         ),
                   ),
-
-                Padding(
+                  SizedBox(height: 15,),
+               SizedBox(
+                height: 100,
+                 child: ListView.builder(
+                  clipBehavior: Clip.none,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 4,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: CustomDepartment(
+                        secName: department[index],
+                      ),
+                    );
+                 },),
+               ),
+                SizedBox(height: 10,),
+Padding(
+  padding: const EdgeInsets.symmetric(horizontal: 27),
+  child: CustomAd(),
+),
+                SizedBox(height: 20,),
+ 
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 27),
+                    child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              S.of(context).services,
+                              style: TextStyle(
+                                  color: Color(0xff414141),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500),
+                            ),
+                            InkWell(
+                              onTap: () {
+                                cubit.changeBottomNavBar(2);
+                              },
+                              child: Text(
+                                S.of(context).viewAll,
+                                style: TextStyle(
+                                    color: Color(0xff959595),
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400),
+                              ),
+                            ),
+                          ],
+                        ),
+                  ),
+               Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: GridView.builder(
                     itemCount: images.length,
@@ -250,7 +308,8 @@ class Home extends StatelessWidget {
                           );
                         },
                       ),
-
+                      SizedBox(height: 20,),
+CustomAd()
                       // CustomBlog(),
                       // const SizedBox(height: 20),
                     ],

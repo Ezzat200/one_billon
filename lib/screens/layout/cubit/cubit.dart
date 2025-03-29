@@ -10,6 +10,7 @@ import 'package:one_billon/screens/home/home.dart';
 import 'package:one_billon/screens/layout/cubit/states.dart';
 import 'package:one_billon/screens/profile/profile_details.dart';
 import 'package:one_billon/screens/profile/profile_screen.dart';
+import 'package:one_billon/screens/sections/sections_screen.dart';
 import 'package:one_billon/screens/services/service_details.dart';
 import 'package:one_billon/screens/services/services_screen.dart';
 
@@ -34,6 +35,7 @@ class OneBillonCubit extends Cubit<OneBillonStates> {
 
   List<Widget> screens = [
     Home(),
+    SectionsScreen(),
     ServicesScreen(),
     BlogScreen(),
 
