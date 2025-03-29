@@ -39,7 +39,7 @@ void main() async {
 
   runApp(
     DevicePreview(
-      enabled: true, // تمكين DevicePreview
+      enabled: false, // تمكين DevicePreview
       builder: (context) => const MyApp(), // بناء التطبيق داخل DevicePreview
     ),
   );
