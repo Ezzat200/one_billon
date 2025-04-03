@@ -22,7 +22,7 @@ decoration: BoxDecoration(
           
           Padding(
             padding: const EdgeInsets.only(top: 15.0),
-            child: Image.asset(
+            child: Image.network(
               imagePath,
               height: 35, // حجم الصورة داخل البطاقة
               fit: BoxFit.cover,

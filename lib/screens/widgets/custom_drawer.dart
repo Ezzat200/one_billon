@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:one_billon/generated/l10n.dart';
 import 'package:one_billon/screens/blog/blog_screen.dart';
-import 'package:one_billon/screens/sections/sections_screen.dart';
+import 'package:one_billon/screens/section/sections_screen.dart';
 import 'package:one_billon/screens/services/services_screen.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -22,7 +23,7 @@ class CustomDrawer extends StatelessWidget {
           builder: (context) => Container(
            
             padding: EdgeInsets.all(16),
-            height: 500, 
+            height: 400, 
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -52,7 +53,7 @@ class CustomDrawer extends StatelessWidget {
                       color: Color(0xff007EDB),
                       ),
                       width: double.infinity,
-                      child: Center(child: Text('Home',style: TextStyle(color: Color(0xffFFFFFF),fontWeight: FontWeight.w700,fontSize: 20),))),
+                      child: Center(child: Text(S.of(context).home,style: TextStyle(color: Color(0xffFFFFFF),fontWeight: FontWeight.w700,fontSize: 20),))),
                    ),
                   
                 SizedBox(height: 35,),
@@ -62,7 +63,7 @@ class CustomDrawer extends StatelessWidget {
                         return SectionsScreen();
                       },));
                     },
-                    child: Text('Sections',style: TextStyle(color: Color(0xffFFFFFF),fontWeight: FontWeight.w700,fontSize: 20),)),
+                    child: Text(S.of(context).Sections,style: TextStyle(color: Color(0xffFFFFFF),fontWeight: FontWeight.w700,fontSize: 20),)),
                 SizedBox(height: 35,),
                    GestureDetector(
                     onTap: () {
@@ -70,7 +71,7 @@ class CustomDrawer extends StatelessWidget {
                         return ServicesScreen();
                       },));
                     },
-                    child: Text('Services',style: TextStyle(color: Color(0xffFFFFFF),fontWeight: FontWeight.w700,fontSize: 20),)),
+                    child: Text(S.of(context).services,style: TextStyle(color: Color(0xffFFFFFF),fontWeight: FontWeight.w700,fontSize: 20),)),
                 SizedBox(height: 35,),
     
                  GestureDetector(
@@ -79,22 +80,22 @@ class CustomDrawer extends StatelessWidget {
                         return BlogScreen();
                       },));
                     },
-                    child: Text('Blog',style: TextStyle(color: Color(0xffFFFFFF),fontWeight: FontWeight.w700,fontSize: 20),)),
+                    child: Text(S.of(context).blog,style: TextStyle(color: Color(0xffFFFFFF),fontWeight: FontWeight.w700,fontSize: 20),)),
                 SizedBox(height: 35,),
     
                    
     
     
-              GestureDetector(
-                    // onTap: () {
-                    //   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    //     return ProfileScreen();
-                    //   },));
-                    // },
-                    child: Text('Services',style: TextStyle(color: Color(0xffFFFFFF),fontWeight: FontWeight.w700,fontSize: 20),)),
-                SizedBox(height: 35,),
+              // GestureDetector(
+              //       // onTap: () {
+              //       //   Navigator.push(context, MaterialPageRoute(builder: (context) {
+              //       //     return ProfileScreen();
+              //       //   },));
+              //       // },
+              //       child: Text('Services',style: TextStyle(color: Color(0xffFFFFFF),fontWeight: FontWeight.w700,fontSize: 20),)),
+              //   SizedBox(height: 35,),
     
-                   Text('Sign Out',style: TextStyle(color: Color(0xffFF8D00),fontWeight: FontWeight.w700,fontSize: 20),),
+                   Text(S.of(context).signOut,style: TextStyle(color: Color(0xffFF8D00),fontWeight: FontWeight.w700,fontSize: 20),),
     
                 
               ],

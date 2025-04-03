@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -26,14 +27,18 @@ Future<void> subscribeToTopic() async {
 Future<void> loadToken() async {
   final prefs = await SharedPreferences.getInstance();
   AppConfig.token = prefs.getString('token');
-  
 }
+
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  
+
 
   await loadToken(); // Load user token
 
@@ -57,13 +62,13 @@ class MyApp extends StatelessWidget {
         BlocProvider(
             create: (context) => OneBillonCubit()
               ..getBlogData()
-              ..getServicesData()),
+              ..getServicesData()..getServiceSections()),
         BlocProvider(create: (context) => OneBillonRegisterCubit()),
         BlocProvider(create: (context) => OneBillonLoginCubit()),
       ],
       child: MaterialApp(
         locale: const Locale('ar'), // اللغة الافتراضية
- 
+
         debugShowCheckedModeBanner: false,
         localizationsDelegates: [
           S.delegate,
@@ -78,8 +83,6 @@ class MyApp extends StatelessWidget {
         initialRoute: '/',
         routes: {
           '/': (context) => LayoutScreen(),
-
-
         },
       ),
     );

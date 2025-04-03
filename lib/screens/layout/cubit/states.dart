@@ -21,6 +21,8 @@ class LogOutState extends OneBillonStates {}
 
 class AccountDeleteSuccessState extends OneBillonStates {}
 
+class SIGGetServiceSectionsState extends OneBillonStates {}
+
 
 class AccountDeleteErrorState extends OneBillonStates {}
 // class SIGHomeDataSuccessState extends OneBillonStates {

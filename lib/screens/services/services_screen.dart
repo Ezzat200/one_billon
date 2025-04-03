@@ -81,7 +81,7 @@ class ServicesScreen extends StatelessWidget {
                               },
                               child: CustomCard(
                                 title: cubit.languageCode == "ar" ? cubit.services![index].nameAr : cubit.services![index].nameEn ,
-                                imagePath: images[index],
+                                imagePath: cubit.services![index].img,
                               ),
                             );
                           },
@@ -118,9 +118,9 @@ class ServicesScreen extends StatelessWidget {
                             Row(
                               children: [
 
-                               CustomDrawer(),
-                                const SizedBox(width: 10),
-                                Image.asset('assets/images/notification.png'),
+                              //  CustomDrawer(),
+                              //   const SizedBox(width: 10),
+                              //   Image.asset('assets/images/notification.png'),
 
                                 CustomDrawer()
                                 // const SizedBox(width: 10),

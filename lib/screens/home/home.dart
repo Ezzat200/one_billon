@@ -41,27 +41,14 @@ class Home extends StatelessWidget {
       'Our Advertising Solutions',
       'Advertising Campaigns'
     ];
-    List<String>department =[
-      'Section No. 1',
-      'Section No. 2',
-      'Section No. 3',
-      'Section No. 4',
 
-    ];
-
-    List<String>department =[
-      'Section No. 1',
-      'Section No. 2',
-      'Section No. 3',
-      'Section No. 4',
-
-    ];
+   
 
     return BlocConsumer<OneBillonCubit, OneBillonStates>(
       builder: (context, state) {
         final cubit = OneBillonCubit.get(context);
         return Scaffold(
-            body: cubit.services != null
+            body: cubit.services != null && cubit.serviceSections!=null
                 ? SingleChildScrollView(
                     child: Column(
                       children: [
@@ -181,7 +168,7 @@ class Home extends StatelessWidget {
                               Text(
                                 S.of(context).Sections,
                                 style: TextStyle(
-                                    color: Color(0xffFF8D00),
+                                    // color: Color(0xffFF8D00),
                                     fontSize: 16,
                                     fontWeight: FontWeight.w500),
                               ),
@@ -208,13 +195,13 @@ class Home extends StatelessWidget {
                           child: ListView.builder(
                             clipBehavior: Clip.none,
                             scrollDirection: Axis.horizontal,
-                            itemCount: 4,
+                            itemCount: cubit.serviceSections?.length,
                             itemBuilder: (context, index) {
                               return Padding(
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 10),
                                 child: CustomDepartment(
-                                  secName: department[index],
+                                  secName: cubit.languageCode == 'en' ? cubit.serviceSections![index].name : cubit.serviceSections![index].nameAr,
                                 ),
                               );
                             },
@@ -227,6 +214,7 @@ class Home extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(horizontal: 27),
                           child: CustomAd(),
                         ),
+                        SizedBox(height: 10,),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 27),
                           child: Row(
@@ -241,7 +229,7 @@ class Home extends StatelessWidget {
                               ),
                               InkWell(
                                 onTap: () {
-                                  cubit.changeBottomNavBar(1);
+                                  cubit.changeBottomNavBar(2);
                                 },
                                 child: Text(
                                   S.of(context).viewAll,
@@ -282,7 +270,7 @@ class Home extends StatelessWidget {
                                   title: cubit.languageCode == 'en'
                                       ? cubit.services![index].nameEn
                                       : cubit.services![index].nameAr,
-                                  imagePath: images[index],
+                                  imagePath: cubit.services![index].img,
                                 ),
                               );
                             },
@@ -308,7 +296,7 @@ class Home extends StatelessWidget {
                                   ),
                                   InkWell(
                                     onTap: () {
-                                      cubit.changeBottomNavBar(2);
+                                      cubit.changeBottomNavBar(3);
                                     },
                                     child: Text(
                                       S.of(context).viewAll,
@@ -321,103 +309,6 @@ class Home extends StatelessWidget {
                                 ],
                               ),
 
-
-                        
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              SizedBox(height: 10,),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 27),
-                    child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              S.of(context).Sections,
-                              style: TextStyle(
-                                  color: Color(0xffFF8D00),
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500),
-                            ),
-                            InkWell(
-                              onTap: () {
-                                cubit.changeBottomNavBar(1);
-                              },
-                              child: Text(
-                                S.of(context).viewAll,
-                                style: TextStyle(
-                                    color: Color(0xff959595),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w400),
-                              ),
-                            ),
-                          ],
-                        ),
-                  ),
-                  SizedBox(height: 15,),
-               SizedBox(
-                height: 100,
-                 child: ListView.builder(
-                  clipBehavior: Clip.none,
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 4,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      child: CustomDepartment(
-                        secName: department[index],
-                      ),
-                    );
-                 },),
-               ),
-                SizedBox(height: 10,),
-Padding(
-  padding: const EdgeInsets.symmetric(horizontal: 27),
-  child: CustomAd(),
-),
-                SizedBox(height: 20,),
- 
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 27),
-                    child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              S.of(context).services,
-                              style: TextStyle(
-                                  color: Color(0xff414141),
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500),
-                            ),
-                            InkWell(
-                              onTap: () {
-                                cubit.changeBottomNavBar(2);
-                              },
-                              child: Text(
-                                S.of(context).viewAll,
-                                style: TextStyle(
-                                    color: Color(0xff959595),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w400),
-                              ),
-                            ),
-                          ],
-                        ),
-                  ),
-               Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: GridView.builder(
-                    itemCount: images.length,
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 10,
-                      childAspectRatio: 1.7,
                               ListView.separated(
                                 physics: NeverScrollableScrollPhysics(),
                                 shrinkWrap: true,
@@ -472,44 +363,6 @@ Padding(
                               ),
                             ],
                           ),
-                        ],
-                      ),
-
-                      ListView.separated(
-                        physics: NeverScrollableScrollPhysics(),
-                        shrinkWrap: true,
-                        itemCount: cubit.blogs!.length,
-                        separatorBuilder: (context, index) {
-                          return const SizedBox(height: 20);
-                        },
-                        itemBuilder: (context, index) {
-                          return InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => BlogDetails(
-                                            blogModel: cubit.blogs?[index],
-                                          )));
-                            },
-                            child: CustomBlog(
-                              blogModel: cubit.blogs?[index],
-                            ),
-                          );
-                        },
-                      ),
-                      SizedBox(height: 20,),
-CustomAd()
-                      // CustomBlog(),
-                      // const SizedBox(height: 20),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        );
-
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 10.0),
@@ -519,7 +372,6 @@ CustomAd()
                     ),
                   )
                 : Center(child: CircularProgressIndicator()));
-
       },
       listener: (context, state) {},
     );

@@ -12,16 +12,13 @@ final String secName;
       clipBehavior: Clip.none,
       children: [
     Image.asset('assets/images/department.png'),
-    Center(
-      child: Padding(
-        padding: const EdgeInsets.only(left: 5),
-        child: Positioned(
-          top: 40,
-          // // left: 25,
-          // right: 25,
-          child: Text(secName,style: TextStyle(color: Color(0xff414141),fontWeight: FontWeight.w400,fontSize: 12),)),
-      ),
-    ),
+    Positioned(
+      top: 40,
+      left: 10,
+      right: 10,
+      child: Text(secName,textAlign: TextAlign.center,
+      maxLines: 2
+      ,style: TextStyle(color: Color(0xff414141),fontWeight: FontWeight.w400,fontSize: 12),)),
       Positioned(
         top: -10,
         left: 25,

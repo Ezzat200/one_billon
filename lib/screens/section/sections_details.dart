@@ -4,132 +4,83 @@ import 'package:one_billon/generated/l10n.dart';
 import 'package:one_billon/models/service_model.dart';
 import 'package:one_billon/screens/layout/cubit/cubit.dart';
 import 'package:one_billon/screens/layout/cubit/states.dart';
-import 'package:one_billon/screens/services/service_form.dart';
-import 'package:one_billon/screens/widgets/custom_button.dart';
-
-import 'package:one_billon/screens/widgets/custom_text.dart';
-import 'package:one_billon/screens/widgets/poup.dart';
+import 'package:one_billon/screens/widgets/custom_card.dart';
+import 'package:one_billon/screens/widgets/custom_drawer.dart';
 import 'package:one_billon/shared/color.dart';
 
-class SectionsDetails extends StatelessWidget {
-  const SectionsDetails({super.key, this.serviceModel});
-  final ServiceModel? serviceModel;
+class ServiceSection extends StatelessWidget {
+  const ServiceSection({super.key, this.image, this.title, this.section});
+
+  final String? image;
+  final String? title;
+  final String? section;
+
   @override
   Widget build(BuildContext context) {
-    final cubit = OneBillonCubit.get(context);
+    var cubit = OneBillonCubit.get(context);
+
+  
+    List<ServiceModel> filteredServices = cubit.services
+            ?.where((service) => service.section == section)
+            .toList() ??
+        [];
+
     return BlocConsumer<OneBillonCubit, OneBillonStates>(
       builder: (context, state) {
         return Scaffold(
-            body: SingleChildScrollView(
-          child: Stack(
+          body: Stack(
             children: [
               Padding(
-                  padding: const EdgeInsets.only(left: 27, right: 27, top: 170),
+                padding: const EdgeInsets.only(top: 100),
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 27, vertical: 30),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          // border: Border.all(color: Color(0xffE6E6E6)),
-                          borderRadius: BorderRadius.circular(8),
-                          border: Border(
-                            bottom: BorderSide(
-                                color: ColorManager.primary,
-                                width: 5), // Border السفلي
-                          ),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 25, vertical: 25),
-                          child: Column(
-                            children: [
-                              Image.network(
-                                serviceModel!.img,
-                                height: 40,
-                                fit: BoxFit.contain,
-                              ),
-                              SizedBox(height: 20),
-                              Text(
-                                cubit.languageCode == 'en'
-                                    ? serviceModel!.nameAr
-                                    : serviceModel!.nameEn,
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w400,
-                                  color: Color(0xff424C57),
+                      Text(
+                        S.of(context).services,
+                        style: const TextStyle(
+                            color: Color(0xff414141),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500),
+                      ),
+                      const SizedBox(height: 20),
+                      Expanded(
+                        child: filteredServices.isEmpty
+                            ? const Center(
+                                child: Text(
+                                  "No services available for this section",
+                                  style: TextStyle(fontSize: 16),
                                 ),
+                              )
+                            : GridView.builder(
+                                itemCount: filteredServices.length,
+                                gridDelegate:
+                                    const SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2,
+                                  crossAxisSpacing: 10,
+                                  mainAxisSpacing: 10,
+                                  childAspectRatio: 1.5,
+                                ),
+                                itemBuilder: (context, index) {
+                                  return GestureDetector(
+                                    onTap: () {
+                                      cubit.openServiceDetails(
+                                          context, filteredServices[index]);
+                                    },
+                                    child: CustomCard(
+                                      title: filteredServices[index].nameEn,
+                                      imagePath: filteredServices[index].img,
+                                    ),
+                                  );
+                                },
                               ),
-                              SizedBox(height: 20),
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 10),
-                                    child: Image.asset('assets/images/dot.png'),
-                                  ),
-                                  SizedBox(width: 10),
-                                  CustomText(
-                                    text: cubit.languageCode == 'en'
-                                        ? serviceModel!.featuresEn
-                                            .join('\n') // or ', ' or ' • '
-                                        : serviceModel!.featuresAr.join('\n'),
-                                  ),
-                                ],
-                              ),
-                              // SizedBox(height: 20),
-                              // Row(
-                              //   crossAxisAlignment: CrossAxisAlignment.start,
-                              //   children: [
-                              //     Padding(
-                              //       padding: const EdgeInsets.only(top: 10),
-                              //       child: Image.asset('assets/images/dot.png'),
-                              //     ),
-                              //     SizedBox(width: 10),
-                              //     CustomText(
-                              //       text:
-                              //           "We are a leading company in exhibition and conference management, as well as the entertainment events industry. We integrate creativity with advanced technological innovation, including artificial intelligence applications, to create exceptional experiences that deliver real value to our clients.",
-                              //     ),
-                              //   ],
-                              // ),
-                              // SizedBox(height: 20),
-                              // Row(
-                              //   crossAxisAlignment: CrossAxisAlignment.start,
-                              //   children: [
-                              //     Padding(
-                              //       padding: const EdgeInsets.only(top: 10),
-                              //       child: Image.asset('assets/images/dot.png'),
-                              //     ),
-                              //     SizedBox(width: 10),
-                              //     CustomText(
-                              //       text:
-                              //           "We are a leading company in exhibition and conference management, as well as the entertainment events ",
-                              //     ),
-                              //   ],
-                              // ),
-                            ],
-                          ),
-                        ),
                       ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      CustomButton(
-                        text:  S.of(context).Get_the_services ,
-                        onTap: () {
-                          dialog(context);
-                          // Navigator.push(context, MaterialPageRoute(
-                          //   builder: (context) {
-                          //     return ServiceForm();
-                          //   },
-                          // ));
-                        },
-                      ),
-                      SizedBox(
-                        height: 20,
-                      )
                     ],
-                  )),
-
+                  ),
+                ),
+              ),
               Container(
                 height: 140,
                 decoration: const BoxDecoration(
@@ -148,15 +99,11 @@ class SectionsDetails extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            GestureDetector(
-                                onTap: () {
-                                  Navigator.pop(context);
-                                },
-                                child: Image.asset('assets/images/arrow.png',
-                                    height: 33, width: 50)),
+                            Image.asset('assets/images/logo.png',
+                                height: 33, width: 50),
                             Row(
                               children: [
-                                Image.asset('assets/images/drwer.png'),
+                                CustomDrawer(),
                                 const SizedBox(width: 10),
                                 Image.asset('assets/images/notification.png'),
                               ],
@@ -168,10 +115,8 @@ class SectionsDetails extends StatelessWidget {
                   ),
                 ),
               ),
-
-              // صندوق البحث الذي يمتد جزئياً إلى الصفحة
               Positioned(
-                top: 110, // نصفه داخل الـ AppBar والنصف الآخر في الصفحة
+                top: 110,
                 left: 27,
                 right: 27,
                 child: Container(
@@ -193,9 +138,9 @@ class SectionsDetails extends StatelessWidget {
                       children: [
                         Image.asset('assets/images/search.png'),
                         const SizedBox(width: 10),
-                         Text(
-                           S.of(context).search,
-                          style: TextStyle(
+                        Text(
+                          S.of(context).search,
+                          style: const TextStyle(
                               color: Color(0xffE6E6E6),
                               fontSize: 14,
                               fontWeight: FontWeight.w400),
@@ -207,7 +152,7 @@ class SectionsDetails extends StatelessWidget {
               ),
             ],
           ),
-        ));
+        );
       },
       listener: (context, state) {},
     );

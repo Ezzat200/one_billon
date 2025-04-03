@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart' show BlocProvider, Cubit;
 import 'package:one_billon/generated/l10n.dart';
 import 'package:one_billon/models/blog_model.dart';
 import 'package:one_billon/models/service_model.dart';
+import 'package:one_billon/models/service_section.dart';
 import 'package:one_billon/screens/blog/blog_screen.dart';
 import 'package:one_billon/screens/home/home.dart';
 import 'package:one_billon/screens/layout/cubit/states.dart';
@@ -40,7 +41,7 @@ class OneBillonCubit extends Cubit<OneBillonStates> {
   List<Widget> screens = [
     Home(),
     SectionsScreen(),
-    SectionsScreen(),
+    // SectionsScreen(),
     ServicesScreen(),
     
     BlogScreen(),
@@ -49,7 +50,7 @@ class OneBillonCubit extends Cubit<OneBillonStates> {
 
     ProfileDetails(),
 
-    ServiceDetails(), // أضف صفحة التفاصيل
+    // ServiceDetails(), // أضف صفحة التفاصيل
   ];
 
   void changeBottomNavBar(int index) {
@@ -98,7 +99,8 @@ class OneBillonCubit extends Cubit<OneBillonStates> {
     services = await fetchServicesData();
     // print(services![0].featuresAr);
     log("Hello");
-    log("${services?[0].featuresAr}");
+    // log("${services?[0].featuresAr}");
+    log("number: ${services?.length}");
     emit(SIGGetServicesState());
   }
 
@@ -225,4 +227,27 @@ class OneBillonCubit extends Cubit<OneBillonStates> {
       }
     });
   }
+
+  List<ServiceSectionModel>? serviceSections;
+
+  Future<List<ServiceSectionModel>> fetchServiceSections() async {
+    try {
+      final querySnapshot =
+          await FirebaseFirestore.instance.collection('service_sections').get();
+
+      return querySnapshot.docs.map((doc) {
+        return ServiceSectionModel.fromJson(doc.data());
+      }).toList();
+    } catch (e) {
+      log('Error fetching service sections: $e');
+      return [];
+    }
+  }
+
+  void getServiceSections() async {
+    serviceSections = await fetchServiceSections();
+    emit(SIGGetServiceSectionsState());
+  }
+
+
 }
