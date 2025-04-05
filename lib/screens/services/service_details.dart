@@ -92,7 +92,22 @@ class ServiceDetails extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              // SizedBox(height: 20),
+
+                              SizedBox(
+                                height: 30,
+                              ),
+
+                              Text("السعر"),
+                              SizedBox(height: 8,),
+
+                              Text("${serviceModel!.price.toString()} \$")
+
+                              // CustomText(
+                              //       text: cubit.languageCode == 'en'
+                              //           ? serviceModel!.price.toString()// or ', ' or ' • '
+                              //           : serviceModel!.price.toString(),
+                              //     ),
+
                               // Row(
                               //   crossAxisAlignment: CrossAxisAlignment.start,
                               //   children: [
@@ -102,26 +117,13 @@ class ServiceDetails extends StatelessWidget {
                               //     ),
                               //     SizedBox(width: 10),
                               //     CustomText(
-                              //       text:
-                              //           "We are a leading company in exhibition and conference management, as well as the entertainment events industry. We integrate creativity with advanced technological innovation, including artificial intelligence applications, to create exceptional experiences that deliver real value to our clients.",
+                              //       text: cubit.languageCode == 'en'
+                              //           ? serviceModel!.price.toString()// or ', ' or ' • '
+                              //           : serviceModel!.price.toString(),
                               //     ),
                               //   ],
                               // ),
-                              // SizedBox(height: 20),
-                              // Row(
-                              //   crossAxisAlignment: CrossAxisAlignment.start,
-                              //   children: [
-                              //     Padding(
-                              //       padding: const EdgeInsets.only(top: 10),
-                              //       child: Image.asset('assets/images/dot.png'),
-                              //     ),
-                              //     SizedBox(width: 10),
-                              //     CustomText(
-                              //       text:
-                              //           "We are a leading company in exhibition and conference management, as well as the entertainment events ",
-                              //     ),
-                              //   ],
-                              // ),
+                             
                             ],
                           ),
                         ),
@@ -136,7 +138,7 @@ class ServiceDetails extends StatelessWidget {
                           AppConfig.token != null
                               ? Navigator.push(context, MaterialPageRoute(
                                   builder: (context) {
-                                    return ServiceForm(service: serviceModel!.nameEn,);
+                                    return ServiceForm(service: serviceModel!.nameAr, price: serviceModel!.price,);
                                   },
                                 ))
                               : dialog(context);
@@ -198,42 +200,7 @@ class ServiceDetails extends StatelessWidget {
                 ),
               ),
 
-              // صندوق البحث الذي يمتد جزئياً إلى الصفحة
-              // Positioned(
-              //   top: 110, // نصفه داخل الـ AppBar والنصف الآخر في الصفحة
-              //   left: 27,
-              //   right: 27,
-              //   child: Container(
-              //     height: 42,
-              //     decoration: BoxDecoration(
-              //       color: ColorManager.white,
-              //       borderRadius: BorderRadius.circular(8),
-              //       boxShadow: [
-              //         BoxShadow(
-              //           color: Colors.black.withOpacity(0.1),
-              //           blurRadius: 5,
-              //           offset: const Offset(0, 2),
-              //         )
-              //       ],
-              //     ),
-              //     child: Padding(
-              //       padding: const EdgeInsets.all(10),
-              //       child: Row(
-              //         children: [
-              //           Image.asset('assets/images/search.png'),
-              //           const SizedBox(width: 10),
-              //           const Text(
-              //             "Search...",
-              //             style: TextStyle(
-              //                 color: Color(0xffE6E6E6),
-              //                 fontSize: 14,
-              //                 fontWeight: FontWeight.w400),
-              //           ),
-              //         ],
-              //       ),
-              //     ),
-              //   ),
-              // ),
+           
             ],
           ),
         ));

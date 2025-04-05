@@ -31,13 +31,14 @@ Future<void> loadToken() async {
 
 
 
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  
+ 
 
 
   await loadToken(); // Load user token

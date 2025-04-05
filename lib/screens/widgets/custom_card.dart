@@ -1,25 +1,28 @@
-
 import 'package:flutter/material.dart';
 
 class CustomCard extends StatelessWidget {
   final String title;
   final String imagePath;
+  final String price;
+  final bool isSec;
 
-  const CustomCard({super.key, required this.title, required this.imagePath});
+  const CustomCard(
+      {super.key,
+      required this.title,
+      required this.imagePath,
+      required this.price,
+      required this.isSec});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-
-decoration: BoxDecoration(
-  borderRadius: BorderRadius.circular(8),
-  border: Border.all(color: Color(0xffD9D9D9)),
-  color: Color(0xffFFFFFF)
-),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(color: Color(0xffD9D9D9)),
+          color: Color(0xffFFFFFF)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center, // توسيط المحتوى
         children: [
-          
           Padding(
             padding: const EdgeInsets.only(top: 15.0),
             child: Image.network(
@@ -38,20 +41,25 @@ decoration: BoxDecoration(
                   color: Color(0xff414141),
                   fontSize: 12,
                   fontWeight: FontWeight.w400,
-                    overflow: TextOverflow.visible,
-                    
+                  overflow: TextOverflow.visible,
                 ),
                 textAlign: TextAlign.center,
               ),
             ),
           ),
+          isSec
+              ? Container()
+              : Padding(
+                  padding: const EdgeInsets.only(bottom: 5.0),
+                  child: Text("$price \$", style: TextStyle(
+                  color:   Color(0xff414141),
+                  ),),
+                ),
         ],
       ),
     );
   }
 }
-
-
 
 class CustomOrangeButton extends StatelessWidget {
   final String text;
@@ -63,7 +71,8 @@ class CustomOrangeButton extends StatelessWidget {
     super.key,
     required this.text,
     required this.icon,
-    required this.onPressed, required this.color,
+    required this.onPressed,
+    required this.color,
   });
 
   @override
@@ -74,7 +83,7 @@ class CustomOrangeButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor:  color,
+          backgroundColor: color,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
@@ -83,11 +92,11 @@ class CustomOrangeButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-             Icon(
+            Icon(
               icon,
               color: Colors.white,
             ),
-          const SizedBox(width: 10),
+            const SizedBox(width: 10),
             Text(
               text,
               style: const TextStyle(
@@ -95,13 +104,9 @@ class CustomOrangeButton extends StatelessWidget {
                 fontSize: 16,
               ),
             ),
-            
-           
-          
           ],
         ),
       ),
     );
   }
 }
-

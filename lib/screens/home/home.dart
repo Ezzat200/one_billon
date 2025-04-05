@@ -4,6 +4,7 @@ import 'package:one_billon/generated/l10n.dart';
 import 'package:one_billon/screens/blog/blog_details.dart';
 import 'package:one_billon/screens/layout/cubit/cubit.dart';
 import 'package:one_billon/screens/layout/cubit/states.dart';
+import 'package:one_billon/screens/orders_screen.dart';
 import 'package:one_billon/screens/search/search_screen.dart';
 import 'package:one_billon/screens/services/service_details.dart';
 import 'package:one_billon/screens/services/services_screen.dart';
@@ -20,35 +21,11 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> images = [
-      'assets/images/numberMarket.png',
-      'assets/images/image_two.png',
-      'assets/images/image_three.png',
-      'assets/images/image_four.png',
-      'assets/images/image_five.png',
-      'assets/images/image_six.png',
-      'assets/images/image_7.png',
-      'assets/images/image_8.png',
-    ];
-
-    List<String> titles = [
-      'Digital Marketing',
-      ' Management and Organization',
-      'Advertising and Publicity',
-      'Information Technology Solutions',
-      'Creative Design',
-      'Media Production',
-      'Our Advertising Solutions',
-      'Advertising Campaigns'
-    ];
-
-   
-
     return BlocConsumer<OneBillonCubit, OneBillonStates>(
       builder: (context, state) {
         final cubit = OneBillonCubit.get(context);
         return Scaffold(
-            body: cubit.services != null && cubit.serviceSections!=null
+            body: cubit.services != null && cubit.serviceSections != null
                 ? SingleChildScrollView(
                     child: Column(
                       children: [
@@ -107,10 +84,39 @@ class Home extends StatelessWidget {
                                       //   ],
                                       // ),
 
-                                      CustomDrawer(),
-                                      // const SizedBox(width: 10),
-                                      // Image.asset(
-                                      //     'assets/images/notification.png'),
+                                      Row(
+                                        children: [
+                                          InkWell(
+                                            onTap: () {
+                                              Navigator.push(context, MaterialPageRoute(builder: (context) => OrdersPage(),));
+                                            },
+                                            child: Container(
+                                              width:
+                                                  33, // slightly more than radius * 2
+                                              height: 33,
+                                              decoration: BoxDecoration(
+                                                shape: BoxShape.circle,
+                                                border: Border.all(
+                                                  color: Colors
+                                                      .white, // border color
+                                                  width: 2, // border width
+                                                ),
+                                              ),
+                                              child: CircleAvatar(
+                                                backgroundColor:
+                                                    Colors.grey.withOpacity(0.4),
+                                                radius: 16,
+                                                child: Icon(
+                                                  Icons.shopping_cart_outlined,
+                                                  color: Colors.white,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          const SizedBox(width: 20),
+                                          CustomDrawer(),
+                                        ],
+                                      )
                                     ],
                                   ),
                                   const SizedBox(height: 20),
@@ -201,7 +207,9 @@ class Home extends StatelessWidget {
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 10),
                                 child: CustomDepartment(
-                                  secName: cubit.languageCode == 'en' ? cubit.serviceSections![index].name : cubit.serviceSections![index].nameAr,
+                                  secName: cubit.languageCode == 'en'
+                                      ? cubit.serviceSections![index].name
+                                      : cubit.serviceSections![index].nameAr,
                                 ),
                               );
                             },
@@ -214,7 +222,9 @@ class Home extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(horizontal: 27),
                           child: CustomAd(),
                         ),
-                        SizedBox(height: 10,),
+                        SizedBox(
+                          height: 10,
+                        ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 27),
                           child: Row(
@@ -245,7 +255,7 @@ class Home extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 20),
                           child: GridView.builder(
-                            itemCount: images.length,
+                            itemCount: 8,
                             shrinkWrap: true,
                             physics: const NeverScrollableScrollPhysics(),
                             gridDelegate:
@@ -267,6 +277,9 @@ class Home extends StatelessWidget {
                                       ));
                                 },
                                 child: CustomCard(
+                                  isSec: false,
+                                  price:
+                                      cubit.services![index].price.toString(),
                                   title: cubit.languageCode == 'en'
                                       ? cubit.services![index].nameEn
                                       : cubit.services![index].nameAr,

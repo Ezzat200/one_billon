@@ -70,6 +70,8 @@ class ServiceSection extends StatelessWidget {
                                           context, filteredServices[index]);
                                     },
                                     child: CustomCard(
+                                      price: '',
+                                      isSec: true,
                                       title: filteredServices[index].nameEn,
                                       imagePath: filteredServices[index].img,
                                     ),

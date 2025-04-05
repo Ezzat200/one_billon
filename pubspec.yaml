@@ -55,6 +55,10 @@ dependencies:
   shimmer: ^3.0.0
 
   smooth_page_indicator: ^1.2.1
+  webviewx: 
+  webview_flutter: 
+  webview_flutter_android: 
+  flutter_inappwebview: 
   
 
 
