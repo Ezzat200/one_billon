@@ -1,4 +1,4 @@
-import 'dart:convert';
+
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -6,12 +6,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 import 'package:one_billon/generated/l10n.dart';
 import 'package:one_billon/screens/layout/cubit/cubit.dart';
-import 'package:one_billon/screens/layout/cubit/states.dart';
 import 'package:one_billon/screens/layout/layout.dart';
 
 import 'package:http/http.dart' as http;
-import 'package:one_billon/screens/payment/choose_payment_way.dart';
-import 'package:one_billon/screens/payment/webpage.dart';
 import 'package:one_billon/screens/widgets/custom_button.dart';
 
 import 'package:one_billon/screens/widgets/custom_drawer.dart';
@@ -153,7 +150,7 @@ class _ServiceFormState extends State<ServiceForm> {
                     ),
                     const SizedBox(height: 20),
                     CustomButton(
-                      text: 'التالى',
+                      text: 'ارسال',
                       onTap: () {
                         if (_formKey.currentState!.validate()) {
                           // All data is valid
@@ -182,27 +179,20 @@ class _ServiceFormState extends State<ServiceForm> {
                             serviceDetails: details,
                           )
                               .then((_) {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => ChoosePaymentWay(
-                                    amount: widget.price.toString(),
-                                  ),
-                                ));
+                           
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                  content: Text(S
+                                      .of(context)
+                                      .The_data_has_been_successfully_submitted)),
+                            );
 
-                            // ScaffoldMessenger.of(context).showSnackBar(
-                            //   SnackBar(
-                            //       content: Text(S
-                            //           .of(context)
-                            //           .The_data_has_been_successfully_submitted)),
-                            // );
-
-                            // Navigator.pushAndRemoveUntil(
-                            //   context,
-                            //   MaterialPageRoute(
-                            //       builder: (context) => LayoutScreen()),
-                            //   (route) => false,
-                            // );
+                            Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LayoutScreen()),
+                              (route) => false,
+                            );
                           }).catchError((e) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
