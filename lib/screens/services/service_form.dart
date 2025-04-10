@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:intl/intl.dart';
 import 'package:one_billon/generated/l10n.dart';
 import 'package:one_billon/screens/layout/cubit/cubit.dart';
 import 'package:one_billon/screens/layout/cubit/states.dart';
@@ -27,6 +29,12 @@ class _ServiceFormState extends State<ServiceForm> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
 
+   final TextEditingController _addressController = TextEditingController();
+  final TextEditingController _dateController = TextEditingController();
+  final TextEditingController _notesController = TextEditingController();
+  final TextEditingController _detailsController = TextEditingController();
+
+
   bool isLoading = false;
 
   @override
@@ -34,6 +42,10 @@ class _ServiceFormState extends State<ServiceForm> {
     _nameController.dispose();
     _emailController.dispose();
     _phoneController.dispose();
+       _addressController.dispose();
+    _dateController.dispose();
+    _notesController.dispose();
+    _detailsController.dispose();
     super.dispose();
   }
 
@@ -45,7 +57,7 @@ class _ServiceFormState extends State<ServiceForm> {
         child: Stack(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 170, left: 27, right: 27),
+              padding: const EdgeInsets.only(top: 140, left: 27, right: 27),
               child: Form(
                   key: _formKey,
                   child: Column(children: [
@@ -73,18 +85,64 @@ class _ServiceFormState extends State<ServiceForm> {
                         return null;
                       },
                     ),
-                    CustomTextField(
-                      fieldName: S.of(context).phone,
-                      controller: _phoneController,
+                    // CustomTextField(
+                    //   fieldName: S.of(context).phone,
+                    //   controller: _phoneController,
+                    //   validator: (value) {
+                    //     if (value == null || value.isEmpty) {
+                    //       return S.of(context).please_enter_phone;
+                    //     }
+                    //     if (!RegExp(r'^\d{10,}$').hasMatch(value)) {
+                    //       return S.of(context).Enter_a_valid_phone_number;
+                    //     }
+                    //     return null;
+                    //   },
+                    // ),
+
+                     CustomTextField(
+                      fieldName: 'العنوان',
+                      controller: _addressController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return S.of(context).please_enter_phone;
-                        }
-                        if (!RegExp(r'^\d{10,}$').hasMatch(value)) {
-                          return S.of(context).Enter_a_valid_phone_number;
+                          return 'من فضلك أدخل العنوان';
                         }
                         return null;
                       },
+                    ),
+                    CustomTextField(
+                      fieldName: 'تاريخ التنفيذ المفضل',
+                      controller: _dateController,
+                      onTap: () async {
+                        FocusScope.of(context).requestFocus(FocusNode());
+                        final pickedDate = await showDatePicker(
+                          context: context,
+                          initialDate: DateTime.now(),
+                          firstDate: DateTime.now(),
+                          lastDate: DateTime.now().add(Duration(days: 365)),
+                        );
+                        if (pickedDate != null) {
+                          _dateController.text =
+                              DateFormat('yyyy-MM-dd').format(pickedDate);
+                        }
+                      },
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'من فضلك اختر التاريخ';
+                        }
+                        return null;
+                      },
+                    ),
+                    CustomTextField(
+                      fieldName: 'تفاصيل إضافية عن الخدمة',
+                      controller: _detailsController,
+                      maxLines: 3,
+                      validator: (value) => null,
+                    ),
+                    CustomTextField(
+                      fieldName: 'ملاحظات',
+                      controller: _notesController,
+                      maxLines: 2,
+                      validator: (value) => null,
                     ),
                     const SizedBox(height: 20),
                     CustomButton(
@@ -97,8 +155,17 @@ class _ServiceFormState extends State<ServiceForm> {
                           print('Phone: ${_phoneController.text}');
 
                           final name = _nameController.text.trim();
-                          final email = _emailController.text.trim();
+                          // final email = _emailController.text.trim();
                           final phone = _phoneController.text.trim();
+
+                           final address = _addressController.text.trim();
+                          final date = _dateController.text.trim();
+                          final notes = _notesController.text.trim();
+                          final details = _detailsController.text.trim();
+
+                          final user = FirebaseAuth.instance.currentUser;
+                          final email = user?.email ?? '';
+
 
                           cubit
                               .submitOrder(
@@ -106,6 +173,10 @@ class _ServiceFormState extends State<ServiceForm> {
                             email: email,
                             phone: phone,
                             service: widget.service,
+                            address: address,
+                            preferredDate: date,
+                            notes: notes,
+                            serviceDetails: details,
                           )
                               .then((_) {
                             ScaffoldMessenger.of(context).showSnackBar(
@@ -169,7 +240,7 @@ class _ServiceFormState extends State<ServiceForm> {
 
             // AppBar like design
             Container(
-              height: 140,
+              height: 100,
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   colors: [Color(0xff007EDB), Color(0xff004375)],
@@ -183,6 +254,7 @@ class _ServiceFormState extends State<ServiceForm> {
                       const EdgeInsets.symmetric(horizontal: 27, vertical: 10),
                   child: Column(
                     children: [
+                      SizedBox(height: 10,),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -212,42 +284,43 @@ class _ServiceFormState extends State<ServiceForm> {
             ),
 
             // Search Box
-            Positioned(
-              top: 110,
-              left: 27,
-              right: 27,
-              child: Container(
-                height: 42,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(8),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
-                      blurRadius: 5,
-                      offset: const Offset(0, 2),
-                    )
-                  ],
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: Row(
-                    children: [
-                      Image.asset('assets/images/search.png'),
-                      const SizedBox(width: 10),
-                      Text(
-                        S.of(context).search,
-                        style: TextStyle(
-                          color: Color(0xffE6E6E6),
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+            // Positioned(
+            //   top: 110,
+            //   left: 27,
+            //   right: 27,
+            //   child: Container(
+            //     height: 42,
+            //     decoration: BoxDecoration(
+            //       color: Colors.white,
+            //       borderRadius: BorderRadius.circular(8),
+            //       boxShadow: [
+            //         BoxShadow(
+            //           color: Colors.black.withOpacity(0.1),
+            //           blurRadius: 5,
+            //           offset: const Offset(0, 2),
+            //         )
+            //       ],
+            //     ),
+            //     child: Padding(
+            //       padding: const EdgeInsets.all(10),
+            //       child: Row(
+            //         children: [
+            //           Image.asset('assets/images/search.png'),
+            //           const SizedBox(width: 10),
+            //           Text(
+            //             S.of(context).search,
+            //             style: TextStyle(
+            //               color: Color(0xffE6E6E6),
+            //               fontSize: 14,
+            //               fontWeight: FontWeight.w400,
+            //             ),
+            //           ),
+            //         ],
+            //       ),
+            //     ),
+            //   ),
+            // ),
+          
           ],
         ),
       ),

@@ -4,6 +4,7 @@ import 'package:one_billon/generated/l10n.dart';
 import 'package:one_billon/screens/blog/blog_details.dart';
 import 'package:one_billon/screens/layout/cubit/cubit.dart';
 import 'package:one_billon/screens/layout/cubit/states.dart';
+import 'package:one_billon/screens/oreders_screen.dart';
 import 'package:one_billon/screens/search/search_screen.dart';
 import 'package:one_billon/screens/services/service_details.dart';
 import 'package:one_billon/screens/services/services_screen.dart';
@@ -52,6 +53,7 @@ class Home extends StatelessWidget {
                 ? SingleChildScrollView(
                     child: Column(
                       children: [
+                        
                         Container(
                           // height: 250,
                           width: double.infinity,
@@ -71,6 +73,7 @@ class Home extends StatelessWidget {
                                   horizontal: 27, vertical: 30),
                               child: Column(
                                 children: [
+                                  
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
@@ -107,7 +110,40 @@ class Home extends StatelessWidget {
                                       //   ],
                                       // ),
 
-                                      CustomDrawer(),
+                                      // CustomDrawer(),
+                                      Row(
+                                        children: [
+                                          InkWell(
+                                            onTap: () {
+                                              Navigator.push(context, MaterialPageRoute(builder: (context) => OrdersPage(),));
+                                            },
+                                            child: Container(
+                                              width:
+                                                  33, // slightly more than radius * 2
+                                              height: 33,
+                                              decoration: BoxDecoration(
+                                                shape: BoxShape.circle,
+                                                border: Border.all(
+                                                  color: Colors
+                                                      .white, // border color
+                                                  width: 2, // border width
+                                                ),
+                                              ),
+                                              child: CircleAvatar(
+                                                backgroundColor:
+                                                    Colors.grey.withOpacity(0.4),
+                                                radius: 16,
+                                                child: Icon(
+                                                  Icons.shopping_cart_outlined,
+                                                  color: Colors.white,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          const SizedBox(width: 20),
+                                          CustomDrawer(),
+                                        ],
+                                      )
                                       // const SizedBox(width: 10),
                                       // Image.asset(
                                       //     'assets/images/notification.png'),
@@ -267,6 +303,8 @@ class Home extends StatelessWidget {
                                       ));
                                 },
                                 child: CustomCard(
+                                  isSec: false,
+                                  price: cubit.services![index].price.toString(),
                                   title: cubit.languageCode == 'en'
                                       ? cubit.services![index].nameEn
                                       : cubit.services![index].nameAr,

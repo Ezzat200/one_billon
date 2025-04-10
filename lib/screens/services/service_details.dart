@@ -122,6 +122,15 @@ class ServiceDetails extends StatelessWidget {
                               //     ),
                               //   ],
                               // ),
+                                SizedBox(
+                                height: 30,
+                              ),
+
+                              Text("السعر"),
+                              SizedBox(height: 8,),
+
+                              Text("${serviceModel!.price.toString()} \$")
+
                             ],
                           ),
                         ),
@@ -136,7 +145,7 @@ class ServiceDetails extends StatelessWidget {
                           AppConfig.token != null
                               ? Navigator.push(context, MaterialPageRoute(
                                   builder: (context) {
-                                    return ServiceForm(service: serviceModel!.nameEn,);
+                                    return ServiceForm(service: serviceModel!.nameAr,);
                                   },
                                 ))
                               : dialog(context);
@@ -192,6 +201,8 @@ class ServiceDetails extends StatelessWidget {
                             ),
                           ],
                         ),
+
+                        
                       ],
                     ),
                   ),

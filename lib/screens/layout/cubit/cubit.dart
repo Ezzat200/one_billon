@@ -106,25 +106,35 @@ class OneBillonCubit extends Cubit<OneBillonStates> {
 
   Future<void> submitOrder({
     required String name,
-    required String email,
-    required String phone,
-    required String service,
+  required String email,
+  required String phone,
+  required String service,
+  required String preferredDate,
+  required String notes,
+  required String serviceDetails,
+  required String address,
   }) async {
     try {
-      emit(StratSendUserDataState());
+     emit(StratSendUserDataState());
 
-      await FirebaseFirestore.instance.collection('orders').add({
-        'name': name,
-        'email': email,
-        'phone': phone,
-        'service': service,
-        'timestamp': FieldValue.serverTimestamp(),
-      });
-      emit(SendUserDataSuccessState());
-      print("Order submitted successfully!");
+    await FirebaseFirestore.instance.collection('orders').add({
+      'name': name,
+      'email': email,
+      'phone': phone,
+      'service': service,
+      'preferred_date': preferredDate,
+      'notes': notes,
+      'status': 0,
+      'service_details': serviceDetails,
+      'address': address,
+      'timestamp': FieldValue.serverTimestamp(),
+    });
+
+    emit(SendUserDataSuccessState());
+    log("Order submitted successfully!");
     } catch (e) {
       emit(SendUserDataErrorState());
-      print("Error submitting order: $e");
+      log("Error submitting order: $e");
       rethrow;
     }
   }

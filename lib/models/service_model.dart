@@ -2,11 +2,13 @@ class ServiceModel {
   final String nameAr;
   final String nameEn;
   final String img;
+  final int price;
   final List<String> featuresAr;
   final List<String> featuresEn;
   final String section; // إضافة الخاصية الجديدة
 
   ServiceModel({
+    required this.price,
     required this.nameAr,
     required this.nameEn,
     required this.featuresAr,
@@ -17,6 +19,7 @@ class ServiceModel {
 
   factory ServiceModel.fromJson(Map<String, dynamic> json) {
     return ServiceModel(
+      price: json['price'] ?? '',
       nameAr: json['name_ar'] ?? '',
       nameEn: json['name_en'] ?? '',
       featuresAr: List<String>.from(json['features_ar'] ?? []),
@@ -30,6 +33,7 @@ class ServiceModel {
     return {
       'name_ar': nameAr,
       'name_en': nameEn,
+      'price' : price,
       'features_ar': featuresAr,
       'features_en': featuresEn,
       'img': img,

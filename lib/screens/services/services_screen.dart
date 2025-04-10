@@ -80,6 +80,8 @@ class ServicesScreen extends StatelessWidget {
                                     context, cubit.services![index]);
                               },
                               child: CustomCard(
+                                isSec: false,
+                                price: cubit.services![index].price.toString(),
                                 title: cubit.languageCode == "ar" ? cubit.services![index].nameAr : cubit.services![index].nameEn ,
                                 imagePath: cubit.services![index].img,
                               ),

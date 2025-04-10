@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 class CustomCard extends StatelessWidget {
   final String title;
   final String imagePath;
+   final String price; 
+   final bool isSec;
 
-  const CustomCard({super.key, required this.title, required this.imagePath});
+  const CustomCard({super.key, required this.title, required this.imagePath,required this.price,required this.isSec});
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +47,15 @@ decoration: BoxDecoration(
               ),
             ),
           ),
+
+          isSec
+              ? Container()
+              : Padding(
+                  padding: const EdgeInsets.only(bottom: 5.0),
+                  child: Text("$price \$", style: TextStyle(
+                  color:   Color(0xff414141),
+                  ),),
+                ),
         ],
       ),
     );
